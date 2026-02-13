@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caroline Win – Product Design Strategist</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="index.html" class="logo">
+          <span class="logo__name">Caroline Win</span>
+          <span class="logo__role">Product Design Strategist</span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="#work" class="nav__link nav__link--pill nav__link--active">Work</a>
+          <a href="#about" class="nav__link">About</a>
+          <a href="#resume" class="nav__link">Resume</a>
+          <a href="#play" class="nav__link">Play</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__content">
+          <h1 class="hero__title">Designing for Impact</h1>
+          <p class="hero__subtitle">
+            As a scientist-turned-designer with 11 years of experience grounded in human-computer interaction, I transform complex problems into elegant human-centered experiences that deliver lasting value to users and businesses.
+          </p>
+          <p class="hero__current-role">Current Role</p>
+        </div>
+        <figure class="hero__visual">
+          <div class="hero__image-wrap">
+            <img
+              src="./assets/caroline-profile.png"
+              alt="Caroline Win, Product Design Strategist"
+              width="320"
+              height="320"
+            />
+          </div>
+          <figcaption class="visually-hidden">Current Role</figcaption>
+        </figure>
+      </section>
+
+      <section id="work" class="section section--work" aria-labelledby="work-heading">
+        <h2 id="work-heading" class="visually-hidden">Selected Work</h2>
+
+        <article class="case-card case-card--featured">
+          <div class="case-card__content">
+            <p class="case-card__org">The Walt Disney Company</p>
+            <h3 class="case-card__title">Streamlining Price Change Operations</h3>
+            <p class="case-card__summary">
+              Empowering business operations, accounting, and finance teams at Disney to efficiently launch subscription plans and promotions to millions of customers across the globe.
+            </p>
+            <dl class="case-card__metrics">
+              <div class="case-card__metric">
+                <dt>Configuration Time</dt>
+                <dd class="case-card__metric-value">66% <span aria-hidden="true">↓</span></dd>
+                <dd class="case-card__metric-desc">time spent configuring component offers</dd>
+              </div>
+              <div class="case-card__metric">
+                <dt>Total Clicks</dt>
+                <dd class="case-card__metric-value">53% <span aria-hidden="true">↓</span></dd>
+                <dd class="case-card__metric-desc">total clicks in the E2E workflow</dd>
+              </div>
+              <div class="case-card__metric">
+                <dt>Revenue Enabled</dt>
+                <dd class="case-card__metric-value">$1.3B</dd>
+                <dd class="case-card__metric-desc">in 2025 D2C operating income</dd>
+              </div>
+            </dl>
+            <a href="disney-case-study.html" class="btn btn--primary">Learn More</a>
+          </div>
+          <div class="case-card__media">
+            <img
+              src="./assets/Disney_CS_Screenshot-111924a8-90f6-4ed2-a593-e599e572a57a.png"
+              alt="Disney price change operations interface"
+            />
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card__content">
+            <p class="case-card__org">Belkin International, Inc.</p>
+            <h3 class="case-card__title">Wemo Smart Home Device Setup</h3>
+            <p class="case-card__summary">
+              Guiding users through complex wiring, calibration, and mobile app setup steps for smart light switches, dimmers, and plugs.
+            </p>
+            <a href="#" class="btn btn--primary">Learn More</a>
+          </div>
+          <div class="case-card__media case-card__media--placeholder">
+            <span>Wemo Smart Home</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card__content">
+            <p class="case-card__org">Loyola Marymount University</p>
+            <h3 class="case-card__title">MyLMU University Portal</h3>
+            <p class="case-card__summary">
+              Improving ease of access to information, resources, and tools for students, staff, and faculty at LMU.
+            </p>
+            <a href="#" class="btn btn--primary">Learn More</a>
+          </div>
+          <div class="case-card__media case-card__media--placeholder">
+            <span>MyLMU Portal</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card__content">
+            <p class="case-card__org">Nationwide Insurance</p>
+            <h3 class="case-card__title">Retirement Plan Management System</h3>
+            <p class="case-card__summary">
+              Creating a workflow for retirement plan administrators and employers to review employee data.
+            </p>
+            <a href="#" class="btn btn--primary">Learn More</a>
+          </div>
+          <div class="case-card__media case-card__media--placeholder">
+            <span>Retirement Plan System</span>
+          </div>
+        </article>
+      </section>
+
+      <section id="recommendations" class="section section--recommendations" aria-labelledby="rec-heading">
+        <header class="section__header">
+          <h2 id="rec-heading" class="section__title">Recommendations</h2>
+          <p class="section__subtitle">Thanks to all my teammates for the kind comments!</p>
+        </header>
+        <div class="rec-grid">
+          <article class="rec-card">
+            <p class="rec-card__quote">
+              Caroline plays a crucial role in shaping our product by clarifying user needs and delivering an exceptional user interface experience. Her designs are always clean, organized, and visually appealing, making it easy for our users to navigate our platform. She not only focuses on user experience but also considers engineering concerns, ensuring our designs lead to a long-lasting and maintainable product.
+            </p>
+            <footer class="rec-card__author">
+              <strong class="rec-card__name">Sahand Javid</strong>
+              <span class="rec-card__role">Sr. Software Engineer</span>
+            </footer>
+          </article>
+          <article class="rec-card">
+            <p class="rec-card__quote">
+              Thank you for always working with your cross-functional teammates to ensure we are delivering the best possible solutions on Genie+! You are not shy from calling out when the team needs to course correct. You will do whatever it takes to get the job done and your work is always of the highest quality.
+            </p>
+            <footer class="rec-card__author">
+              <strong class="rec-card__name">Carol Lam</strong>
+              <span class="rec-card__role">Sr. Design Manager at Disney</span>
+            </footer>
+          </article>
+          <article class="rec-card">
+            <p class="rec-card__quote">
+              Caroline and I partnered together to build an internal commerce tool that supports Disney+ and ESPN+’s 150 million+ subscriber base. She grasps complex topics with ease, always keeps the user’s needs in mind, and flexibly adapts her UX discovery methods to what’s possible. Her ability to abstract a complex data model into user-friendly interfaces and work with ambiguity are unmatched at our organization.
+            </p>
+            <footer class="rec-card__author">
+              <strong class="rec-card__name">Aoxue Tang</strong>
+              <span class="rec-card__role">Principal Product Manager at Disney</span>
+            </footer>
+          </article>
+          <article class="rec-card">
+            <p class="rec-card__quote">
+              I had the absolute pleasure of working with Caroline on Wemo smart home NPIs for around 2 years, where she led the UX designs for hardware interface and setup experiences. In design meetings, Caroline always presented very thorough research and provided recommendations that are both intuitive and effective to solving user pain points. Her attention to detail, creativity, and user-centric designs made a huge impact on the overall HW & SW interface of Wemo. Beyond this, Caroline is an amazing person & team player to work with! Any organization/team will be lucky to have her.
+            </p>
+            <footer class="rec-card__author">
+              <strong class="rec-card__name">Joyce Tsou</strong>
+              <span class="rec-card__role">Product Manager at Belkin</span>
+            </footer>
+          </article>
+          <article class="rec-card">
+            <p class="rec-card__quote">
+              Wanted to give a recognition note to Caroline, who is always very proactive, great at handling ambiguity, and flexible to change. She not only thinks from a design-perspective but also ensures that cross-functional teams across different orgs stay connected with many competing priorities.
+            </p>
+            <footer class="rec-card__author">
+              <strong class="rec-card__name">Alice Kasper</strong>
+              <span class="rec-card__role">Product Manager at Disney</span>
+            </footer>
+          </article>
+          <article class="rec-card">
+            <p class="rec-card__quote">
+              A judicious and diligent designer is what comes to mind when I think of Caroline. I’ve worked closely with Caroline on UX research for about two years. I’ve watched her deliver on numerous designs for different BUs and she’s consistently shown a pattern of conscientiousness, discipline and diligence in all of her work and frankly it’s been both personally and collectively inspirational for our business. In every project she takes on, she meticulously researches the topic, its competitors and user reviews.
+            </p>
+            <footer class="rec-card__author">
+              <strong class="rec-card__name">Mike Mouawad</strong>
+              <span class="rec-card__role">UX Researcher at Belkin</span>
+            </footer>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="section section--anchor" aria-hidden="true"></section>
+      <section id="resume" class="section section--anchor" aria-hidden="true"></section>
+      <section id="play" class="section section--anchor" aria-hidden="true"></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__copy">
+          <p class="site-footer__heading">Say hello!</p>
+          <p class="site-footer__text">
+            Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
