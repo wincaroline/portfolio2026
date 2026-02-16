@@ -1,0 +1,22 @@
+---
+description: Portfolio HTML and component patterns (BEM, components/, pattern library).
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# Portfolio HTML and component patterns
+
+## BEM and styles
+
+Use BEM-style class names; all component classes are defined in `styles.css`. Do not invent new class names for existing patterns.
+
+## Canonical sources
+
+- **Full page example:** `disney-case-study.html` — long-form case study structure: hero + My Role block, Jump To nav, flat case-block sections (no cards), outcome metrics, blockquote, and footer with Say hello + nav. Use as reference for new case studies.
+- **Pattern library:** `patterns.html` — documents all patterns. “Case study sections” documents hero + My Role, Jump To nav, case-block, outcome metrics, case-quote, and numbered list. Source snippets live in `components/`.
+- **Component snippets:** `components/` — `case-hero.html`, `case-hero-with-role.html`, `case-study-shell.html`, `header.html`, `header-case.html`, `footer.html`, `footer-case.html`. Use or adapt when adding content.
+- **Style guide:** `style-guide.html` — typography, colors, and UI specs.
+
+## When adding or editing pages
+
+Prefer copying or composing from the component files and `disney-case-study.html` so markup and class names match. Only add new classes when introducing a genuinely new pattern, and keep BEM naming.

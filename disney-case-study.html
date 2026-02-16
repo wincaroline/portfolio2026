@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Disney – Streamlining Price Change Operations</title>
+    <title>Disney – Streamlining Global Price Change Operations</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Pacifico&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -20,207 +20,343 @@
           <span class="logo__role">Product Design Strategist</span>
         </a>
         <nav class="nav">
-          <a href="index.html#work" class="nav__link nav__link--pill nav__link--active">Work</a>
+          <a href="index.html#work" class="nav__link nav__link--pill" aria-current="page">Work</a>
           <a href="index.html#about" class="nav__link">About</a>
           <a href="index.html#contact" class="nav__link">Contact</a>
+          <a href="style-guide.html" class="nav__link">Style guide</a>
+          <a href="patterns.html" class="nav__link">Pattern library</a>
         </nav>
       </div>
     </header>
 
     <main class="case-main">
-      <!-- Case hero -->
-      <section class="case-hero">
+      <!-- Case hero + My Role -->
+      <section class="case-hero case-hero--flat">
         <div class="case-hero__content">
-          <p class="case-hero__eyebrow">Disney · The Walt Disney Company</p>
+          <p class="case-hero__eyebrow">The Walt Disney Company</p>
           <h1 class="case-hero__title">
-            Streamlining Price Change Operations
+            Streamlining Disney's Global Price Change Operations
           </h1>
           <p class="case-hero__subtitle">
-            Redesigning internal tools used by pricing analysts across theme
-            parks to reduce errors, increase transparency, and accelerate
-            approvals for multi‑million‑dollar price updates.
+            Designing a guided and automated workflow to improve operational efficiency of launching price changes for Disney's global streaming subscription plans.
           </p>
-          <dl class="case-hero__meta">
-            <div>
-              <dt>Role</dt>
-              <dd>Lead Product Designer</dd>
+          <div class="case-hero__role">
+            <div class="case-hero__role-grid">
+              <div class="case-hero__role-item">
+                <p class="case-hero__role-label">My Role</p>
+                <p class="case-hero__role-value">Jan 2023 to present</p>
+              </div>
+              <div class="case-hero__role-item">
+                <p class="case-hero__role-label">Product Type</p>
+                <p class="case-hero__role-value">Enterprise platform, Desktop web</p>
+              </div>
+              <div class="case-hero__role-item">
+                <p class="case-hero__role-label">Team</p>
+                <p class="case-hero__role-value">4 Product managers, 12+ Frontend engineers, 4+ Backend engineering teams, 2 TPMs</p>
+              </div>
             </div>
-            <div>
-              <dt>Timeline</dt>
-              <dd>12 months</dd>
-            </div>
-            <div>
-              <dt>Team</dt>
-              <dd>PM, Tech Lead, 6 Engineers, Research</dd>
-            </div>
-          </dl>
+            <p class="case-hero__role-label">My Role</p>
+            <ul class="case-hero__role-list">
+              <li>Lead designer</li>
+              <li>Interaction designer</li>
+              <li>Information architect</li>
+              <li>Visual designer</li>
+              <li>Design strategist</li>
+              <li>User researcher</li>
+              <li>Prototyper</li>
+            </ul>
+          </div>
         </div>
         <div class="case-hero__image">
           <img
-            src="./assets/Disney_CS_Screenshot-111924a8-90f6-4ed2-a593-e599e572a57a.png"
-            alt="Disney pricing operations interface"
+            src="./assets/disney-case-study/img_geniescreenshot.png"
+            alt="Disney Genie+ price change operations interface"
           />
         </div>
       </section>
 
-      <!-- Overview -->
-      <section class="case-section">
-        <header class="case-section__header">
-          <h2>Overview</h2>
-        </header>
-        <div class="case-section__content">
+      <!-- Jump To -->
+      <nav class="case-jump-nav" aria-label="Jump to section">
+        <p class="case-jump-nav__title">Jump To</p>
+        <ol class="case-jump-nav__list">
+          <li><a href="#context" class="case-jump-nav__link">Context</a></li>
+          <li><a href="#objective" class="case-jump-nav__link">Objective</a></li>
+          <li><a href="#discovery" class="case-jump-nav__link">Discovery</a></li>
+          <li><a href="#principles" class="case-jump-nav__link">Principles</a></li>
+          <li><a href="#exploration" class="case-jump-nav__link">Exploration</a></li>
+          <li><a href="#refinement" class="case-jump-nav__link">Refinement</a></li>
+          <li><a href="#implementation" class="case-jump-nav__link">Implementation</a></li>
+          <li><a href="#outcomes" class="case-jump-nav__link">Outcomes</a></li>
+          <li><a href="#vision" class="case-jump-nav__link">Vision</a></li>
+          <li><a href="#reflection" class="case-jump-nav__link">Reflection</a></li>
+        </ol>
+      </nav>
+
+      <!-- Context -->
+      <section id="context" class="case-block case-block--split-content-left" aria-labelledby="context-title">
+        <div class="case-block__content">
+          <h2 id="context-title" class="case-block__title">Context</h2>
+          <h3 class="case-block__lead">Profitability through price increases</h3>
           <p>
-            Disney’s revenue management team manages thousands of prices across
-            theme parks, resorts, tickets, and add‑ons. Legacy tools made it
-            difficult for analysts to understand the full impact of their
-            changes, collaborate with partners, and move quickly during
-            time‑sensitive pricing windows.
+            To increase the price of Disney+, Hulu, or ESPN+, you may imagine it's as simple as typing a new price into an internal system. In reality, it's a hugely complex operational process requiring multiple teams over 2–3 months.
           </p>
           <p>
-            I partnered with product, engineering, and operations leaders to
-            define a new web‑based workflow that centralizes requests, improves
-            data visibility, and reduces the cognitive load of managing complex
-            pricing rules.
+            Though no streaming subscriber loves a price increase, they are critical for the business to maintain profitability and fund creation of new content. Every week of delay costs millions in lost revenue.
+          </p>
+        </div>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_serviceblueprint.png" alt="Genie+ offer management platform" />
+          <figcaption class="case-block__caption">End-to-end workflow within Genie+</figcaption>
+        </figure>
+      </section>
+
+      <section id="context" class="case-block case-block--split-content-right" aria-labelledby="context-title">
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_serviceblueprint.png" alt="Genie+ offer management platform" />
+          <figcaption class="case-block__caption">End-to-end workflow within Genie+</figcaption>
+        </figure>
+        <div class="case-block__content">
+          <h3>Genie+ Offer Management Platform</h3>
+          <p>I led the design of a new self-service price change operations tool within the internal offer management platform called Genie+, transforming a fragmented, spreadsheet-driven, manual process into a guided and automated workflow that helped to improve operational efficiency.</p>
+        </div>
+      </section>
+
+      <!-- Objective (highlighted) -->
+      <section id="objective" class="case-block case-block--objective" aria-labelledby="objective-title">
+        <h2 id="objective-title" class="case-block__title">Objective</h2>
+        <div class="case-block__content">
+          <p>
+            Reduce operational steps and time spent on manual configurations for a price change to enable faster time to market and greater revenue for the business.
           </p>
         </div>
       </section>
 
-      <!-- Goals & Outcomes -->
-      <section class="case-section case-section--two-column">
-        <div class="case-section__column">
-          <header class="case-section__header">
-            <h2>Goals</h2>
-          </header>
-          <ul class="case-list">
-            <li>
-              Reduce time from initial request to final approval for price
-              changes.
-            </li>
-            <li>
-              Increase confidence in pricing decisions by surfacing relevant
-              context and history.
-            </li>
-            <li>
-              Decrease operational errors caused by fragmented tools and manual
-              handoffs.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section__column">
-          <header class="case-section__header">
-            <h2>Outcomes</h2>
-          </header>
-          <ul class="case-list case-list--highlight">
-            <li>35% faster approval times for standard price changes.</li>
-            <li>
-              Significant reduction in back‑and‑forth clarifying questions from
-              partners.
-            </li>
-            <li>
-              Clear audit trail and single source of truth for in‑flight and
-              historical changes.
-            </li>
-          </ul>
+      <!-- Discovery -->
+      <section id="discovery" class="case-block" aria-labelledby="discovery-title">
+        <h2 id="discovery-title" class="case-block__title">Discovery</h2>
+        <h3 class="case-block__lead">Navigating technical and operational complexity involving 10+ teams</h3>
+        <div class="case-block__content">
+          <p>
+            To kick off the work, I facilitated interviews, goal-setting workshops, and discussions with stakeholders to deeply understand and map exactly what needs to happen when increasing a streaming subscription price.
+          </p>
         </div>
       </section>
 
-      <!-- Process -->
-      <section class="case-section">
-        <header class="case-section__header">
-          <h2>Process</h2>
-        </header>
-        <div class="case-steps">
-          <article class="case-step">
-            <h3>Understanding the current workflow</h3>
-            <p>
-              I began with field research and contextual interviews with
-              analysts, finance partners, and operations leads across parks. We
-              mapped the end‑to‑end process from request intake through
-              approvals and deployment, documenting tools, workarounds, and
-              pain points.
-            </p>
-          </article>
-          <article class="case-step">
-            <h3>Defining scenarios and requirements</h3>
-            <p>
-              From research, we distilled key scenarios such as “minor price
-              update,” “new product launch,” and “emergency change.” Each
-              scenario surfaced different data needs, participants, and
-              constraints, which shaped our information architecture and
-              permission model.
-            </p>
-          </article>
-          <article class="case-step">
-            <h3>Iterating on workflows and UI</h3>
-            <p>
-              I translated requirements into flow diagrams, low‑fidelity
-              wireframes, and interactive prototypes. We ran weekly reviews with
-              cross‑functional stakeholders, incorporating feedback on
-              terminology, edge cases, and alignment with downstream systems.
-            </p>
-          </article>
-          <article class="case-step">
-            <h3>Partnering closely with engineering</h3>
-            <p>
-              Throughout implementation, I maintained detailed specs and worked
-              side‑by‑side with engineers to refine interactions, validation
-              states, and empty‑state content. We prioritized accessibility,
-              keyboard navigation, and performance for data‑heavy tables.
-            </p>
-          </article>
+      <section id="section-id" class="case-block case-block--two-columns">
+        <div class="case-block__columns">
+          <div class="case-block__col">
+            <h3 class="case-block__lead">10+ teams</h3>
+            <div class="case-block__content">
+              <p>Primary users include Business Operations, Accounting, and Finance teams who configure, approve, and publish the data. Secondary users include Marketing, Analytics, Engineering, and Product teams.</p>
+            </div>
+          </div>
+          <div class="case-block__col">
+            <h3 class="case-block__lead">Thousands of steps</h3>
+            <div class="case-block__content">
+              <p>Each step additionally involves multiple interconnected services and tools, with mistakes at any point having implications upstream or downstream and requiring hours of meetings to troubleshoot. A simple typo can lead to improper billing or legal text, resulting in lost revenue!</p>
+            </div>
+          </div>
+        </div>
+        <h3 class="case-block__lead" style="margin-top: 32px;">Upstream and downstream dependencies</h3>
+
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_ecosystemmap.png" alt="Ecosystem map of services and tools" />
+          <figcaption class="case-block__caption">Ecosystem map</figcaption>
+        </figure>
+      </section>
+
+      <!-- Principles -->
+      <section id="principles" class="case-block" aria-labelledby="principles-title">
+        <h2 id="principles-title" class="case-block__title">Principles</h2>
+        <h3 class="case-block__lead">Balancing efficiency with risk reduction</h3>
+        <div class="case-block__content">
+          <p>
+            Though the quickest solution that comes to mind may be to simply automate more steps, I learned of the importance of balancing efficiency with reducing risk for error.
+          </p>
+          <p>
+            Automation can reduce steps for users but increases complexity and risk for engineering as they must build logic that encompasses many scenarios and spend time troubleshooting the logic. Additionally, directing users to quickly apply large data changes can lead to more errors and incidents compared with purposefully having them slow down and review a digestible chunk of information at a time.
+          </p>
+          <p><strong>Design Principles</strong></p>
+          <p>Based on my research findings I defined the following guiding principles for my work:</p>
+          <ol class="case-list--numbered">
+            <li>Minimize repetitive or programmable steps</li>
+            <li>Allow flexibility to manually configure complex cases</li>
+            <li>Purposefully add steps for review and validation to prevent errors</li>
+            <li>Use natural language over domain-specific terminology</li>
+          </ol>
         </div>
       </section>
 
-      <!-- Key Experience -->
-      <section class="case-section">
-        <header class="case-section__header">
-          <h2>Key experience highlights</h2>
-        </header>
-        <div class="case-highlights">
-          <article class="case-highlight">
-            <h3>Unified change request view</h3>
-            <p>
-              Analysts can now see all relevant context in one place: impacted
-              products, historical pricing, approvals, and dependencies. Clear
-              status indicators help teams understand where a request is
-              blocked.
-            </p>
-          </article>
-          <article class="case-highlight">
-            <h3>Guided workflows for complex scenarios</h3>
-            <p>
-              For high‑impact changes, the tool guides analysts through required
-              checks and documentation, reducing missed steps and last‑minute
-              surprises.
-            </p>
-          </article>
-          <article class="case-highlight">
-            <h3>Transparent approvals</h3>
-            <p>
-              Stakeholders can review proposed changes with clear diffs,
-              business rationale, and downstream impact, making it easier to
-              give fast, confident approvals.
-            </p>
-          </article>
+      <!-- Exploration -->
+      <section id="exploration" class="case-block" aria-labelledby="exploration-title">
+        <h2 id="exploration-title" class="case-block__title">Exploration</h2>
+        <h3 class="case-block__lead">The mental models of a price change</h3>
+        <div class="case-block__content">
+          <p>
+            While tackling this complex design challenge, I found it most helpful to reference real data from past price changes, allowing me to gain deep familiarity with the scale of the process, typical order of operations, and areas of redundancy. I led a brainstorming workshop to gather ideas, and distilled them into 3 different approaches for the overall workflow and layout based on existing mental models plus a new mental model.
+          </p>
         </div>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Mental models comparison" />
+          <figcaption class="case-block__caption">Mental models</figcaption>
+        </figure>
+      </section>
+
+      <!-- Refinement -->
+      <section id="refinement" class="case-block" aria-labelledby="refinement-title">
+        <h2 id="refinement-title" class="case-block__title">Refinement</h2>
+        <h3 class="case-block__lead">Start with the packages, then dive deeper</h3>
+        <div class="case-block__content">
+          <p>
+            Through multiple stakeholder reviews and user feedback sessions on the wireframes, I learned that the package-based approach (approach C) worked best as it reduced the most steps and minimized cognitive load for operators by reducing the need to understand internal data relationships or existing processes.
+          </p>
+        </div>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_earlyiteration.png" alt="Early iteration workflow" />
+          <figcaption class="case-block__caption">Early iteration workflow</figcaption>
+        </figure>
+        <h3 class="case-block__lead" style="margin-top: 32px;">Feedback to inform refinement</h3>
+        <div class="case-block__content">
+          <p>Of course, certain elements of the wireframes had room for improvement. I incorporated the feedback into higher-fidelity interactive prototypes, conducted detailed usability testing with the prototypes, and refined the designs based on the findings.</p>
+          <ul>
+            <li>Improved confusing wording</li>
+            <li>Increased visibility of countries during requirements configuration</li>
+            <li>Added ability to set unique dates for new vs. existing customers</li>
+            <li>Added more helpful guidance</li>
+            <li>Messaging, the most time-consuming phase, required deeper integration into the workflow</li>
+            <li>Dates and prices frequently change close to launch, making flexibility critical</li>
+          </ul>
+          <p><strong>Alignment on launch scope</strong> — To facilitate alignment on a feasible MVP solution, I led conversations with product and engineering, suggesting we start with the automation of retail offer configurations before moving on to others. I advocated for certain UI elements in the MVP as table stakes for usability of the workflow, including a progress stepper and immediately visible help text and instructions, ensuring consistency and scalability by leveraging existing system components where possible.</p>
+        </div>
+      </section>
+
+      <!-- Implementation -->
+      <section id="implementation" class="case-block" aria-labelledby="implementation-title">
+        <h2 id="implementation-title" class="case-block__title">Implementation</h2>
+        <h3 class="case-block__lead">Tight collaboration to work through edge cases</h3>
+        <div class="case-block__content">
+          <p>
+            Due to the immense technical complexity, the team quickly discovered a multitude of complicated edge case scenarios that needed bespoke design and engineering problem-solving.
+          </p>
+          <p>
+            For example, what should display when one product's price "forks" into 2 different new prices based on the country? How do we account for subscribers who remained on long-expired offers due to their subscription being on a hold? I collaborated closely with product management and engineering on these challenges, brainstorming ideas and solutions through several white-boarding sessions.
+          </p>
+        </div>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_geniescreenshot.png" alt="Refined solution screenshot" />
+          <figcaption class="case-block__caption">Refined solution</figcaption>
+        </figure>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_detailedworkflow.png" alt="Full detailed workflow" />
+          <figcaption class="case-block__caption">Design documentation — full detailed workflow</figcaption>
+        </figure>
+      </section>
+
+      <section id="section-id" class="case-block case-block--two-columns">
+        <div class="case-block__columns">
+          <div class="case-block__col">
+            <figure class="case-block__media">
+              <img src="./assets/disney-case-study/img_edgecase1.png" alt="Forking prices edge case" />
+              <figcaption class="case-block__caption">Forking prices</figcaption>
+            </figure>
+            <h3 class="case-block__lead">Forking prices</h3>
+            <div class="case-block__content">
+              <p>To clearly depict the common origin of "forked" prices, I proposed that we display them grouped together in a row in the requirements step.</p>
+            </div>
+          </div>
+          <div class="case-block__col">
+            <figure class="case-block__media">
+              <img src="./assets/disney-case-study/img_edgecase2.png" alt="Leapfrog transitions edge case" />
+              <figcaption class="case-block__caption">Leapfrog transitions</figcaption>
+            </figure>
+            <h3 class="case-block__lead">Leapfrog transitions</h3>
+            <div class="case-block__content">
+              <p>For subscribers who remained on long-expired offers, we aligned on a technical solution of automatically transitioning those subscribers to the latest offer by traversing the "chain of offers" rather than requiring manual configuration for every case.</p>
+            </div>
+          </div>
+        </div>
+        <h3 class="case-block__lead" style="margin-top: 32px;">Upstream and downstream dependencies</h3>
+
+      <!-- Outcomes -->
+      <section id="outcomes" class="case-block" aria-labelledby="outcomes-title">
+        <h2 id="outcomes-title" class="case-block__title">Outcomes</h2>
+        <h3 class="case-block__lead">Improved overall efficiency but with caveats</h3>
+        <div class="case-block__content">
+          <p>
+            After about a year, we launched the first version of the "Price Change Event" workflow to the Business Operations, Accounting, and Finance teams. This reduced overall operational steps for price changes and helped to enable an 8% increase in revenue growth and $1.3B in operating income for Disney's Direct-to-Consumer segment in 2025 compared to $143M in 2024 (source).
+          </p>
+        </div>
+        <div class="case-outcome-metrics">
+          <div class="case-outcome-metrics__item">
+            <p class="case-outcome-metrics__value">66% <span aria-hidden="true">↓</span></p>
+            <p class="case-outcome-metrics__label">decrease in time spent on component offer configurations, improving operational velocity</p>
+          </div>
+          <div class="case-outcome-metrics__item">
+            <p class="case-outcome-metrics__value">53% <span aria-hidden="true">↓</span></p>
+            <p class="case-outcome-metrics__label">decrease in overall clicks, reducing opportunity for misconfiguration</p>
+          </div>
+          <div class="case-outcome-metrics__item">
+            <p class="case-outcome-metrics__value">$1.3B</p>
+            <p class="case-outcome-metrics__label">operating income in 2025 from direct-to-consumer subscription profits (source)</p>
+          </div>
+        </div>
+        <blockquote class="case-quote">
+          <p class="case-quote__text">"Wow, it's the best tool I've used in my time here! It allowed me to create component offers for an entire price increase in less than 20 minutes, which has saved me hours and made it so much easier!"</p>
+          <footer class="case-quote__cite">User feedback from Business Ops Coordinator</footer>
+        </blockquote>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_workflowcomparison.png" alt="Workflow comparison before and after" />
+          <figcaption class="case-block__caption">Workflow comparison</figcaption>
+        </figure>
+        <h3 class="case-block__lead" style="margin-top: 32px;">Continued iteration needed</h3>
+        <div class="case-block__content">
+          <p>
+            To support the growing complexity of Disney's streaming options and frequency of planned price increases, we needed to make sacrifices in order to launch the MVP of this workflow in a timely manner. As a result, users felt understandably frustrated with some aspects of the experience:
+          </p>
+          <ul>
+            <li>Bugs and inaccuracies in the automations leading to incidents and hours spent troubleshooting issues</li>
+            <li>Lack of automation support for certain parts of the process and edge cases</li>
+          </ul>
+          <p>
+            This highlighted the necessity of a sustained investment in enterprise product quality. Since launch, we've incrementally improved the workflow to tackle the issues, fixing bugs and adding support for promotional offers.
+          </p>
+          <p>
+            Though competing business priorities are ever-present, I leverage user feedback to influence the post-MVP roadmap and have advocated for usability enhancements including reduced accounting steps, automation of campaigns and SKUs, and tighter integration with messaging to reduce redundant steps.
+          </p>
+        </div>
+      </section>
+
+      <!-- Vision -->
+      <section id="vision" class="case-block" aria-labelledby="vision-title">
+        <h2 id="vision-title" class="case-block__title">Long-Term Vision</h2>
+        <h3 class="case-block__lead">Narrowing the distance from business intent to launch</h3>
+        <div class="case-block__content">
+          <p>
+            While we've made improvements to the workflow we built, there's much more to do! As our business has evolved and teams have changed, I've driven alignment towards a long-term vision for price change operations, creating future-state design concepts and sharing them with stakeholders to gather feedback and build interest.
+          </p>
+          <p>
+            What if a business leader could simply provide their intent for a price change in human language and an intelligent system could parse that information into the appropriate data changes with the help of human reviewers, and the changes could be launched in a matter of days?
+          </p>
+          <p>
+            It sounds magical, but with the rapid evolution of generative AI technology, it may not be too far away.
+          </p>
+        </div>
+        <figure class="case-block__media">
+          <img src="./assets/disney-case-study/img_vision.png" alt="Vision concept for AI-assisted price changes" />
+          <figcaption class="case-block__caption">Vision concept</figcaption>
+        </figure>
       </section>
 
       <!-- Reflection -->
-      <section class="case-section case-section--reflection">
-        <header class="case-section__header">
-          <h2>Reflection</h2>
-        </header>
-        <div class="case-section__content">
+      <section id="reflection" class="case-block" aria-labelledby="reflection-title">
+        <h2 id="reflection-title" class="case-block__title">Reflection</h2>
+        <h3 class="case-block__lead">Become an expert in the domain</h3>
+        <div class="case-block__content">
           <p>
-            This project reinforced the importance of designing for operational
-            resilience. By grounding decisions in real‑world constraints and
-            building strong relationships with cross‑functional partners, we
-            shipped a tool that not only improved efficiency but also built
-            trust in the pricing process.
+            You might not think a designer needs to understand the intricacies of a data model, but I learned through this work that having deep knowledge and understanding of the details is actually critical to designing for technically complex spaces and should inform each decision. As engineers brainstorm and problem-solve to determine solutions to technical challenges, those decisions are inextricably tied to the user experience of the operator using the tool.
           </p>
           <p>
-            If you’d like to learn more about this work, I’m happy to share
-            additional details in conversation.
+            By having a deep understanding, I could more fluidly collaborate and brainstorm together with the engineers to ultimately determine the most feasible, viable, and impactful solutions. It allowed me to earn the trust of my colleagues and influence product decisions and strategy with a user-centric lens.
           </p>
         </div>
       </section>
@@ -228,17 +364,27 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <p class="site-footer__text">
-          © <span id="year"></span> Caroline Win. All rights reserved.
-        </p>
-        <div class="site-footer__links">
-          <a href="mailto:hello@carolinewin.com">Email</a>
-          <a href="#" aria-label="LinkedIn profile">LinkedIn</a>
+        <div class="site-footer__copy">
+          <p class="site-footer__heading">Say hello!</p>
+          <p class="site-footer__text">
+            Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
+          </p>
         </div>
+        <div class="site-footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__name">Caroline Win</span>
+            <span class="logo__role">Product Design Strategist</span>
+          </a>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#resume">Resume</a>
+          <a href="index.html#play">Play</a>
+        </nav>
       </div>
     </footer>
 
     <script src="script.js"></script>
   </body>
 </html>
-

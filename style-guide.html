@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio style guide</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .sg-body { background-color: #f8fafc; background-image: none; }
+      .sg-wrap { max-width: none; margin: 0 72px; padding: 28px 0 56px; }
+      .sg-page-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 6px; color: var(--text-main); }
+      .sg-page-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 36px; line-height: 1.5; }
+      .sg-section { margin-bottom: 32px; }
+      .sg-section h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; color: var(--text-main); }
+      .sg-block { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); padding: 20px 24px; }
+      .sg-swatch-row { display: flex; gap: 28px; flex-wrap: wrap; }
+      .sg-swatch-wrap { cursor: help; }
+      .sg-swatch { width: 64px; height: 48px; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.08); }
+      .sg-swatch-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
+      .sg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px 20px; }
+      .sg-grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+      .sg-grid-3 .case-card { grid-template-columns: 1fr; }
+      .sg-inline { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+      .sg-nav { margin-bottom: 16px; font-size: 0.9rem; }
+      .sg-nav a { color: var(--accent-indigo); text-decoration: none; }
+      .sg-nav a:hover { text-decoration: underline; }
+      .sg-nav span { color: var(--text-muted); margin: 0 6px; }
+      .sg-footer { margin-top: 40px; font-size: 0.85rem; color: var(--text-muted); }
+      .sg-footer a { color: var(--accent-indigo); }
+      /* Hover tooltips */
+      .sg-hover { position: relative; cursor: help; display: inline-block; }
+      .sg-hover .sg-tooltip {
+        position: absolute; z-index: 50; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+        background: #1e293b; color: #e2e8f0; font-family: ui-monospace, monospace; font-size: 0.7rem;
+        padding: 12px 14px; border-radius: 8px; white-space: pre; line-height: 1.5; max-width: 360px;
+        max-height: 70vh; overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        opacity: 0; visibility: hidden; transition: opacity 0.15s, visibility 0.15s;
+        pointer-events: none;
+      }
+      .sg-hover .sg-tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border: 6px solid transparent; border-top-color: #1e293b; }
+      .sg-hover:hover .sg-tooltip { opacity: 1; visibility: visible; }
+      .sg-hover-block { display: block; }
+      .sg-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }
+      .sg-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+      .sg-table th:first-child,
+      .sg-table td:first-child { width: 180px; }
+      .sg-table th:nth-child(2),
+      .sg-table td:nth-child(2) { width: 200px; }
+      .sg-table th { text-align: left; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); padding: 20px 24px; padding-left: 0; border-bottom: 1px solid var(--border-subtle); }
+      .sg-table th:nth-child(2) { padding-left: 20px; }
+      .sg-table th:nth-child(3) { padding-left: 20px; }
+      .sg-table td { padding: 20px 24px; padding-left: 0; border-bottom: 1px solid var(--border-subtle); vertical-align: middle; }
+      .sg-table td:nth-child(2) { padding-left: 20px; }
+      .sg-table td:nth-child(3) { padding-left: 20px; }
+      .sg-table tr:last-child td { border-bottom: none; }
+      .sg-table .sg-name { font-size: 0.95rem; color: var(--text-main); }
+      .sg-table .sg-purpose { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+      .sg-table .sg-sample { padding-left: 20px; }
+      /* Vertical stack for wide samples (Cards, Layout) */
+      .sg-stack { display: flex; flex-direction: column; gap: 24px; }
+      .sg-stack-item { display: block; }
+      .sg-stack-item .sg-name { font-size: 0.95rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
+      .sg-stack-item .sg-purpose { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 8px; }
+      .sg-stack-item .sg-sample { padding: 0; }
+    </style>
+  </head>
+  <body class="sg-body">
+    <div class="sg-wrap">
+      <p class="sg-nav"><a href="index.html">Portfolio</a><span>·</span>Style guide<span>·</span><a href="patterns.html">Pattern library</a></p>
+      <h1 class="sg-page-title">Style guide</h1>
+      <p class="sg-page-desc">Hover over any sample to see its CSS.</p>
+
+      <!-- Colors -->
+      <section class="sg-section" aria-labelledby="colors-heading">
+        <h2 id="colors-heading">Colors</h2>
+        <div class="sg-block">
+          <div class="sg-swatch-row">
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #4c79eb;"></div><span class="sg-swatch-caption">Accent</span><div class="sg-tooltip" role="tooltip">--accent-indigo: #4c79eb;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #80bbff;"></div><span class="sg-swatch-caption">Secondary</span><div class="sg-tooltip" role="tooltip">--accent-secondary: #80bbff;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background: linear-gradient(90deg, #625af4 0%, #638fff 51.44%, #55b0ff 100%);"></div><span class="sg-swatch-caption">Gradient</span><div class="sg-tooltip" role="tooltip">--gradient-primary:
+linear-gradient(90deg, #625af4 0%,
+#638fff 51.44%, #55b0ff 100%);</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #101827;"></div><span class="sg-swatch-caption">Main text</span><div class="sg-tooltip" role="tooltip">--text-main: #101827;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #6b7280;"></div><span class="sg-swatch-caption">Muted</span><div class="sg-tooltip" role="tooltip">--text-muted: #6b7280;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #9ca3af;"></div><span class="sg-swatch-caption">Eyebrow</span><div class="sg-tooltip" role="tooltip">--text-eyebrow: #9ca3af;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #e5e7eb;"></div><span class="sg-swatch-caption">Border</span><div class="sg-tooltip" role="tooltip">--border-subtle: #e5e7eb;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #fff; border: 1px solid rgba(0,0,0,0.1);"></div><span class="sg-swatch-caption">White</span><div class="sg-tooltip" role="tooltip">--color-white: #fff;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(76, 121, 235, 0.08);"></div><span class="sg-swatch-caption">Accent soft</span><div class="sg-tooltip" role="tooltip">--accent-primary-soft: rgba(76, 121, 235, 0.08);</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Typography -->
+      <section class="sg-section" aria-labelledby="typography-heading">
+        <h2 id="typography-heading">Typography</h2>
+        <div class="sg-block">
+          <table class="sg-table">
+            <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="sg-name">Hero headline</td><td class="sg-purpose">Main page title on the homepage</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__title" style="margin: 0;">Designing for Impact</p><div class="sg-tooltip" role="tooltip">.hero__title {
+  margin: 0 0 16px;
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.05em 0 0.3em 0;
+  display: inline-block;
+  background: var(--gradient-primary);
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transform: translateZ(0);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Section title</td><td class="sg-purpose">Headings for major content sections</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h2 class="section__title" style="margin: 0; font-size: 1.1rem;">Recommendations</h2><div class="sg-tooltip" role="tooltip">.section__title {
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  font-weight: 700;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Section subtitle</td><td class="sg-purpose">Supporting text below section titles</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__subtitle" style="margin: 0;">Thanks to all my teammates!</p><div class="sg-tooltip" role="tooltip">.section__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Eyebrow / small label</td><td class="sg-purpose">Small uppercase labels above section titles</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__eyebrow" style="margin: 0;">Selected Work</p><div class="sg-tooltip" role="tooltip">.section__eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-eyebrow);
+  margin: 0 0 4px;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Body text</td><td class="sg-purpose">Primary paragraph and body content</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__subtitle" style="margin: 0; max-width: 14rem;">As a scientist-turned-designer…</p><div class="sg-tooltip" role="tooltip">.hero__subtitle {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  max-width: 42rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Accent label</td><td class="sg-purpose">Key information highlights (e.g. role, status)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__current-role" style="margin: 0;">Current Role</p><div class="sg-tooltip" role="tooltip">.hero__current-role {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-indigo);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Logo (script)</td><td class="sg-purpose">Site name in script/display font</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__name">Caroline Win</span><div class="sg-tooltip" role="tooltip">.logo__name {
+  font-family: "Pacifico", cursive;
+  font-size: 1.4rem;
+  color: var(--accent-indigo);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Logo subtitle</td><td class="sg-purpose">Tagline or role below logo</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__role">Product Design Strategist</span><div class="sg-tooltip" role="tooltip">.logo__role {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Card title</td><td class="sg-purpose">Project or case study titles in cards</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h3 class="case-card__title" style="margin: 0; font-size: 1rem;">Streamlining Price Change Operations</h3><div class="sg-tooltip" role="tooltip">.case-card__title {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Card org / company</td><td class="sg-purpose">Company or organization name in cards</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="case-card__org" style="margin: 0;">The Walt Disney Company</p><div class="sg-tooltip" role="tooltip">.case-card__org {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-indigo);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Footer heading</td><td class="sg-purpose">Section headings in footer</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="site-footer__heading" style="margin: 0;">Say hello!</p><div class="sg-tooltip" role="tooltip">.site-footer__heading {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Footer body / links</td><td class="sg-purpose">Footer body text and navigation links</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="site-footer__text" style="margin: 0;">Message on <a href="#">LinkedIn</a> or <a href="#">email</a>.</p><div class="sg-tooltip" role="tooltip">.site-footer__text {
+  margin: 0;
+  line-height: 1.5;
+}
+.site-footer__text a {
+  color: var(--accent-indigo);
+  text-decoration: none;
+}
+.site-footer__text a:hover {
+  text-decoration: underline;
+}</div></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <section class="sg-section" aria-labelledby="buttons-heading">
+        <h2 id="buttons-heading">Buttons</h2>
+        <div class="sg-block">
+          <table class="sg-table">
+            <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="sg-name">Primary CTA</td><td class="sg-purpose">Main call-to-action for primary actions</td><td class="sg-sample"><div class="sg-hover"><a href="#" class="btn btn--primary">Learn More</a><div class="sg-tooltip" role="tooltip">.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease,
+    transform 0.12s ease, color 0.18s ease;
+}
+.btn--primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(89, 95, 255, 0.25);
+}
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(89, 95, 255, 0.3);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Ghost / secondary</td><td class="sg-purpose">Secondary or less prominent actions</td><td class="sg-sample"><div class="sg-hover"><a href="#" class="btn btn--ghost">Secondary action</a><div class="sg-tooltip" role="tooltip">.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease,
+    transform 0.12s ease, color 0.18s ease;
+}
+.btn--ghost {
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--text-main);
+}
+.btn--ghost:hover {
+  background-color: #ffffff;
+  box-shadow: 0 8px 26px rgba(148, 163, 184, 0.26);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Text link</td><td class="sg-purpose">Minimal link style for tertiary actions</td><td class="sg-sample"><div class="sg-hover"><button type="button" class="btn btn--text">Text link</button><div class="sg-tooltip" role="tooltip">.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease,
+    transform 0.12s ease, color 0.18s ease;
+}
+.btn--text {
+  background: transparent;
+  color: var(--accent-indigo);
+  padding-inline: 4px;
+}
+.btn--text:hover {
+  text-decoration: underline;
+}</div></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <section class="sg-section" aria-labelledby="nav-heading">
+        <h2 id="nav-heading">Navigation</h2>
+        <div class="sg-block">
+          <table class="sg-table">
+            <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="sg-name">Pill link (active)</td><td class="sg-purpose">Active/current page indicator in nav</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><a href="#" class="nav__link nav__link--pill">Work</a><div class="sg-tooltip" role="tooltip">.nav__link {
+  font-size: 0.92rem;
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  transition: color 0.18s ease, background-color 0.18s ease, opacity 0.18s ease;
+}
+.nav__link--pill {
+  padding: 8px 18px;
+  background: var(--gradient-primary);
+  color: #ffffff;
+  font-weight: 500;
+}
+.nav__link--pill:hover {
+  opacity: 0.92;
+  color: #ffffff;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Plain nav links</td><td class="sg-purpose">Standard navigation links</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><a href="#" class="nav__link">About</a><div class="sg-tooltip" role="tooltip">.nav__link {
+  font-size: 0.92rem;
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  transition: color 0.18s ease, background-color 0.18s ease, opacity 0.18s ease;
+}
+.nav__link:not(.nav__link--pill):hover {
+  color: var(--text-muted);
+}</div></div><a href="#" class="nav__link">Resume</a> <a href="#" class="nav__link">Play</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Corners & shadows -->
+      <section class="sg-section" aria-labelledby="shape-heading">
+        <h2 id="shape-heading">Corners and shadows</h2>
+        <div class="sg-block">
+          <table class="sg-table">
+            <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="sg-name">Radius extra large</td><td class="sg-purpose">Largest corner radius for major containers</td><td class="sg-sample"><div class="sg-hover"><div style="width: 56px; height: 36px; background: var(--accent-primary-soft); border-radius: 24px; border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">:root {
+  --radius-xl: 24px;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Radius large</td><td class="sg-purpose">Standard large radius for cards and sections</td><td class="sg-sample"><div class="sg-hover"><div style="width: 56px; height: 36px; background: var(--accent-primary-soft); border-radius: 18px; border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">:root {
+  --radius-lg: 18px;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Radius medium</td><td class="sg-purpose">Medium radius for buttons and smaller elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 56px; height: 36px; background: var(--accent-primary-soft); border-radius: 14px; border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">:root {
+  --radius-md: 14px;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Pill</td><td class="sg-purpose">Fully rounded for pill-shaped elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 72px; height: 28px; background: var(--gradient-primary); border-radius: 999px;"></div><div class="sg-tooltip" role="tooltip">:root {
+  --radius-pill: 999px;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Shadow soft</td><td class="sg-purpose">Subtle depth shadow for elevated elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 80px; height: 44px; background: #fff; border-radius: 18px; box-shadow: 0 18px 45px rgba(15,23,42,0.12); border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">:root {
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+}</div></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Cards -->
+      <section class="sg-section" aria-labelledby="cards-heading">
+        <h2 id="cards-heading">Cards</h2>
+        <div class="sg-block">
+          <div class="sg-stack">
+            <div class="sg-stack-item">
+              <p class="sg-name">Case card featured</p>
+              <p class="sg-purpose">Highlighted case study with gradient treatment</p>
+              <div class="sg-sample sg-hover sg-hover-block">
+                <article class="case-card case-card--featured" style="margin: 0; padding: 14px;"><div class="case-card__content"><p class="case-card__org">The Walt Disney Company</p><h3 class="case-card__title" style="font-size: 0.95rem;">Streamlining Price Change Operations</h3><p class="case-card__summary" style="font-size: 0.8rem;">Empowering business operations teams at Disney…</p><a href="#" class="btn btn--primary" style="padding: 6px 12px; font-size: 0.8rem;">Learn More</a></div><div class="case-card__media case-card__media--placeholder" style="min-height: 50px;"><span style="font-size: 0.75rem;">Preview</span></div></article>
+                <div class="sg-tooltip" role="tooltip">.case-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+.case-card--featured {
+  background: linear-gradient(135deg, rgba(89, 95, 255, 0.04), rgba(128, 187, 255, 0.06)), #fff;
+  border-color: rgba(89, 95, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(89, 95, 255, 0.12);
+}</div>
+              </div>
+            </div>
+            <div class="sg-stack-item">
+              <p class="sg-name">Case card standard</p>
+              <p class="sg-purpose">Standard case study card layout</p>
+              <div class="sg-sample sg-hover sg-hover-block">
+                <article class="case-card" style="margin: 0; padding: 14px;"><div class="case-card__content"><p class="case-card__org">Belkin International</p><h3 class="case-card__title" style="font-size: 0.95rem;">Wemo Smart Home Setup</h3><p class="case-card__summary" style="font-size: 0.8rem;">Guiding users through setup.</p><a href="#" class="btn btn--primary" style="padding: 6px 12px; font-size: 0.8rem;">Learn More</a></div><div class="case-card__media case-card__media--placeholder" style="min-height: 50px;"><span style="font-size: 0.75rem;">Preview</span></div></article>
+                <div class="sg-tooltip" role="tooltip">.case-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+}</div>
+              </div>
+            </div>
+            <div class="sg-stack-item">
+              <p class="sg-name">Recommendation card</p>
+              <p class="sg-purpose">Testimonial or recommendation display</p>
+              <div class="sg-sample sg-hover sg-hover-block">
+                <article class="rec-card" style="padding: 12px;"><p class="rec-card__quote" style="font-size: 0.8rem;">Caroline plays a crucial role in shaping our product…</p><footer class="rec-card__author" style="font-size: 0.75rem;"><strong class="rec-card__name">Sahand Javid</strong><span class="rec-card__role">Sr. Software Engineer</span></footer></article>
+                <div class="sg-tooltip" role="tooltip">.rec-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
+.rec-card__quote {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.rec-card__author { margin: 0; font-size: 0.9rem; }
+.rec-card__name {
+  display: block;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+.rec-card__role {
+  display: block;
+  color: var(--text-muted);
+  font-weight: 400;
+}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Layout -->
+      <section class="sg-section" aria-labelledby="layout-heading">
+        <h2 id="layout-heading">Layout</h2>
+        <div class="sg-block">
+          <div class="sg-stack">
+            <div class="sg-stack-item">
+              <p class="sg-name">Container</p>
+              <p class="sg-purpose">Main content width and horizontal margins</p>
+              <div class="sg-sample sg-hover sg-hover-block" style="padding: 12px; background: #f8fafc; border-radius: var(--radius-md);">
+                <div style="max-width: 100%; height: 24px; background: var(--border-subtle); border-radius: 4px;"></div>
+                <div class="sg-tooltip" role="tooltip">:root {
+  --container-max: 1280px;
+  --container-margin: 72px;
+}
+main, .site-header__inner, .site-footer__inner {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+main { margin: 0 var(--container-margin) 80px; }
+.site-header__inner, .site-footer__inner {
+  margin: 0 var(--container-margin);
+}</div>
+              </div>
+            </div>
+            <div class="sg-stack-item">
+              <p class="sg-name">Sections</p>
+              <p class="sg-purpose">Section wrappers and modifiers for index page layout</p>
+              <div class="sg-sample">
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);"><code>.section</code> base margin. <code>.section__header</code> wraps title + subtitle (margin-bottom). <code>.section--work</code> extra top margin. <code>.section--recommendations</code> top margin. <code>.section--anchor</code> 1px height for anchor targets.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>
