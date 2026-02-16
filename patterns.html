@@ -33,21 +33,29 @@
       .sg-nav a { color: var(--accent-indigo); text-decoration: none; }
       .sg-nav a:hover { text-decoration: underline; }
       .sg-nav span { color: var(--text-muted); margin: 0 8px; }
+      .sg-accordion { margin-top: 8px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+      .sg-accordion summary {
+        padding: 8px 12px; font-size: 0.75rem; font-weight: 600; color: var(--accent-indigo);
+        cursor: pointer; list-style: none; background: #f8fafc;
+      }
+      .sg-accordion summary::-webkit-details-marker { display: none; }
+      .sg-accordion summary::before { content: "▶ "; font-size: 0.6rem; }
+      .sg-accordion[open] summary::before { content: "▼ "; }
     </style>
   </head>
   <body class="sg-body">
     <div class="sg-wrap">
       <p class="sg-nav"><a href="index.html">Portfolio</a><span>·</span><a href="style-guide.html">Style guide</a><span>·</span>Pattern library</p>
       <h1 class="sg-page-title">Pattern library</h1>
-      <p class="sg-page-desc">Reusable layout components for case study pages. Copy the HTML from each block into your new page. Source files live in <code>components/</code>.</p>
+      <p class="sg-page-desc">Reusable layout components for case study pages. Copy the HTML from each block into your new page. Click "View HTML" to expand code snippets. Source files live in <code>components/</code>.</p>
 
       <!-- Global -->
       <section class="sg-section" aria-labelledby="global-heading">
         <h2 id="global-heading">Global</h2>
-        <p>Header and footer used across the site. Use <code>header.html</code> / <code>header-case.html</code> for index vs case study pages.</p>
+        <p>Header and footer used across the site. Use <code>header.html</code> for all pages.</p>
 
         <div class="sg-block">
-          <div class="sg-label">Header (index page)</div>
+          <div class="sg-label">Header</div>
           <div class="sg-preview">
             <header class="site-header">
               <div class="site-header__inner">
@@ -56,48 +64,6 @@
                   <span class="logo__role">Product Design Strategist</span>
                 </a>
                 <nav class="nav" aria-label="Main">
-                  <a href="#work" class="nav__link nav__link--pill" aria-current="page">Work</a>
-                  <a href="#about" class="nav__link">About</a>
-                  <a href="#resume" class="nav__link">Resume</a>
-                  <a href="#play" class="nav__link">Play</a>
-                  <a href="style-guide.html" class="nav__link">Style guide</a>
-                  <a href="patterns.html" class="nav__link">Pattern library</a>
-                </nav>
-              </div>
-            </header>
-          </div>
-          <div class="sg-label">HTML · <a href="components/header.html">components/header.html</a></div>
-          <div class="sg-code-wrap">
-            <button type="button" class="sg-copy" data-copy="header-html" aria-label="Copy HTML">Copy</button>
-            <pre class="sg-code" id="header-html"><code>&lt;header class="site-header"&gt;
-  &lt;div class="site-header__inner"&gt;
-    &lt;a href="index.html" class="logo"&gt;
-      &lt;span class="logo__name"&gt;Caroline Win&lt;/span&gt;
-      &lt;span class="logo__role"&gt;Product Design Strategist&lt;/span&gt;
-    &lt;/a&gt;
-    &lt;nav class="nav" aria-label="Main"&gt;
-      &lt;a href="#work" class="nav__link nav__link--pill" aria-current="page"&gt;Work&lt;/a&gt;
-      &lt;a href="#about" class="nav__link"&gt;About&lt;/a&gt;
-      &lt;a href="#resume" class="nav__link"&gt;Resume&lt;/a&gt;
-      &lt;a href="#play" class="nav__link"&gt;Play&lt;/a&gt;
-      &lt;a href="style-guide.html" class="nav__link"&gt;Style guide&lt;/a&gt;
-      &lt;a href="patterns.html" class="nav__link"&gt;Pattern library&lt;/a&gt;
-    &lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/header&gt;</code></pre>
-          </div>
-        </div>
-
-        <div class="sg-block">
-          <div class="sg-label">Header (case study page)</div>
-          <div class="sg-preview">
-            <header class="site-header site-header--case">
-              <div class="site-header__inner">
-                <a href="index.html" class="logo">
-                  <span class="logo__name">Caroline Win</span>
-                  <span class="logo__role">Product Design Strategist</span>
-                </a>
-                <nav class="nav">
                   <a href="index.html#work" class="nav__link nav__link--pill" aria-current="page">Work</a>
                   <a href="index.html#about" class="nav__link">About</a>
                   <a href="index.html#contact" class="nav__link">Contact</a>
@@ -107,16 +73,18 @@
               </div>
             </header>
           </div>
-          <div class="sg-label">HTML · <a href="components/header-case.html">components/header-case.html</a></div>
+          <div class="sg-label">HTML · <a href="components/header.html">components/header.html</a></div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
-            <button type="button" class="sg-copy" data-copy="header-case-html" aria-label="Copy HTML">Copy</button>
-            <pre class="sg-code" id="header-case-html"><code>&lt;header class="site-header site-header--case"&gt;
+            <button type="button" class="sg-copy" data-copy="header-html" aria-label="Copy HTML">Copy</button>
+            <pre class="sg-code" id="header-html"><code>&lt;header class="site-header"&gt;
   &lt;div class="site-header__inner"&gt;
     &lt;a href="index.html" class="logo"&gt;
       &lt;span class="logo__name"&gt;Caroline Win&lt;/span&gt;
       &lt;span class="logo__role"&gt;Product Design Strategist&lt;/span&gt;
     &lt;/a&gt;
-    &lt;nav class="nav"&gt;
+    &lt;nav class="nav" aria-label="Main"&gt;
       &lt;a href="index.html#work" class="nav__link nav__link--pill" aria-current="page"&gt;Work&lt;/a&gt;
       &lt;a href="index.html#about" class="nav__link"&gt;About&lt;/a&gt;
       &lt;a href="index.html#contact" class="nav__link"&gt;Contact&lt;/a&gt;
@@ -126,10 +94,12 @@
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
-          <div class="sg-label">Footer (index page)</div>
+          <div class="sg-label">Footer</div>
+          <p>Single footer pattern. Required: <code>site-footer__copy</code> (Say hello + contact). Optional for case study pages: <code>site-footer__brand</code> (logo), <code>site-footer__nav</code> (Work, About, etc.). Index uses copy only; case studies include all three.</p>
           <div class="sg-preview">
             <footer class="site-footer">
               <div class="site-footer__inner">
@@ -139,10 +109,24 @@
                     Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
                   </p>
                 </div>
+                <div class="site-footer__brand">
+                  <a href="index.html" class="logo">
+                    <span class="logo__name">Caroline Win</span>
+                    <span class="logo__role">Product Design Strategist</span>
+                  </a>
+                </div>
+                <nav class="site-footer__nav" aria-label="Footer">
+                  <a href="index.html#work">Work</a>
+                  <a href="index.html#about">About</a>
+                  <a href="index.html#resume">Resume</a>
+                  <a href="index.html#play">Play</a>
+                </nav>
               </div>
             </footer>
           </div>
-          <div class="sg-label">HTML · <a href="components/footer.html">components/footer.html</a></div>
+          <div class="sg-label">HTML · <a href="components/footer.html">components/footer.html</a> (index: copy only) · case studies: add brand + nav</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="footer-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="footer-html"><code>&lt;footer class="site-footer"&gt;
@@ -153,39 +137,20 @@
         Send me a message on &lt;a href="..."&gt;LinkedIn&lt;/a&gt; or at &lt;a href="mailto:..."&gt;email&lt;/a&gt;.
       &lt;/p&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;</code></pre>
-          </div>
-        </div>
-
-        <div class="sg-block">
-          <div class="sg-label">Footer (case study page)</div>
-          <div class="sg-preview">
-            <footer class="site-footer">
-              <div class="site-footer__inner">
-                <p class="site-footer__text">© <span id="year-patterns">2026</span> Caroline Win. All rights reserved.</p>
-                <div class="site-footer__links">
-                  <a href="mailto:hello@carolinewin.com">Email</a>
-                  <a href="#" aria-label="LinkedIn profile">LinkedIn</a>
-                </div>
-              </div>
-            </footer>
-          </div>
-          <div class="sg-label">HTML · <a href="components/footer-case.html">components/footer-case.html</a></div>
-          <div class="sg-code-wrap">
-            <button type="button" class="sg-copy" data-copy="footer-case-html" aria-label="Copy HTML">Copy</button>
-            <pre class="sg-code" id="footer-case-html"><code>&lt;footer class="site-footer"&gt;
-  &lt;div class="site-footer__inner"&gt;
-    &lt;p class="site-footer__text"&gt;
-      © &lt;span id="year"&gt;&lt;/span&gt; Caroline Win. All rights reserved.
-    &lt;/p&gt;
-    &lt;div class="site-footer__links"&gt;
-      &lt;a href="mailto:hello@carolinewin.com"&gt;Email&lt;/a&gt;
-      &lt;a href="#" aria-label="LinkedIn profile"&gt;LinkedIn&lt;/a&gt;
+    &lt;!-- Optional for case studies: --&gt;
+    &lt;div class="site-footer__brand"&gt;
+      &lt;a href="index.html" class="logo"&gt;...&lt;/a&gt;
     &lt;/div&gt;
+    &lt;nav class="site-footer__nav" aria-label="Footer"&gt;
+      &lt;a href="index.html#work"&gt;Work&lt;/a&gt;
+      &lt;a href="index.html#about"&gt;About&lt;/a&gt;
+      &lt;a href="index.html#resume"&gt;Resume&lt;/a&gt;
+      &lt;a href="index.html#play"&gt;Play&lt;/a&gt;
+    &lt;/nav&gt;
   &lt;/div&gt;
 &lt;/footer&gt;</code></pre>
           </div>
+          </details>
         </div>
       </section>
 
@@ -214,6 +179,8 @@
             </section>
           </div>
           <div class="sg-label">HTML</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="index-hero-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="index-hero-html"><code>&lt;section class="hero"&gt;
@@ -230,6 +197,7 @@
   &lt;/figure&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
@@ -269,6 +237,8 @@
             </section>
           </div>
           <div class="sg-label">HTML</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="work-section-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="work-section-html"><code>&lt;section id="work" class="section section--work" aria-labelledby="work-heading"&gt;
@@ -304,6 +274,7 @@
   &lt;/article&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
@@ -326,6 +297,8 @@
             </section>
           </div>
           <div class="sg-label">HTML</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="rec-section-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="rec-section-html"><code>&lt;section id="recommendations" class="section section--recommendations" aria-labelledby="rec-heading"&gt;
@@ -344,6 +317,7 @@
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
       </section>
 
@@ -353,17 +327,20 @@
         <p>Full page structure for a new case study. Copy from <a href="components/case-study-shell.html">components/case-study-shell.html</a>. For long-form case studies use <a href="disney-case-study.html">disney-case-study.html</a> as reference: hero + My Role, Jump To nav, case-block sections, and footer with Say hello + nav.</p>
         <div class="sg-block">
           <div class="sg-label">Structure</div>
-          <p>body.case-body → header-case → main.case-main → footer. Paste hero (optionally with case-hero__role), case-jump-nav, then case-block sections. Footer: site-footer__copy (Say hello), site-footer__brand, site-footer__nav (Work, About, Resume, Play).</p>
+          <p>body.case-body → header → main.case-main → footer. Paste case-hero (no image, 3 columns: meta | my role | jump to), then case-block sections. Footer: site-footer__copy (Say hello), site-footer__brand, site-footer__nav (Work, About, Contact).</p>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="shell-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="shell-html"><code>&lt;body class="case-body"&gt;
-  &lt;!-- PASTE: components/header-case.html --&gt;
+  &lt;!-- PASTE: components/header.html --&gt;
   &lt;main class="case-main"&gt;
-    &lt;!-- PASTE: case-hero (optional case-hero__role), case-jump-nav, case-block sections --&gt;
+    &lt;!-- PASTE: case-hero (3-col: meta | role | jump to), case-block sections --&gt;
   &lt;/main&gt;
   &lt;!-- PASTE: footer with site-footer__copy, site-footer__brand, site-footer__nav --&gt;
 &lt;/body&gt;</code></pre>
           </div>
+          </details>
         </div>
       </section>
 
@@ -373,116 +350,133 @@
         <p>Long-form case study patterns without cards. Use inside <code>&lt;main class="case-main"&gt;</code>. See <a href="disney-case-study.html">disney-case-study.html</a> for full example. Styles in <code>styles.css</code>.</p>
 
         <div class="sg-block">
-          <div class="sg-label">Case hero with My Role block</div>
+          <div class="sg-label">Case hero (no image, 3 columns)</div>
           <div class="sg-preview sg-preview--case">
-            <section class="case-hero">
+            <section class="case-hero case-hero--flat case-hero--no-image">
               <div class="case-hero__content">
-                <p class="case-hero__eyebrow">The Walt Disney Company</p>
-                <h1 class="case-hero__title">Project Title</h1>
-                <p class="case-hero__subtitle">Brief project summary.</p>
-                <div class="case-hero__role">
-                  <div class="case-hero__role-grid">
-                    <div class="case-hero__role-item">
-                      <p class="case-hero__role-label">My Role</p>
-                      <p class="case-hero__role-value">Jan 2023 to present</p>
+                <p class="case-hero__eyebrow case-card__org">The Walt Disney Company</p>
+                <h1 class="case-hero__title section__title case-hero__title--page">Project Title</h1>
+                <p class="case-hero__subtitle case-hero__description">Brief project summary.</p>
+                <div class="case-hero__grid">
+                  <div class="case-hero__col case-hero__col--meta">
+                    <div class="case-hero__meta-item">
+                      <p class="case-hero__meta-label section__eyebrow">Timeframe</p>
+                      <p class="case-hero__meta-value body-small">Jan 2023 to present</p>
                     </div>
-                    <div class="case-hero__role-item">
-                      <p class="case-hero__role-label">Product Type</p>
-                      <p class="case-hero__role-value">Enterprise platform, Desktop web</p>
+                    <div class="case-hero__meta-item">
+                      <p class="case-hero__meta-label section__eyebrow">Product Type</p>
+                      <p class="case-hero__meta-value body-small">Enterprise platform</p>
+                      <p class="case-hero__meta-value body-small">Desktop web</p>
                     </div>
-                    <div class="case-hero__role-item">
-                      <p class="case-hero__role-label">Team</p>
-                      <p class="case-hero__role-value">4 PMs, 12+ Engineers, 2 TPMs</p>
+                    <div class="case-hero__meta-item">
+                      <p class="case-hero__meta-label section__eyebrow">Team</p>
+                      <p class="case-hero__meta-value body-small">4 PMs</p>
+                      <p class="case-hero__meta-value body-small">12+ Engineers</p>
+                      <p class="case-hero__meta-value body-small">2 TPMs</p>
                     </div>
                   </div>
-                  <p class="case-hero__role-label">My Role</p>
-                  <ul class="case-hero__role-list">
-                    <li>Lead designer</li>
-                    <li>Interaction designer</li>
-                    <li>Visual designer</li>
-                  </ul>
+                  <div class="case-hero__col case-hero__col--role">
+                    <p class="case-hero__meta-label section__eyebrow">My Role</p>
+                    <ul class="case-hero__role-list content-body">
+                      <li>Lead designer</li>
+                      <li>Interaction designer</li>
+                      <li>Visual designer</li>
+                    </ul>
+                  </div>
+                  <div class="case-hero__col case-hero__col--jump">
+                    <p class="case-jump-nav__title section__eyebrow">Jump To</p>
+                    <ol class="case-hero__jump-list">
+                      <li><a href="#context" class="case-jump-nav__link link-accent">Context</a></li>
+                      <li><a href="#objective" class="case-jump-nav__link link-accent">Objective</a></li>
+                      <li><a href="#outcomes" class="case-jump-nav__link link-accent">Outcomes</a></li>
+                    </ol>
+                  </div>
                 </div>
-              </div>
-              <div class="case-hero__image">
-                <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Project screenshot" />
               </div>
             </section>
           </div>
-          <div class="sg-label">HTML · hero + case-hero__role</div>
+          <div class="sg-label">HTML · case-hero (3-col: meta | role | jump to)</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-hero-role-html" aria-label="Copy HTML">Copy</button>
-            <pre class="sg-code" id="case-hero-role-html"><code>&lt;div class="case-hero__role"&gt;
-  &lt;div class="case-hero__role-grid"&gt;
-    &lt;div class="case-hero__role-item"&gt;
-      &lt;p class="case-hero__role-label"&gt;My Role&lt;/p&gt;
-      &lt;p class="case-hero__role-value"&gt;Jan 2023 to present&lt;/p&gt;
+            <pre class="sg-code" id="case-hero-role-html"><code>&lt;section class="case-hero case-hero--flat case-hero--no-image"&gt;
+  &lt;div class="case-hero__content"&gt;
+    &lt;p class="case-hero__eyebrow case-card__org"&gt;Client Name&lt;/p&gt;
+    &lt;h1 class="case-hero__title section__title case-hero__title--page"&gt;Project Title&lt;/h1&gt;
+    &lt;p class="case-hero__subtitle case-hero__description"&gt;Summary.&lt;/p&gt;
+    &lt;div class="case-hero__grid"&gt;
+      &lt;div class="case-hero__col case-hero__col--meta"&gt;… Timeframe, Product Type, Team …&lt;/div&gt;
+      &lt;div class="case-hero__col case-hero__col--role"&gt;… My Role list …&lt;/div&gt;
+      &lt;div class="case-hero__col case-hero__col--jump"&gt;… Jump To .case-hero__jump-list …&lt;/div&gt;
     &lt;/div&gt;
-    &lt;!-- more role-item --&gt;
   &lt;/div&gt;
-  &lt;p class="case-hero__role-label"&gt;My Role&lt;/p&gt;
-  &lt;ul class="case-hero__role-list"&gt;
-    &lt;li&gt;Lead designer&lt;/li&gt;
-    &lt;li&gt;Interaction designer&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
-          <div class="sg-label">Jump To nav</div>
+          <div class="sg-label">Jump To nav (standalone, if not inside hero)</div>
           <div class="sg-preview sg-preview--case">
             <nav class="case-jump-nav" aria-label="Jump to section">
-              <p class="case-jump-nav__title">Jump To</p>
+              <p class="case-jump-nav__title section__eyebrow">Jump To</p>
               <ol class="case-jump-nav__list">
-                <li><a href="#context" class="case-jump-nav__link">Context</a></li>
-                <li><a href="#objective" class="case-jump-nav__link">Objective</a></li>
-                <li><a href="#outcomes" class="case-jump-nav__link">Outcomes</a></li>
+                <li><a href="#context" class="case-jump-nav__link link-accent">Context</a></li>
+                <li><a href="#objective" class="case-jump-nav__link link-accent">Objective</a></li>
+                <li><a href="#outcomes" class="case-jump-nav__link link-accent">Outcomes</a></li>
               </ol>
             </nav>
           </div>
           <div class="sg-label">HTML · .case-jump-nav</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-jump-nav-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-jump-nav-html"><code>&lt;nav class="case-jump-nav" aria-label="Jump to section"&gt;
-  &lt;p class="case-jump-nav__title"&gt;Jump To&lt;/p&gt;
+  &lt;p class="case-jump-nav__title section__eyebrow"&gt;Jump To&lt;/p&gt;
   &lt;ol class="case-jump-nav__list"&gt;
-    &lt;li&gt;&lt;a href="#context" class="case-jump-nav__link"&gt;Context&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#outcomes" class="case-jump-nav__link"&gt;Outcomes&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#context" class="case-jump-nav__link link-accent"&gt;Context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#outcomes" class="case-jump-nav__link link-accent"&gt;Outcomes&lt;/a&gt;&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/nav&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
           <div class="sg-label">Flat section block (case-block)</div>
           <div class="sg-preview sg-preview--case">
             <section id="context" class="case-block">
-              <h2 class="case-block__title">Context</h2>
-              <h3 class="case-block__lead">Profitability through price increases</h3>
-              <div class="case-block__content">
+              <h2 class="case-block__title section__eyebrow">Context</h2>
+              <h3 class="case-block__lead section__title section__title--lead">Profitability through price increases</h3>
+              <div class="case-block__content content-body">
                 <p>Body paragraphs. No card styling.</p>
               </div>
               <figure class="case-block__media">
                 <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Diagram" />
-                <figcaption class="case-block__caption">Optional caption</figcaption>
+                <figcaption class="case-block__caption section__eyebrow">Optional caption</figcaption>
               </figure>
             </section>
           </div>
           <div class="sg-label">HTML · .case-block, .case-block__title, __lead, __content, __media, __caption</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-block-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-html"><code>&lt;section id="context" class="case-block"&gt;
-  &lt;h2 class="case-block__title"&gt;Context&lt;/h2&gt;
-  &lt;h3 class="case-block__lead"&gt;Subheading&lt;/h3&gt;
-  &lt;div class="case-block__content"&gt;
+  &lt;h2 class="case-block__title section__eyebrow"&gt;Context&lt;/h2&gt;
+  &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h3&gt;
+  &lt;div class="case-block__content content-body"&gt;
     &lt;p&gt;Paragraph.&lt;/p&gt;
   &lt;/div&gt;
   &lt;figure class="case-block__media"&gt;
     &lt;img src="./assets/disney-case-study/img_mentalmodels.png" alt="..." /&gt;
-    &lt;figcaption class="case-block__caption"&gt;Caption&lt;/figcaption&gt;
+    &lt;figcaption class="case-block__caption section__eyebrow"&gt;Caption&lt;/figcaption&gt;
   &lt;/figure&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
@@ -490,58 +484,65 @@
           <p>Use for the single-sentence objective or key goal. Visually distinct with soft indigo background and left accent.</p>
           <div class="sg-preview sg-preview--case">
             <section id="objective" class="case-block case-block--objective" aria-labelledby="objective-title">
-              <h2 id="objective-title" class="case-block__title">Objective</h2>
+              <h2 id="objective-title" class="case-block__title section__eyebrow">Objective</h2>
               <div class="case-block__content">
-                <p>Reduce operational steps and time spent on manual configurations to enable faster time to market and greater revenue for the business.</p>
+                <p class="lead-paragraph">Reduce operational steps and time spent on manual configurations to enable faster time to market and greater revenue for the business.</p>
               </div>
             </section>
           </div>
           <div class="sg-label">HTML · .case-block.case-block--objective</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-objective-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-objective-html"><code>&lt;section id="objective" class="case-block case-block--objective" aria-labelledby="objective-title"&gt;
-  &lt;h2 id="objective-title" class="case-block__title"&gt;Objective&lt;/h2&gt;
+  &lt;h2 id="objective-title" class="case-block__title section__eyebrow"&gt;Objective&lt;/h2&gt;
   &lt;div class="case-block__content"&gt;
-    &lt;p&gt;Your one-sentence objective or key goal.&lt;/p&gt;
+    &lt;p class="lead-paragraph"&gt;Your one-sentence objective or key goal.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
           <div class="sg-label">Flat section block — content left, image right</div>
+          <p><code>case-block__content-col</code> wraps the header and content. You can use <code>case-block__content</code> directly instead when the structure is simple; grid placement still works.</p>
           <div class="sg-preview sg-preview--case">
             <section id="context-left" class="case-block case-block--split-content-left">
               <div class="case-block__content-col">
-                <h2 class="case-block__title">Context</h2>
-                <h3 class="case-block__lead">Profitability through price increases</h3>
-                <div class="case-block__content">
+                <h2 class="case-block__title section__eyebrow">Context</h2>
+                <h3 class="case-block__lead section__title section__title--lead">Profitability through price increases</h3>
+                <div class="case-block__content content-body">
                   <p>Body text fills the left half. Use for sections where copy leads and the image supports.</p>
                 </div>
               </div>
               <figure class="case-block__media">
                 <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Diagram" />
-                <figcaption class="case-block__caption">Optional caption</figcaption>
+                <figcaption class="case-block__caption section__eyebrow">Optional caption</figcaption>
               </figure>
             </section>
           </div>
           <div class="sg-label">HTML · .case-block.case-block--split-content-left, header inside .case-block__content-col</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-block-split-left-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-split-left-html"><code>&lt;section id="context" class="case-block case-block--split-content-left"&gt;
   &lt;div class="case-block__content-col"&gt;
-    &lt;h2 class="case-block__title"&gt;Context&lt;/h2&gt;
-    &lt;h3 class="case-block__lead"&gt;Subheading&lt;/h3&gt;
-    &lt;div class="case-block__content"&gt;
+    &lt;h2 class="case-block__title section__eyebrow"&gt;Context&lt;/h2&gt;
+    &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h3&gt;
+    &lt;div class="case-block__content content-body"&gt;
       &lt;p&gt;Paragraph.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;figure class="case-block__media"&gt;
     &lt;img src="./assets/disney-case-study/img_mentalmodels.png" alt="..." /&gt;
-    &lt;figcaption class="case-block__caption"&gt;Caption&lt;/figcaption&gt;
+    &lt;figcaption class="case-block__caption section__eyebrow"&gt;Caption&lt;/figcaption&gt;
   &lt;/figure&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
@@ -549,60 +550,63 @@
           <div class="sg-preview sg-preview--case">
             <section id="context-right" class="case-block case-block--split-content-right">
               <div class="case-block__content-col">
-                <h2 class="case-block__title">Approach</h2>
-                <h3 class="case-block__lead">Designing for flexibility</h3>
-                <div class="case-block__content">
+                <h2 class="case-block__title section__eyebrow">Approach</h2>
+                <h3 class="case-block__lead section__title section__title--lead">Designing for flexibility</h3>
+                <div class="case-block__content content-body">
                   <p>Body text fills the right half. Use when the image should lead visually on the left.</p>
                 </div>
               </div>
               <figure class="case-block__media">
                 <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Diagram" />
-                <figcaption class="case-block__caption">Optional caption</figcaption>
+                <figcaption class="case-block__caption section__eyebrow">Optional caption</figcaption>
               </figure>
             </section>
           </div>
           <div class="sg-label">HTML · .case-block.case-block--split-content-right, header inside .case-block__content-col</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-block-split-right-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-split-right-html"><code>&lt;section id="approach" class="case-block case-block--split-content-right"&gt;
   &lt;div class="case-block__content-col"&gt;
-    &lt;h2 class="case-block__title"&gt;Approach&lt;/h2&gt;
-    &lt;h3 class="case-block__lead"&gt;Subheading&lt;/h3&gt;
-    &lt;div class="case-block__content"&gt;
+    &lt;h2 class="case-block__title section__eyebrow"&gt;Approach&lt;/h2&gt;
+    &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h3&gt;
+    &lt;div class="case-block__content content-body"&gt;
       &lt;p&gt;Paragraph.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;figure class="case-block__media"&gt;
     &lt;img src="./assets/disney-case-study/img_mentalmodels.png" alt="..." /&gt;
-    &lt;figcaption class="case-block__caption"&gt;Caption&lt;/figcaption&gt;
+    &lt;figcaption class="case-block__caption section__eyebrow"&gt;Caption&lt;/figcaption&gt;
   &lt;/figure&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
           <div class="sg-label">Two-column content (case-block--two-columns)</div>
-          <p>Two equal columns; each has optional image above, then h3 and paragraph(s). Use for side-by-side comparison or dual topics.</p>
+          <p>Two equal columns; each has optional image above, then h3 and paragraph(s). Use for side-by-side comparison or dual topics. Additional content (h3, figure) can follow the <code>.case-block__columns</code> block within the same section.</p>
           <div class="sg-preview sg-preview--case">
             <section id="compare" class="case-block case-block--two-columns">
               <div class="case-block__columns">
                 <div class="case-block__col">
                   <figure class="case-block__media">
                     <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Column 1 visual" />
-                    <figcaption class="case-block__caption">Optional caption</figcaption>
+                    <figcaption class="case-block__caption section__eyebrow">Optional caption</figcaption>
                   </figure>
-                  <h3 class="case-block__lead">Column 1 heading</h3>
-                  <div class="case-block__content">
+                  <h3 class="case-block__lead section__title section__title--lead">Column 1 heading</h3>
+                  <div class="case-block__content content-body">
                     <p>First column body text. Image above is optional—omit the figure to show only heading and copy.</p>
                   </div>
                 </div>
                 <div class="case-block__col">
                   <figure class="case-block__media">
                     <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Column 2 visual" />
-                    <figcaption class="case-block__caption">Optional caption</figcaption>
+                    <figcaption class="case-block__caption section__eyebrow">Optional caption</figcaption>
                   </figure>
-                  <h3 class="case-block__lead">Column 2 heading</h3>
-                  <div class="case-block__content">
+                  <h3 class="case-block__lead section__title section__title--lead">Column 2 heading</h3>
+                  <div class="case-block__content content-body">
                     <p>Second column body text. Each column can have an optional image above the h3.</p>
                   </div>
                 </div>
@@ -610,6 +614,8 @@
             </section>
           </div>
           <div class="sg-label">HTML · .case-block.case-block--two-columns, .case-block__columns, .case-block__col</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-block-two-cols-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-two-cols-html"><code>&lt;section id="section-id" class="case-block case-block--two-columns"&gt;
@@ -618,26 +624,27 @@
       &lt;!-- Optional: image above h3 --&gt;
       &lt;figure class="case-block__media"&gt;
         &lt;img src="..." alt="..." /&gt;
-        &lt;figcaption class="case-block__caption"&gt;Caption&lt;/figcaption&gt;
+        &lt;figcaption class="case-block__caption section__eyebrow"&gt;Caption&lt;/figcaption&gt;
       &lt;/figure&gt;
-      &lt;h3 class="case-block__lead"&gt;Column 1 heading&lt;/h3&gt;
-      &lt;div class="case-block__content"&gt;
+      &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Column 1 heading&lt;/h3&gt;
+      &lt;div class="case-block__content content-body"&gt;
         &lt;p&gt;Paragraph(s).&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="case-block__col"&gt;
       &lt;figure class="case-block__media"&gt;
         &lt;img src="..." alt="..." /&gt;
-        &lt;figcaption class="case-block__caption"&gt;Caption&lt;/figcaption&gt;
+        &lt;figcaption class="case-block__caption section__eyebrow"&gt;Caption&lt;/figcaption&gt;
       &lt;/figure&gt;
-      &lt;h3 class="case-block__lead"&gt;Column 2 heading&lt;/h3&gt;
-      &lt;div class="case-block__content"&gt;
+      &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Column 2 heading&lt;/h3&gt;
+      &lt;div class="case-block__content content-body"&gt;
         &lt;p&gt;Paragraph(s).&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
@@ -645,48 +652,54 @@
           <div class="sg-preview sg-preview--case">
             <div class="case-outcome-metrics">
               <div class="case-outcome-metrics__item">
-                <p class="case-outcome-metrics__value">66% <span aria-hidden="true">↓</span></p>
-                <p class="case-outcome-metrics__label">decrease in configuration time</p>
+                <p class="case-outcome-metrics__value section__title">66% <span aria-hidden="true">↓</span></p>
+                <p class="case-outcome-metrics__label section__subtitle">decrease in configuration time</p>
               </div>
               <div class="case-outcome-metrics__item">
-                <p class="case-outcome-metrics__value">53% <span aria-hidden="true">↓</span></p>
-                <p class="case-outcome-metrics__label">decrease in clicks</p>
+                <p class="case-outcome-metrics__value section__title">53% <span aria-hidden="true">↓</span></p>
+                <p class="case-outcome-metrics__label section__subtitle">decrease in clicks</p>
               </div>
               <div class="case-outcome-metrics__item">
-                <p class="case-outcome-metrics__value">$1.3B</p>
-                <p class="case-outcome-metrics__label">revenue enabled</p>
+                <p class="case-outcome-metrics__value section__title">$1.3B</p>
+                <p class="case-outcome-metrics__label section__subtitle">revenue enabled</p>
               </div>
             </div>
           </div>
           <div class="sg-label">HTML · .case-outcome-metrics</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-outcome-metrics-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-outcome-metrics-html"><code>&lt;div class="case-outcome-metrics"&gt;
   &lt;div class="case-outcome-metrics__item"&gt;
-    &lt;p class="case-outcome-metrics__value"&gt;66% ↓&lt;/p&gt;
-    &lt;p class="case-outcome-metrics__label"&gt;Label&lt;/p&gt;
+    &lt;p class="case-outcome-metrics__value section__title"&gt;66% ↓&lt;/p&gt;
+    &lt;p class="case-outcome-metrics__label section__subtitle"&gt;Label&lt;/p&gt;
   &lt;/div&gt;
   &lt;!-- more items --&gt;
 &lt;/div&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
           <div class="sg-label">Case blockquote (testimonial)</div>
           <div class="sg-preview sg-preview--case">
             <blockquote class="case-quote">
-              <p class="case-quote__text">"Quote from a user or stakeholder."</p>
-              <footer class="case-quote__cite">Attribution</footer>
+              <p class="case-quote__text hero__subtitle">"Quote from a user or stakeholder."</p>
+              <footer class="case-quote__cite section__subtitle">Attribution</footer>
             </blockquote>
           </div>
           <div class="sg-label">HTML · .case-quote</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-quote-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-quote-html"><code>&lt;blockquote class="case-quote"&gt;
-  &lt;p class="case-quote__text"&gt;"Quote text."&lt;/p&gt;
-  &lt;footer class="case-quote__cite"&gt;Attribution&lt;/footer&gt;
+  &lt;p class="case-quote__text hero__subtitle"&gt;"Quote text."&lt;/p&gt;
+  &lt;footer class="case-quote__cite section__subtitle"&gt;Attribution&lt;/footer&gt;
 &lt;/blockquote&gt;</code></pre>
           </div>
+          </details>
         </div>
 
         <div class="sg-block">
@@ -699,6 +712,8 @@
             </ol>
           </div>
           <div class="sg-label">HTML · .case-list--numbered</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-list-numbered-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-list-numbered-html"><code>&lt;ol class="case-list--numbered"&gt;
@@ -706,6 +721,7 @@
   &lt;li&gt;Second principle.&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
           </div>
+          </details>
         </div>
       </section>
 
@@ -715,6 +731,7 @@
       </p>
     </div>
 
+    <script src="script.js"></script>
     <script>
       document.querySelectorAll('.sg-copy').forEach(btn => {
         btn.addEventListener('click', () => {

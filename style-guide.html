@@ -20,7 +20,6 @@
       .sg-section h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; color: var(--text-main); }
       .sg-block { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); padding: 20px 24px; }
       .sg-swatch-row { display: flex; gap: 28px; flex-wrap: wrap; }
-      .sg-swatch-wrap { cursor: help; }
       .sg-swatch { width: 64px; height: 48px; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.08); }
       .sg-swatch-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
       .sg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px 20px; }
@@ -46,6 +45,7 @@
       .sg-hover .sg-tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border: 6px solid transparent; border-top-color: #1e293b; }
       .sg-hover:hover .sg-tooltip { opacity: 1; visibility: visible; }
       .sg-hover-block { display: block; }
+      .sg-swatch-wrap { cursor: help; }
       .sg-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }
       .sg-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
       .sg-table th:first-child,
@@ -88,8 +88,8 @@ linear-gradient(90deg, #625af4 0%,
 #638fff 51.44%, #55b0ff 100%);</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #101827;"></div><span class="sg-swatch-caption">Main text</span><div class="sg-tooltip" role="tooltip">--text-main: #101827;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #6b7280;"></div><span class="sg-swatch-caption">Muted</span><div class="sg-tooltip" role="tooltip">--text-muted: #6b7280;</div></div>
-            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #9ca3af;"></div><span class="sg-swatch-caption">Eyebrow</span><div class="sg-tooltip" role="tooltip">--text-eyebrow: #9ca3af;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #e5e7eb;"></div><span class="sg-swatch-caption">Border</span><div class="sg-tooltip" role="tooltip">--border-subtle: #e5e7eb;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #f4f4f6;"></div><span class="sg-swatch-caption">Callout / Objective bg</span><div class="sg-tooltip" role="tooltip">--bg-callout: #f4f4f6;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #fff; border: 1px solid rgba(0,0,0,0.1);"></div><span class="sg-swatch-caption">White</span><div class="sg-tooltip" role="tooltip">--color-white: #fff;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(76, 121, 235, 0.08);"></div><span class="sg-swatch-caption">Accent soft</span><div class="sg-tooltip" role="tooltip">--accent-primary-soft: rgba(76, 121, 235, 0.08);</div></div>
           </div>
@@ -130,10 +130,11 @@ linear-gradient(90deg, #625af4 0%,
   color: var(--text-muted);
 }</div></div></td></tr>
               <tr><td class="sg-name">Eyebrow / small label</td><td class="sg-purpose">Small uppercase labels above section titles</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__eyebrow" style="margin: 0;">Selected Work</p><div class="sg-tooltip" role="tooltip">.section__eyebrow {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-eyebrow);
+  color: var(--text-muted);
   margin: 0 0 4px;
 }</div></div></td></tr>
               <tr><td class="sg-name">Body text</td><td class="sg-purpose">Primary paragraph and body content</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__subtitle" style="margin: 0; max-width: 14rem;">As a scientist-turned-designer…</p><div class="sg-tooltip" role="tooltip">.hero__subtitle {
@@ -186,6 +187,42 @@ linear-gradient(90deg, #625af4 0%,
 }
 .site-footer__text a:hover {
   text-decoration: underline;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Body small</td><td class="sg-purpose">Small body copy (e.g. role values, metadata)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="body-small" style="margin: 0;">Jan 2023 to present</p><div class="sg-tooltip" role="tooltip">.body-small {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin: 0;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Lead paragraph</td><td class="sg-purpose">Emphasis paragraph (e.g. objective callout)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="lead-paragraph" style="margin: 0;">Reduce operational steps and time spent…</p><div class="sg-tooltip" role="tooltip">.lead-paragraph {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin: 0;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Accent link</td><td class="sg-purpose">Links with accent color, underline on hover</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><a href="#" class="link-accent">Jump to section</a><div class="sg-tooltip" role="tooltip">.link-accent {
+  color: var(--accent-indigo);
+  text-decoration: none;
+}
+.link-accent:hover {
+  text-decoration: underline;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Section title (lead)</td><td class="sg-purpose">Subheading below section eyebrow (slightly smaller)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h3 class="section__title section__title--lead" style="margin: 0;">Profitability through price increases</h3><div class="sg-tooltip" role="tooltip">.section__title--lead {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Case hero page title</td><td class="sg-purpose">Main headline on case study hero (no image layout)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h1 class="case-hero__title case-hero__title--page" style="margin: 0;">Streamlining Disney's Global Price Change Operations</h1><div class="sg-tooltip" role="tooltip">.case-hero__title--page {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}</div></div></td></tr>
+              <tr><td class="sg-name">Case hero description</td><td class="sg-purpose">Intro paragraph below case hero title</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="case-hero__description" style="margin: 0; max-width: 20rem;">Designing a guided and automated workflow to improve operational efficiency…</p><div class="sg-tooltip" role="tooltip">.case-hero__description {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
 }</div></div></td></tr>
             </tbody>
           </table>
@@ -430,6 +467,40 @@ linear-gradient(90deg, #625af4 0%,
         </div>
       </section>
 
+      <!-- Figures / Images -->
+      <section class="sg-section" aria-labelledby="figures-heading">
+        <h2 id="figures-heading">Figures / Images</h2>
+        <div class="sg-block">
+          <p class="sg-label" style="margin-bottom: 12px;">Caption above image, centered, small label styling (muted)</p>
+          <div class="sg-stack">
+            <div class="sg-stack-item">
+              <p class="sg-name">Case block figure</p>
+              <p class="sg-purpose">Image with caption above; caption uses small label text (uppercase, letter-spacing, muted color), centered.</p>
+              <div class="sg-sample sg-hover sg-hover-block" style="max-width: 360px;">
+                <figure class="case-block__media" style="margin: 0;">
+                  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='200' viewBox='0 0 360 200'%3E%3Crect fill='%23e5e7eb' width='360' height='200'/%3E%3Ctext fill='%236b7280' font-family='system-ui' font-size='14' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EImage placeholder%3C/text%3E%3C/svg%3E" alt="Sample figure" style="display: block; width: 100%; height: auto;" />
+                  <figcaption class="case-block__caption section__eyebrow">End-to-end workflow within Genie+</figcaption>
+                </figure>
+                <div class="sg-tooltip" role="tooltip">.case-block__media {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 24px 0 0;
+}
+.case-block__media img {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+.case-block__caption {
+  margin: 0 0 8px;
+  text-align: center;
+}
+/* Caption text: add .section__eyebrow to figcaption */</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Layout -->
       <section class="sg-section" aria-labelledby="layout-heading">
         <h2 id="layout-heading">Layout</h2>
@@ -462,10 +533,48 @@ main { margin: 0 var(--container-margin) 80px; }
                 <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);"><code>.section</code> base margin. <code>.section__header</code> wraps title + subtitle (margin-bottom). <code>.section--work</code> extra top margin. <code>.section--recommendations</code> top margin. <code>.section--anchor</code> 1px height for anchor targets.</p>
               </div>
             </div>
+            <div class="sg-stack-item">
+              <p class="sg-name">Footer</p>
+              <p class="sg-purpose">See <a href="patterns.html#global-heading">Footer in pattern library</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spacing -->
+      <section class="sg-section" aria-labelledby="spacing-heading">
+        <h2 id="spacing-heading">Spacing</h2>
+        <div class="sg-block">
+          <div class="sg-stack">
+            <div class="sg-stack-item">
+              <p class="sg-name">Section gap</p>
+              <p class="sg-purpose">Vertical gap between major case study sections. Used by <code>.case-block</code> and <code>.case-block--objective</code> (margin-top).</p>
+              <div class="sg-sample sg-hover sg-hover-block" style="padding: 12px; background: #f8fafc; border-radius: var(--radius-md);">
+                <div style="height: 32px; background: var(--border-subtle); border-radius: 4px; margin-bottom: 80px;"></div>
+                <div style="height: 32px; background: var(--border-subtle); border-radius: 4px;"></div>
+                <div class="sg-tooltip" role="tooltip">:root {
+  --space-section: 80px;
+  --space-block: 56px;
+  --space-stack: 24px;
+}
+.case-block,
+.case-block--objective {
+  margin-top: var(--space-section);
+}</div>
+              </div>
+            </div>
+            <div class="sg-stack-item">
+              <p class="sg-name">Spacing variables</p>
+              <p class="sg-purpose">Token purpose and usage</p>
+              <div class="sg-sample">
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);"><code>--space-section</code> — gap between case study sections (80px). <code>--space-block</code> — legacy block spacing (56px). <code>--space-stack</code> — in-block vertical stack (24px). Adjust <code>--space-section</code> in <code>:root</code> to change section breathing room site-wide.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

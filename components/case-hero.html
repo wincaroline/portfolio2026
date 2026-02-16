@@ -1,32 +1,46 @@
-<!-- Fill in: EYEBROW (e.g. "Disney · The Walt Disney Company"), TITLE, SUBTITLE, META (Role, Timeline, Team), IMG SRC, IMG ALT -->
-<section class="case-hero">
+<!-- Case hero: no image. Fill in EYEBROW, TITLE, DESCRIPTION. Col 1: Timeframe, Product Type, Team. Col 2: My Role list. Col 3: Jump To links. -->
+<section class="case-hero case-hero--flat case-hero--no-image">
   <div class="case-hero__content">
-    <p class="case-hero__eyebrow">Company · Client Name</p>
-    <h1 class="case-hero__title">
+    <p class="case-hero__eyebrow case-card__org">Company · Client Name</p>
+    <h1 class="case-hero__title section__title case-hero__title--page">
       Project Title
     </h1>
-    <p class="case-hero__subtitle">
+    <p class="case-hero__subtitle case-hero__description">
       Brief project summary describing the problem and approach.
     </p>
-    <dl class="case-hero__meta">
-      <div>
-        <dt>Role</dt>
-        <dd>Lead Product Designer</dd>
+    <div class="case-hero__grid">
+      <div class="case-hero__col case-hero__col--meta">
+        <div class="case-hero__meta-item">
+          <p class="case-hero__meta-label section__eyebrow">Timeframe</p>
+          <p class="case-hero__meta-value body-small">Start – End</p>
+        </div>
+        <div class="case-hero__meta-item">
+          <p class="case-hero__meta-label section__eyebrow">Product Type</p>
+          <p class="case-hero__meta-value body-small">Product type 1</p>
+          <p class="case-hero__meta-value body-small">Product type 2</p>
+        </div>
+        <div class="case-hero__meta-item">
+          <p class="case-hero__meta-label section__eyebrow">Team</p>
+          <p class="case-hero__meta-value body-small">Role 1</p>
+          <p class="case-hero__meta-value body-small">Role 2</p>
+        </div>
       </div>
-      <div>
-        <dt>Timeline</dt>
-        <dd>12 months</dd>
+      <div class="case-hero__col case-hero__col--role">
+        <p class="case-hero__meta-label section__eyebrow">My Role</p>
+        <ul class="case-hero__role-list content-body">
+          <li>Role one</li>
+          <li>Role two</li>
+          <li>Role three</li>
+        </ul>
       </div>
-      <div>
-        <dt>Team</dt>
-        <dd>PM, Tech Lead, 6 Engineers, Research</dd>
+      <div class="case-hero__col case-hero__col--jump">
+        <p class="case-jump-nav__title section__eyebrow">Jump To</p>
+        <ol class="case-hero__jump-list">
+          <li><a href="#section1" class="case-jump-nav__link link-accent">Section 1</a></li>
+          <li><a href="#section2" class="case-jump-nav__link link-accent">Section 2</a></li>
+          <li><a href="#section3" class="case-jump-nav__link link-accent">Section 3</a></li>
+        </ol>
       </div>
-    </dl>
-  </div>
-  <div class="case-hero__image">
-    <img
-      src="./assets/your-screenshot.png"
-      alt="Project interface screenshot"
-    />
+    </div>
   </div>
 </section>
