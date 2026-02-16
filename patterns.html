@@ -32,7 +32,7 @@
       .sg-nav { margin-bottom: 24px; font-size: 0.95rem; }
       .sg-nav a { color: var(--accent-indigo); text-decoration: none; }
       .sg-nav a:hover { text-decoration: underline; }
-      .sg-nav span { color: var(--text-muted); margin: 0 8px; }
+      .sg-nav span { color: var(--text-muted); margin: 0 6px; }
       .sg-accordion { margin-top: 8px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
       .sg-accordion summary {
         padding: 8px 12px; font-size: 0.75rem; font-weight: 600; color: var(--accent-indigo);
@@ -104,7 +104,7 @@
             <footer class="site-footer">
               <div class="site-footer__inner">
                 <div class="site-footer__copy">
-                  <p class="site-footer__heading">Say hello!</p>
+                  <p class="lead-paragraph">Say hello!</p>
                   <p class="site-footer__text">
                     Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
                   </p>
@@ -132,7 +132,7 @@
             <pre class="sg-code" id="footer-html"><code>&lt;footer class="site-footer"&gt;
   &lt;div class="site-footer__inner"&gt;
     &lt;div class="site-footer__copy"&gt;
-      &lt;p class="site-footer__heading"&gt;Say hello!&lt;/p&gt;
+      &lt;p class="lead-paragraph"&gt;Say hello!&lt;/p&gt;
       &lt;p class="site-footer__text"&gt;
         Send me a message on &lt;a href="..."&gt;LinkedIn&lt;/a&gt; or at &lt;a href="mailto:..."&gt;email&lt;/a&gt;.
       &lt;/p&gt;
@@ -165,7 +165,7 @@
             <section class="hero">
               <div class="hero__content">
                 <h1 class="hero__title">Designing for Impact</h1>
-                <p class="hero__subtitle">
+                <p class="body-large">
                   As a scientist-turned-designer with 11 years of experience grounded in human-computer interaction, I transform complex problems into elegant human-centered experiences.
                 </p>
                 <p class="hero__current-role">Current Role</p>
@@ -186,7 +186,7 @@
             <pre class="sg-code" id="index-hero-html"><code>&lt;section class="hero"&gt;
   &lt;div class="hero__content"&gt;
     &lt;h1 class="hero__title"&gt;Your Headline&lt;/h1&gt;
-    &lt;p class="hero__subtitle"&gt;Your intro paragraph.&lt;/p&gt;
+    &lt;p class="body-large"&gt;Your intro paragraph.&lt;/p&gt;
     &lt;p class="hero__current-role"&gt;Current Role&lt;/p&gt;
   &lt;/div&gt;
   &lt;figure class="hero__visual"&gt;
@@ -356,7 +356,7 @@
               <div class="case-hero__content">
                 <p class="case-hero__eyebrow case-card__org">The Walt Disney Company</p>
                 <h1 class="case-hero__title section__title case-hero__title--page">Project Title</h1>
-                <p class="case-hero__subtitle case-hero__description">Brief project summary.</p>
+                <p class="body-large case-hero__description">Brief project summary.</p>
                 <div class="case-hero__grid">
                   <div class="case-hero__col case-hero__col--meta">
                     <div class="case-hero__meta-item">
@@ -404,7 +404,7 @@
   &lt;div class="case-hero__content"&gt;
     &lt;p class="case-hero__eyebrow case-card__org"&gt;Client Name&lt;/p&gt;
     &lt;h1 class="case-hero__title section__title case-hero__title--page"&gt;Project Title&lt;/h1&gt;
-    &lt;p class="case-hero__subtitle case-hero__description"&gt;Summary.&lt;/p&gt;
+    &lt;p class="body-large case-hero__description"&gt;Summary.&lt;/p&gt;
     &lt;div class="case-hero__grid"&gt;
       &lt;div class="case-hero__col case-hero__col--meta"&gt;… Timeframe, Product Type, Team …&lt;/div&gt;
       &lt;div class="case-hero__col case-hero__col--role"&gt;… My Role list …&lt;/div&gt;
@@ -448,8 +448,8 @@
           <div class="sg-label">Flat section block (case-block)</div>
           <div class="sg-preview sg-preview--case">
             <section id="context" class="case-block">
-              <h2 class="case-block__title section__eyebrow">Context</h2>
-              <h3 class="case-block__lead section__title section__title--lead">Profitability through price increases</h3>
+              <p class="case-block__title section__eyebrow">Context</p>
+              <h2 class="case-block__lead section__title section__title--lead">Profitability through price increases</h2>
               <div class="case-block__content content-body">
                 <p>Body paragraphs. No card styling.</p>
               </div>
@@ -465,8 +465,8 @@
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-block-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-html"><code>&lt;section id="context" class="case-block"&gt;
-  &lt;h2 class="case-block__title section__eyebrow"&gt;Context&lt;/h2&gt;
-  &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h3&gt;
+  &lt;p class="case-block__title section__eyebrow"&gt;Context&lt;/p&gt;
+  &lt;h2 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h2&gt;
   &lt;div class="case-block__content content-body"&gt;
     &lt;p&gt;Paragraph.&lt;/p&gt;
   &lt;/div&gt;
@@ -484,21 +484,51 @@
           <p>Use for the single-sentence objective or key goal. Visually distinct with soft indigo background and left accent.</p>
           <div class="sg-preview sg-preview--case">
             <section id="objective" class="case-block case-block--objective" aria-labelledby="objective-title">
-              <h2 id="objective-title" class="case-block__title section__eyebrow">Objective</h2>
+              <p id="objective-title" class="case-block__title section__eyebrow">Objective</p>
               <div class="case-block__content">
                 <p class="lead-paragraph">Reduce operational steps and time spent on manual configurations to enable faster time to market and greater revenue for the business.</p>
               </div>
             </section>
           </div>
-          <div class="sg-label">HTML · .case-block.case-block--objective</div>
+          <div class="sg-label">HTML · .case-block.case-block--objective · use <code>lead-paragraph</code> for the statement</div>
           <details class="sg-accordion">
             <summary>View HTML</summary>
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-objective-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-objective-html"><code>&lt;section id="objective" class="case-block case-block--objective" aria-labelledby="objective-title"&gt;
-  &lt;h2 id="objective-title" class="case-block__title section__eyebrow"&gt;Objective&lt;/h2&gt;
+  &lt;p id="objective-title" class="case-block__title section__eyebrow"&gt;Objective&lt;/p&gt;
   &lt;div class="case-block__content"&gt;
     &lt;p class="lead-paragraph"&gt;Your one-sentence objective or key goal.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+          </div>
+          </details>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-label">Objective full-width (case-block--objective-fullwidth)</div>
+          <p>Edge-to-edge callout with centered text. Use <code>case-block--objective__statement</code> for the sentence (same as <code>.body-large</code>).</p>
+          <div class="sg-preview sg-preview--case">
+            <section id="objective-fw" class="case-block case-block--objective case-block--objective-fullwidth" aria-labelledby="objective-fw-title">
+              <div class="case-block--objective__inner">
+                <p id="objective-fw-title" class="case-block__title section__eyebrow">Objective</p>
+                <div class="case-block__content">
+                  <p class="case-block--objective__statement">Reduce operational steps and time spent on manual configurations for a price change to enable faster time to market and greater revenue for the business.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="sg-label">HTML · .case-block.case-block--objective.case-block--objective-fullwidth</div>
+          <details class="sg-accordion">
+            <summary>View HTML</summary>
+          <div class="sg-code-wrap">
+            <button type="button" class="sg-copy" data-copy="case-objective-fullwidth-html" aria-label="Copy HTML">Copy</button>
+            <pre class="sg-code" id="case-objective-fullwidth-html"><code>&lt;section id="objective" class="case-block case-block--objective case-block--objective-fullwidth" aria-labelledby="objective-title"&gt;
+  &lt;div class="case-block--objective__inner"&gt;
+    &lt;p id="objective-title" class="case-block__title section__eyebrow"&gt;Objective&lt;/p&gt;
+    &lt;div class="case-block__content"&gt;
+      &lt;p class="case-block--objective__statement"&gt;Your one-sentence objective.&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
           </div>
@@ -511,8 +541,8 @@
           <div class="sg-preview sg-preview--case">
             <section id="context-left" class="case-block case-block--split-content-left">
               <div class="case-block__content-col">
-                <h2 class="case-block__title section__eyebrow">Context</h2>
-                <h3 class="case-block__lead section__title section__title--lead">Profitability through price increases</h3>
+                <p class="case-block__title section__eyebrow">Context</p>
+                <h2 class="case-block__lead section__title section__title--lead">Profitability through price increases</h2>
                 <div class="case-block__content content-body">
                   <p>Body text fills the left half. Use for sections where copy leads and the image supports.</p>
                 </div>
@@ -530,8 +560,8 @@
             <button type="button" class="sg-copy" data-copy="case-block-split-left-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-split-left-html"><code>&lt;section id="context" class="case-block case-block--split-content-left"&gt;
   &lt;div class="case-block__content-col"&gt;
-    &lt;h2 class="case-block__title section__eyebrow"&gt;Context&lt;/h2&gt;
-    &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h3&gt;
+    &lt;p class="case-block__title section__eyebrow"&gt;Context&lt;/p&gt;
+    &lt;h2 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h2&gt;
     &lt;div class="case-block__content content-body"&gt;
       &lt;p&gt;Paragraph.&lt;/p&gt;
     &lt;/div&gt;
@@ -550,8 +580,8 @@
           <div class="sg-preview sg-preview--case">
             <section id="context-right" class="case-block case-block--split-content-right">
               <div class="case-block__content-col">
-                <h2 class="case-block__title section__eyebrow">Approach</h2>
-                <h3 class="case-block__lead section__title section__title--lead">Designing for flexibility</h3>
+                <p class="case-block__title section__eyebrow">Approach</p>
+                <h2 class="case-block__lead section__title section__title--lead">Designing for flexibility</h2>
                 <div class="case-block__content content-body">
                   <p>Body text fills the right half. Use when the image should lead visually on the left.</p>
                 </div>
@@ -569,8 +599,8 @@
             <button type="button" class="sg-copy" data-copy="case-block-split-right-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-block-split-right-html"><code>&lt;section id="approach" class="case-block case-block--split-content-right"&gt;
   &lt;div class="case-block__content-col"&gt;
-    &lt;h2 class="case-block__title section__eyebrow"&gt;Approach&lt;/h2&gt;
-    &lt;h3 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h3&gt;
+    &lt;p class="case-block__title section__eyebrow"&gt;Approach&lt;/p&gt;
+    &lt;h2 class="case-block__lead section__title section__title--lead"&gt;Subheading&lt;/h2&gt;
     &lt;div class="case-block__content content-body"&gt;
       &lt;p&gt;Paragraph.&lt;/p&gt;
     &lt;/div&gt;
@@ -685,7 +715,7 @@
           <div class="sg-label">Case blockquote (testimonial)</div>
           <div class="sg-preview sg-preview--case">
             <blockquote class="case-quote">
-              <p class="case-quote__text hero__subtitle">"Quote from a user or stakeholder."</p>
+              <p class="case-quote__text body-large">"Quote from a user or stakeholder."</p>
               <footer class="case-quote__cite section__subtitle">Attribution</footer>
             </blockquote>
           </div>
@@ -695,7 +725,7 @@
           <div class="sg-code-wrap">
             <button type="button" class="sg-copy" data-copy="case-quote-html" aria-label="Copy HTML">Copy</button>
             <pre class="sg-code" id="case-quote-html"><code>&lt;blockquote class="case-quote"&gt;
-  &lt;p class="case-quote__text hero__subtitle"&gt;"Quote text."&lt;/p&gt;
+  &lt;p class="case-quote__text body-large"&gt;"Quote text."&lt;/p&gt;
   &lt;footer class="case-quote__cite section__subtitle"&gt;Attribution&lt;/footer&gt;
 &lt;/blockquote&gt;</code></pre>
           </div>

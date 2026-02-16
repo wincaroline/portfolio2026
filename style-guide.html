@@ -19,6 +19,7 @@
       .sg-section { margin-bottom: 32px; }
       .sg-section h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; color: var(--text-main); }
       .sg-block { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); padding: 20px 24px; }
+      .sg-section .sg-block + .sg-block { margin-top: 24px; }
       .sg-swatch-row { display: flex; gap: 28px; flex-wrap: wrap; }
       .sg-swatch { width: 64px; height: 48px; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.08); }
       .sg-swatch-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
@@ -26,7 +27,7 @@
       .sg-grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
       .sg-grid-3 .case-card { grid-template-columns: 1fr; }
       .sg-inline { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
-      .sg-nav { margin-bottom: 16px; font-size: 0.9rem; }
+      .sg-nav { margin-bottom: 24px; font-size: 0.95rem; }
       .sg-nav a { color: var(--accent-indigo); text-decoration: none; }
       .sg-nav a:hover { text-decoration: underline; }
       .sg-nav span { color: var(--text-muted); margin: 0 6px; }
@@ -49,19 +50,34 @@
       .sg-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }
       .sg-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
       .sg-table th:first-child,
-      .sg-table td:first-child { width: 180px; }
+      .sg-table td:first-child { width: 160px; }
       .sg-table th:nth-child(2),
-      .sg-table td:nth-child(2) { width: 200px; }
+      .sg-table td:nth-child(2) { width: 180px; }
+      .sg-table th:nth-child(3),
+      .sg-table td:nth-child(3) { width: 72px; }
       .sg-table th { text-align: left; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); padding: 20px 24px; padding-left: 0; border-bottom: 1px solid var(--border-subtle); }
       .sg-table th:nth-child(2) { padding-left: 20px; }
       .sg-table th:nth-child(3) { padding-left: 20px; }
+      .sg-table th:nth-child(4) { padding-left: 20px; }
       .sg-table td { padding: 20px 24px; padding-left: 0; border-bottom: 1px solid var(--border-subtle); vertical-align: middle; }
       .sg-table td:nth-child(2) { padding-left: 20px; }
-      .sg-table td:nth-child(3) { padding-left: 20px; }
+      .sg-table td:nth-child(3) { padding-left: 20px; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--text-muted); }
+      .sg-table td:nth-child(4) { padding-left: 20px; }
       .sg-table tr:last-child td { border-bottom: none; }
       .sg-table .sg-name { font-size: 0.95rem; color: var(--text-main); }
       .sg-table .sg-purpose { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
       .sg-table .sg-sample { padding-left: 20px; }
+      .sg-table--five-col th:first-child,
+      .sg-table--five-col td:first-child { width: 100px; }
+      .sg-table--five-col th:nth-child(2),
+      .sg-table--five-col td:nth-child(2) { width: 140px; }
+      .sg-table--five-col th:nth-child(3),
+      .sg-table--five-col td:nth-child(3) { width: 200px; }
+      .sg-table--five-col th:nth-child(4),
+      .sg-table--five-col td:nth-child(4) { width: 64px; }
+      .sg-table--five-col td:nth-child(4) { font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--text-muted); }
+      .sg-table--five-col th:nth-child(5),
+      .sg-table--five-col td:nth-child(5) { padding-left: 20px; }
       /* Vertical stack for wide samples (Cards, Layout) */
       .sg-stack { display: flex; flex-direction: column; gap: 24px; }
       .sg-stack-item { display: block; }
@@ -75,6 +91,7 @@
       <p class="sg-nav"><a href="index.html">Portfolio</a><span>·</span>Style guide<span>·</span><a href="patterns.html">Pattern library</a></p>
       <h1 class="sg-page-title">Style guide</h1>
       <p class="sg-page-desc">Hover over any sample to see its CSS.</p>
+      <p class="sg-section" style="margin-bottom: 24px; padding: 16px 20px; background: #fff; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); font-size: 0.9rem; color: var(--text-main); line-height: 1.5;"><strong>When to use:</strong> Use tokens from this guide for all new UI. Keep type hierarchy consistent across pages (see Type scale and Typography). Use the same shadows, radii, and spacing variables so the site feels cohesive.</p>
 
       <!-- Colors -->
       <section class="sg-section" aria-labelledby="colors-heading">
@@ -87,11 +104,23 @@
 linear-gradient(90deg, #625af4 0%,
 #638fff 51.44%, #55b0ff 100%);</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #101827;"></div><span class="sg-swatch-caption">Main text</span><div class="sg-tooltip" role="tooltip">--text-main: #101827;</div></div>
-            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #6b7280;"></div><span class="sg-swatch-caption">Muted</span><div class="sg-tooltip" role="tooltip">--text-muted: #6b7280;</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #6b7280;"></div><span class="sg-swatch-caption">Muted</span><div class="sg-tooltip" role="tooltip">--text-muted: #6b7280;
+Use for eyebrows, captions, metadata (small/large text).</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #5b6170;"></div><span class="sg-swatch-caption">Body secondary</span><div class="sg-tooltip" role="tooltip">--text-body-secondary: #5b6170;
+Use for body-sized supporting copy (e.g. recommendation quotes) for better legibility.</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #e5e7eb;"></div><span class="sg-swatch-caption">Border</span><div class="sg-tooltip" role="tooltip">--border-subtle: #e5e7eb;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #f4f4f6;"></div><span class="sg-swatch-caption">Callout / Objective bg</span><div class="sg-tooltip" role="tooltip">--bg-callout: #f4f4f6;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #fff; border: 1px solid rgba(0,0,0,0.1);"></div><span class="sg-swatch-caption">White</span><div class="sg-tooltip" role="tooltip">--color-white: #fff;</div></div>
             <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(76, 121, 235, 0.08);"></div><span class="sg-swatch-caption">Accent soft</span><div class="sg-tooltip" role="tooltip">--accent-primary-soft: rgba(76, 121, 235, 0.08);</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background: linear-gradient(145deg, #e0f2fe, #eef2ff);"></div><span class="sg-swatch-caption">Card/media bg</span><div class="sg-tooltip" role="tooltip">--bg-card-media: linear-gradient(145deg, #e0f2fe, #eef2ff);</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(148, 163, 184, 0.6); border: 1px solid rgba(0,0,0,0.08);"></div><span class="sg-swatch-caption">Border ghost</span><div class="sg-tooltip" role="tooltip">--border-ghost: rgba(148, 163, 184, 0.6);</div></div>
+          </div>
+          <p class="sg-label" style="margin-top: 16px;">Hero tint (case hero card — intentional blue palette)</p>
+          <div class="sg-swatch-row">
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(59, 130, 246, 0.06);"></div><span class="sg-swatch-caption">Hero tint start</span><div class="sg-tooltip" role="tooltip">--hero-tint-start: rgba(59, 130, 246, 0.06);</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(14, 165, 233, 0.06);"></div><span class="sg-swatch-caption">Hero tint end</span><div class="sg-tooltip" role="tooltip">--hero-tint-end: rgba(14, 165, 233, 0.06);</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(191, 219, 254, 0.9);"></div><span class="sg-swatch-caption">Hero border</span><div class="sg-tooltip" role="tooltip">--hero-border: rgba(191, 219, 254, 0.9);</div></div>
+            <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(226, 232, 240, 0.9);"></div><span class="sg-swatch-caption">Hero image border</span><div class="sg-tooltip" role="tooltip">--hero-image-border: rgba(226, 232, 240, 0.9);</div></div>
           </div>
         </div>
       </section>
@@ -100,10 +129,31 @@ linear-gradient(90deg, #625af4 0%,
       <section class="sg-section" aria-labelledby="typography-heading">
         <h2 id="typography-heading">Typography</h2>
         <div class="sg-block">
+          <p class="sg-label">Type scale</p>
+          <p class="sg-purpose" style="margin: 0 0 12px; font-size: 0.85rem; color: var(--text-muted);">Font sizes and one example use each. Use these sizes consistently for hierarchy.</p>
           <table class="sg-table">
-            <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+            <thead><tr><th>Size</th><th>Example use</th></tr></thead>
             <tbody>
-              <tr><td class="sg-name">Hero headline</td><td class="sg-purpose">Main page title on the homepage</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__title" style="margin: 0;">Designing for Impact</p><div class="sg-tooltip" role="tooltip">.hero__title {
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.75rem</td><td class="sg-purpose">Case card metric labels</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.8rem</td><td class="sg-purpose">Eyebrow, small labels</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.85rem</td><td class="sg-purpose">Logo role, footer brand</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.9rem</td><td class="sg-purpose">Body small, accent label, card org</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1rem</td><td class="sg-purpose">Body large, content body, card summary</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.1rem</td><td class="sg-purpose">Section subtitle</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.4rem</td><td class="sg-purpose">Logo (script)</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.5rem</td><td class="sg-purpose">Section title (lead), card title</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.75rem</td><td class="sg-purpose">Section title, lead paragraph</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">2rem</td><td class="sg-purpose">Case hero page title</td></tr>
+              <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">3.5rem</td><td class="sg-purpose">Hero headline (homepage)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sg-block">
+          <p class="sg-label">General (by role)</p>
+          <table class="sg-table sg-table--five-col">
+            <thead><tr><th>Role</th><th>Style</th><th>Purpose</th><th>HTML</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Page/section title</td><td class="sg-name">Hero headline</td><td class="sg-purpose">Main page title on the homepage</td><td>h1</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h1 class="hero__title" style="margin: 0;">Designing for Impact</h1><div class="sg-tooltip" role="tooltip">.hero__title {
   margin: 0 0 16px;
   font-family: "Pacifico", cursive;
   font-size: 3.5rem;
@@ -119,65 +169,30 @@ linear-gradient(90deg, #625af4 0%,
   color: transparent;
   transform: translateZ(0);
 }</div></div></td></tr>
-              <tr><td class="sg-name">Section title</td><td class="sg-purpose">Headings for major content sections</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h2 class="section__title" style="margin: 0; font-size: 1.1rem;">Recommendations</h2><div class="sg-tooltip" role="tooltip">.section__title {
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Page/section title</td><td class="sg-name">Section title / Lead paragraph</td><td class="sg-purpose">Major section headings (e.g. Recommendations); footer heading; objective callout. Same style.</td><td>h2, p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h2 class="section__title" style="margin: 0;">Recommendations</h2><div class="sg-tooltip" role="tooltip">.section__title, .lead-paragraph {
   margin: 0 0 6px;
   font-size: 1.75rem;
   font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-main);
 }</div></div></td></tr>
-              <tr><td class="sg-name">Section subtitle</td><td class="sg-purpose">Supporting text below section titles</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__subtitle" style="margin: 0;">Thanks to all my teammates!</p><div class="sg-tooltip" role="tooltip">.section__subtitle {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--text-muted);
-}</div></div></td></tr>
-              <tr><td class="sg-name">Eyebrow / small label</td><td class="sg-purpose">Small uppercase labels above section titles</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__eyebrow" style="margin: 0;">Selected Work</p><div class="sg-tooltip" role="tooltip">.section__eyebrow {
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  margin: 0 0 4px;
-}</div></div></td></tr>
-              <tr><td class="sg-name">Body text</td><td class="sg-purpose">Primary paragraph and body content</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__subtitle" style="margin: 0; max-width: 14rem;">As a scientist-turned-designer…</p><div class="sg-tooltip" role="tooltip">.hero__subtitle {
-  margin: 0 0 24px;
-  color: var(--text-muted);
-  max-width: 42rem;
-  line-height: 1.6;
-  font-size: 1rem;
-}</div></div></td></tr>
-              <tr><td class="sg-name">Accent label</td><td class="sg-purpose">Key information highlights (e.g. role, status)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__current-role" style="margin: 0;">Current Role</p><div class="sg-tooltip" role="tooltip">.hero__current-role {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--accent-indigo);
-}</div></div></td></tr>
-              <tr><td class="sg-name">Logo (script)</td><td class="sg-purpose">Site name in script/display font</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__name">Caroline Win</span><div class="sg-tooltip" role="tooltip">.logo__name {
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Brand</td><td class="sg-name">Logo (script)</td><td class="sg-purpose">Site name in script/display font</td><td>span</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__name">Caroline Win</span><div class="sg-tooltip" role="tooltip">.logo__name {
   font-family: "Pacifico", cursive;
   font-size: 1.4rem;
   color: var(--accent-indigo);
 }</div></div></td></tr>
-              <tr><td class="sg-name">Logo subtitle</td><td class="sg-purpose">Tagline or role below logo</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__role">Product Design Strategist</span><div class="sg-tooltip" role="tooltip">.logo__role {
-  font-size: 0.85rem;
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Supporting</td><td class="sg-name">Section subtitle</td><td class="sg-purpose">Supporting text below section titles (larger than body large)</td><td>p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__subtitle" style="margin: 0;">Thanks to all my teammates!</p><div class="sg-tooltip" role="tooltip">.section__subtitle {
+  margin: 0;
+  font-size: 1.1rem;
   color: var(--text-muted);
 }</div></div></td></tr>
-              <tr><td class="sg-name">Card title</td><td class="sg-purpose">Project or case study titles in cards</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h3 class="case-card__title" style="margin: 0; font-size: 1rem;">Streamlining Price Change Operations</h3><div class="sg-tooltip" role="tooltip">.case-card__title {
-  margin: 0 0 12px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.25;
-}</div></div></td></tr>
-              <tr><td class="sg-name">Card org / company</td><td class="sg-purpose">Company or organization name in cards</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="case-card__org" style="margin: 0;">The Walt Disney Company</p><div class="sg-tooltip" role="tooltip">.case-card__org {
-  margin: 0 0 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--accent-indigo);
-}</div></div></td></tr>
-              <tr><td class="sg-name">Footer heading</td><td class="sg-purpose">Section headings in footer</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="site-footer__heading" style="margin: 0;">Say hello!</p><div class="sg-tooltip" role="tooltip">.site-footer__heading {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
-  font-weight: 600;
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Body</td><td class="sg-name">Body large</td><td class="sg-purpose">Primary body text: hero intro, case hero description, content-body, card summary, objective statement</td><td>p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="body-large" style="margin: 0; max-width: 14rem;">As a scientist-turned-designer…</p><div class="sg-tooltip" role="tooltip">.body-large {
+  margin: 0;
   color: var(--text-main);
+  line-height: 1.6;
+  font-size: 1rem;
 }</div></div></td></tr>
-              <tr><td class="sg-name">Footer body / links</td><td class="sg-purpose">Footer body text and navigation links</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="site-footer__text" style="margin: 0;">Message on <a href="#">LinkedIn</a> or <a href="#">email</a>.</p><div class="sg-tooltip" role="tooltip">.site-footer__text {
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Body</td><td class="sg-name">Footer body / links</td><td class="sg-purpose">Footer body text and navigation links</td><td>p, a</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="site-footer__text" style="margin: 0;">Message on <a href="#">LinkedIn</a> or <a href="#">email</a>.</p><div class="sg-tooltip" role="tooltip">.site-footer__text {
   margin: 0;
   line-height: 1.5;
 }
@@ -188,41 +203,63 @@ linear-gradient(90deg, #625af4 0%,
 .site-footer__text a:hover {
   text-decoration: underline;
 }</div></div></td></tr>
-              <tr><td class="sg-name">Body small</td><td class="sg-purpose">Small body copy (e.g. role values, metadata)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="body-small" style="margin: 0;">Jan 2023 to present</p><div class="sg-tooltip" role="tooltip">.body-small {
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Supporting</td><td class="sg-name">Logo subtitle</td><td class="sg-purpose">Tagline or role below logo</td><td>span</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__role">Product Design Strategist</span><div class="sg-tooltip" role="tooltip">.logo__role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}</div></div></td></tr>
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Supporting</td><td class="sg-name">Accent label</td><td class="sg-purpose">Key information highlights (e.g. role, status)</td><td>p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="hero__current-role" style="margin: 0;">Current Role</p><div class="sg-tooltip" role="tooltip">.hero__current-role {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-indigo);
+}</div></div></td></tr>
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Supporting</td><td class="sg-name">Body small</td><td class="sg-purpose">Small body copy (e.g. role values, metadata)</td><td>p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="body-small" style="margin: 0;">Jan 2023 to present</p><div class="sg-tooltip" role="tooltip">.body-small {
   font-size: 0.9rem;
   color: var(--text-main);
   line-height: 1.4;
   margin: 0;
 }</div></div></td></tr>
-              <tr><td class="sg-name">Lead paragraph</td><td class="sg-purpose">Emphasis paragraph (e.g. objective callout)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="lead-paragraph" style="margin: 0;">Reduce operational steps and time spent…</p><div class="sg-tooltip" role="tooltip">.lead-paragraph {
-  font-size: 1.1rem;
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Supporting/labels</td><td class="sg-name">Eyebrow / small label</td><td class="sg-purpose">Small uppercase labels above section titles</td><td>p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="section__eyebrow" style="margin: 0;">Selected Work</p><div class="sg-tooltip" role="tooltip">.section__eyebrow {
+  font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-main);
-  line-height: 1.55;
-  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0 0 4px;
 }</div></div></td></tr>
-              <tr><td class="sg-name">Accent link</td><td class="sg-purpose">Links with accent color, underline on hover</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><a href="#" class="link-accent">Jump to section</a><div class="sg-tooltip" role="tooltip">.link-accent {
+              <tr><td class="sg-purpose" style="font-size: 0.75rem;">Links</td><td class="sg-name">Accent link</td><td class="sg-purpose">Links with accent color, underline on hover</td><td>a</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><a href="#" class="link-accent">Jump to section</a><div class="sg-tooltip" role="tooltip">.link-accent {
   color: var(--accent-indigo);
   text-decoration: none;
 }
 .link-accent:hover {
   text-decoration: underline;
 }</div></div></td></tr>
-              <tr><td class="sg-name">Section title (lead)</td><td class="sg-purpose">Subheading below section eyebrow (slightly smaller)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h3 class="section__title section__title--lead" style="margin: 0;">Profitability through price increases</h3><div class="sg-tooltip" role="tooltip">.section__title--lead {
-  margin: 0 0 6px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.3;
-}</div></div></td></tr>
-              <tr><td class="sg-name">Case hero page title</td><td class="sg-purpose">Main headline on case study hero (no image layout)</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h1 class="case-hero__title case-hero__title--page" style="margin: 0;">Streamlining Disney's Global Price Change Operations</h1><div class="sg-tooltip" role="tooltip">.case-hero__title--page {
+            </tbody>
+          </table>
+        </div>
+        <div class="sg-block">
+          <p class="sg-label">Case study</p>
+          <table class="sg-table">
+            <thead><tr><th>Style</th><th>Purpose</th><th>HTML</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="sg-name">Case hero page title</td><td class="sg-purpose">Main headline on case study hero (no image layout)</td><td>h1</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h1 class="case-hero__title case-hero__title--page" style="margin: 0;">Streamlining Disney's Global Price Change Operations</h1><div class="sg-tooltip" role="tooltip">.case-hero__title--page {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.25;
 }</div></div></td></tr>
-              <tr><td class="sg-name">Case hero description</td><td class="sg-purpose">Intro paragraph below case hero title</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="case-hero__description" style="margin: 0; max-width: 20rem;">Designing a guided and automated workflow to improve operational efficiency…</p><div class="sg-tooltip" role="tooltip">.case-hero__description {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+              <tr><td class="sg-name">Section title (lead) / Card title</td><td class="sg-purpose">Section subheadings and case card titles. Same style.</td><td>h2, h3</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h3 class="section__title section__title--lead" style="margin: 0;">Profitability through price increases</h3><div class="sg-tooltip" role="tooltip">.section__title--lead, .case-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.section__title--lead { margin: 0 0 6px; }
+.case-card__title { margin: 0 0 12px; }</div></div></td></tr>
+              <tr><td class="sg-name">Card org / company</td><td class="sg-purpose">Company or organization name in cards</td><td>p</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="case-card__org" style="margin: 0;">The Walt Disney Company</p><div class="sg-tooltip" role="tooltip">.case-card__org {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-indigo);
 }</div></div></td></tr>
             </tbody>
           </table>
@@ -254,7 +291,7 @@ linear-gradient(90deg, #625af4 0%,
 }
 .btn--primary {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--color-white);
   box-shadow: 0 10px 28px rgba(89, 95, 255, 0.25);
 }
 .btn--primary:hover {
@@ -283,7 +320,7 @@ linear-gradient(90deg, #625af4 0%,
   color: var(--text-main);
 }
 .btn--ghost:hover {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   box-shadow: 0 8px 26px rgba(148, 163, 184, 0.26);
 }</div></div></td></tr>
               <tr><td class="sg-name">Text link</td><td class="sg-purpose">Minimal link style for tertiary actions</td><td class="sg-sample"><div class="sg-hover"><button type="button" class="btn btn--text">Text link</button><div class="sg-tooltip" role="tooltip">.btn {
@@ -333,12 +370,12 @@ linear-gradient(90deg, #625af4 0%,
 .nav__link--pill {
   padding: 8px 18px;
   background: var(--gradient-primary);
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 500;
 }
 .nav__link--pill:hover {
   opacity: 0.92;
-  color: #ffffff;
+  color: var(--color-white);
 }</div></div></td></tr>
               <tr><td class="sg-name">Plain nav links</td><td class="sg-purpose">Standard navigation links</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><a href="#" class="nav__link">About</a><div class="sg-tooltip" role="tooltip">.nav__link {
   font-size: 0.92rem;
@@ -353,6 +390,11 @@ linear-gradient(90deg, #625af4 0%,
 }</div></div><a href="#" class="nav__link">Resume</a> <a href="#" class="nav__link">Play</a></td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="sg-block">
+          <p class="sg-label">Focus states</p>
+          <p class="sg-purpose" style="margin: 0 0 12px; font-size: 0.85rem; color: var(--text-muted);">Keyboard and assistive-tech users see a visible focus ring. We use <code>:focus-visible</code> (with <code>:focus:not(:focus-visible)</code> to remove outline on mouse click). Outline: 2px solid <code>var(--accent-indigo)</code>, 2px offset. Buttons and pill nav links use white outline on accent background for contrast. Applied to: <code>.link-accent</code>, <code>.site-footer__text a</code>, <code>.site-footer__nav a</code>, <code>.nav__link</code>, <code>.btn</code>.</p>
+          <div class="sg-sample"><a href="#" class="link-accent">Tab to focus this link</a></div>
         </div>
       </section>
 
@@ -378,6 +420,21 @@ linear-gradient(90deg, #625af4 0%,
               <tr><td class="sg-name">Shadow soft</td><td class="sg-purpose">Subtle depth shadow for elevated elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 80px; height: 44px; background: #fff; border-radius: 18px; box-shadow: 0 18px 45px rgba(15,23,42,0.12); border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">:root {
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
 }</div></div></td></tr>
+              <tr><td class="sg-name">Shadow primary</td><td class="sg-purpose">Primary button default shadow</td><td class="sg-sample"><div class="sg-hover"><div style="width: 80px; height: 36px; background: var(--gradient-primary); border-radius: 999px; box-shadow: 0 10px 28px rgba(89,95,255,0.25);"></div><div class="sg-tooltip" role="tooltip">:root {
+  --shadow-primary: 0 10px 28px rgba(89, 95, 255, 0.25);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Shadow primary hover</td><td class="sg-purpose">Primary button hover shadow</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><code>--shadow-primary-hover</code><div class="sg-tooltip" role="tooltip">:root {
+  --shadow-primary-hover: 0 14px 36px rgba(89, 95, 255, 0.3);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Shadow card</td><td class="sg-purpose">Standard case card shadow</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><code>--shadow-card</code><div class="sg-tooltip" role="tooltip">:root {
+  --shadow-card: 0 12px 40px rgba(15, 23, 42, 0.08);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Shadow card featured</td><td class="sg-purpose">Featured case card shadow</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><code>--shadow-card-featured</code><div class="sg-tooltip" role="tooltip">:root {
+  --shadow-card-featured: 0 20px 50px rgba(89, 95, 255, 0.12);
+}</div></div></td></tr>
+              <tr><td class="sg-name">Shadow ghost</td><td class="sg-purpose">Ghost button hover shadow</td><td class="sg-sample"><div class="sg-hover" style="display: inline-block;"><code>--shadow-ghost</code><div class="sg-tooltip" role="tooltip">:root {
+  --shadow-ghost: 0 8px 26px rgba(148, 163, 184, 0.26);
+}</div></div></td></tr>
             </tbody>
           </table>
         </div>
@@ -392,7 +449,7 @@ linear-gradient(90deg, #625af4 0%,
               <p class="sg-name">Case card featured</p>
               <p class="sg-purpose">Highlighted case study with gradient treatment</p>
               <div class="sg-sample sg-hover sg-hover-block">
-                <article class="case-card case-card--featured" style="margin: 0; padding: 14px;"><div class="case-card__content"><p class="case-card__org">The Walt Disney Company</p><h3 class="case-card__title" style="font-size: 0.95rem;">Streamlining Price Change Operations</h3><p class="case-card__summary" style="font-size: 0.8rem;">Empowering business operations teams at Disney…</p><a href="#" class="btn btn--primary" style="padding: 6px 12px; font-size: 0.8rem;">Learn More</a></div><div class="case-card__media case-card__media--placeholder" style="min-height: 50px;"><span style="font-size: 0.75rem;">Preview</span></div></article>
+                <article class="case-card case-card--featured" style="margin: 0; padding: 14px;"><div class="case-card__content"><p class="case-card__org">The Walt Disney Company</p><h3 class="case-card__title">Streamlining Price Change Operations</h3><p class="case-card__summary">Empowering business operations teams at Disney…</p><a href="#" class="btn btn--primary" style="padding: 6px 12px; font-size: 0.8rem;">Learn More</a></div><div class="case-card__media case-card__media--placeholder" style="min-height: 50px;"><span style="font-size: 0.75rem;">Preview</span></div></article>
                 <div class="sg-tooltip" role="tooltip">.case-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
@@ -403,12 +460,12 @@ linear-gradient(90deg, #625af4 0%,
   background: rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-card);
 }
 .case-card--featured {
   background: linear-gradient(135deg, rgba(89, 95, 255, 0.04), rgba(128, 187, 255, 0.06)), #fff;
   border-color: rgba(89, 95, 255, 0.2);
-  box-shadow: 0 20px 50px rgba(89, 95, 255, 0.12);
+  box-shadow: var(--shadow-card-featured);
 }</div>
               </div>
             </div>
@@ -416,7 +473,7 @@ linear-gradient(90deg, #625af4 0%,
               <p class="sg-name">Case card standard</p>
               <p class="sg-purpose">Standard case study card layout</p>
               <div class="sg-sample sg-hover sg-hover-block">
-                <article class="case-card" style="margin: 0; padding: 14px;"><div class="case-card__content"><p class="case-card__org">Belkin International</p><h3 class="case-card__title" style="font-size: 0.95rem;">Wemo Smart Home Setup</h3><p class="case-card__summary" style="font-size: 0.8rem;">Guiding users through setup.</p><a href="#" class="btn btn--primary" style="padding: 6px 12px; font-size: 0.8rem;">Learn More</a></div><div class="case-card__media case-card__media--placeholder" style="min-height: 50px;"><span style="font-size: 0.75rem;">Preview</span></div></article>
+                <article class="case-card" style="margin: 0; padding: 14px;"><div class="case-card__content"><p class="case-card__org">Belkin International</p><h3 class="case-card__title">Wemo Smart Home Setup</h3><p class="case-card__summary">Guiding users through setup.</p><a href="#" class="btn btn--primary" style="padding: 6px 12px; font-size: 0.8rem;">Learn More</a></div><div class="case-card__media case-card__media--placeholder" style="min-height: 50px;"><span style="font-size: 0.75rem;">Preview</span></div></article>
                 <div class="sg-tooltip" role="tooltip">.case-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
@@ -427,7 +484,7 @@ linear-gradient(90deg, #625af4 0%,
   background: rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-card);
 }</div>
               </div>
             </div>
@@ -435,7 +492,7 @@ linear-gradient(90deg, #625af4 0%,
               <p class="sg-name">Recommendation card</p>
               <p class="sg-purpose">Testimonial or recommendation display</p>
               <div class="sg-sample sg-hover sg-hover-block">
-                <article class="rec-card" style="padding: 12px;"><p class="rec-card__quote" style="font-size: 0.8rem;">Caroline plays a crucial role in shaping our product…</p><footer class="rec-card__author" style="font-size: 0.75rem;"><strong class="rec-card__name">Sahand Javid</strong><span class="rec-card__role">Sr. Software Engineer</span></footer></article>
+                <article class="rec-card" style="padding: 12px;"><p class="rec-card__quote">Caroline plays a crucial role in shaping our product…</p><footer class="rec-card__author"><strong class="rec-card__name">Sahand Javid</strong><span class="rec-card__role">Sr. Software Engineer</span></footer></article>
                 <div class="sg-tooltip" role="tooltip">.rec-card {
   background: rgba(255, 255, 255, 0.98);
   border-radius: var(--radius-lg);
@@ -446,7 +503,7 @@ linear-gradient(90deg, #625af4 0%,
 .rec-card__quote {
   margin: 0 0 16px;
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-body-secondary);
   line-height: 1.6;
 }
 .rec-card__author { margin: 0; font-size: 0.9rem; }
@@ -527,6 +584,13 @@ main { margin: 0 var(--container-margin) 80px; }
               </div>
             </div>
             <div class="sg-stack-item">
+              <p class="sg-name">Reading width (measure)</p>
+              <p class="sg-purpose">Comfortable line length for body text: aim for 45–75 characters per line. <code>.hero .body-large</code> uses <code>max-width: 42rem</code>; <code>.case-hero__description</code> uses <code>max-width: 52rem</code>. Apply similar constraints to long-form content.</p>
+              <div class="sg-sample">
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">See Typography / body-large and case hero description in <code>styles.css</code>.</p>
+              </div>
+            </div>
+            <div class="sg-stack-item">
               <p class="sg-name">Sections</p>
               <p class="sg-purpose">Section wrappers and modifiers for index page layout</p>
               <div class="sg-sample">
@@ -550,11 +614,11 @@ main { margin: 0 var(--container-margin) 80px; }
               <p class="sg-name">Section gap</p>
               <p class="sg-purpose">Vertical gap between major case study sections. Used by <code>.case-block</code> and <code>.case-block--objective</code> (margin-top).</p>
               <div class="sg-sample sg-hover sg-hover-block" style="padding: 12px; background: #f8fafc; border-radius: var(--radius-md);">
-                <div style="height: 32px; background: var(--border-subtle); border-radius: 4px; margin-bottom: 80px;"></div>
+                <div style="height: 32px; background: var(--border-subtle); border-radius: 4px; margin-bottom: 120px;"></div>
                 <div style="height: 32px; background: var(--border-subtle); border-radius: 4px;"></div>
                 <div class="sg-tooltip" role="tooltip">:root {
-  --space-section: 80px;
-  --space-block: 56px;
+  --space-section: 120px;
+  --space-block: 80px;
   --space-stack: 24px;
 }
 .case-block,
@@ -567,7 +631,7 @@ main { margin: 0 var(--container-margin) 80px; }
               <p class="sg-name">Spacing variables</p>
               <p class="sg-purpose">Token purpose and usage</p>
               <div class="sg-sample">
-                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);"><code>--space-section</code> — gap between case study sections (80px). <code>--space-block</code> — legacy block spacing (56px). <code>--space-stack</code> — in-block vertical stack (24px). Adjust <code>--space-section</code> in <code>:root</code> to change section breathing room site-wide.</p>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);"><code>--space-section</code> — gap between case study sections (120px). <code>--space-block</code> — legacy block spacing (80px). <code>--space-stack</code> — in-block vertical stack (24px). Adjust <code>--space-section</code> in <code>:root</code> to change section breathing room site-wide.</p>
               </div>
             </div>
           </div>
