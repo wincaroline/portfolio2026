@@ -8,14 +8,15 @@ alwaysApply: false
 
 ## BEM and styles
 
-Use BEM-style class names; all component classes are defined in `styles.css`. Do not invent new class names for existing patterns.
+Use BEM-style class names for layout and components; all component classes are defined in `styles.css`. Do not invent new class names for existing patterns.
+
+**Typography:** Prefer element-based hierarchy (h1, h2, h3, h4, h5, p) with context (e.g. `.hero h1`, `.case-hero h1`). Use variant classes only when needed: `.eyebrow`, `.subtitle`, `.text-small`, `.org`, `.lead`. Text classes are typography-only (no margins). **Spacing:** Apply spacing explicitly in HTML using margin utilities: class name = pixel size, e.g. `mb-2`, `mb-4`, `mb-6`, `mb-8`, `mb-12`, `mb-16`, `mb-24`, `mb-32`, `mb-40` (and `mt-*`). Layout spacing (gap, padding) stays in CSS using tokens `--space-2` through `--space-120`. See `design-system.html` (Style Guide tab) for the full type scale and spacing utilities.
 
 ## Canonical sources
 
 - **Full page example:** `disney-case-study.html` — long-form case study structure: hero + My Role block, Jump To nav, flat case-block sections (no cards), outcome metrics, blockquote, and footer with Say hello + nav. Use as reference for new case studies.
-- **Pattern library:** `patterns.html` — documents all patterns. “Case study sections” documents hero + My Role, Jump To nav, case-block, outcome metrics, case-quote, and numbered list. Source snippets live in `components/`.
+- **Design system** (`design-system.html`): Style Guide tab — typography, colors, UI specs. Patterns tab — documents all patterns. “Case study sections” documents hero + My Role, Jump To nav, case-block, outcome metrics, case-quote, and numbered list. Source snippets live in `components/`.
 - **Component snippets:** `components/` — `case-hero.html`, `case-hero-with-role.html`, `case-study-shell.html`, `header.html`, `footer.html`. Use or adapt when adding content.
-- **Style guide:** `style-guide.html` — typography, colors, and UI specs.
 
 ## When adding or editing pages
 

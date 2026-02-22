@@ -1,44 +1,47 @@
-<!-- Hero with My Role block. Fill in: EYEBROW, TITLE, SUBTITLE, role grid values, role list, IMG SRC, IMG ALT -->
-<section class="case-hero">
-  <div class="case-hero__content">
-    <p class="case-hero__eyebrow">The Walt Disney Company</p>
-    <h1 class="case-hero__title">
-      Project Title
-    </h1>
-    <p class="body-large case-hero__subtitle">
-      Brief project summary describing the problem and approach.
-    </p>
-    <div class="case-hero__role">
-      <div class="case-hero__role-grid">
-        <div class="case-hero__role-item">
-          <p class="case-hero__role-label">My Role</p>
-          <p class="case-hero__role-value">Jan 2023 to present</p>
+<!-- Case study hero with optional hero image. Same grid-3col structure as case-hero.html; add a second section with .grid-2col if you want an image beside the hero. See disney-case-study.html for no-image version. -->
+<section class="fade-in-on-load">
+  <div>
+    <p class="mb-24"><a href="index.html">← Home</a></p>
+    <div class="mb-24">
+      <p class="org mb-6">The Walt Disney Company</p>
+      <h1>Project Title</h1>
+      <p class="subtitle">Brief project summary describing the problem and approach.</p>
+    </div>
+    <div class="grid-3col">
+      <div class="grid-3col__col">
+        <div class="mb-32">
+          <h5 class="blue">Timeframe</h5>
+          <p>Jan 2023 to present</p>
         </div>
-        <div class="case-hero__role-item">
-          <p class="case-hero__role-label">Product Type</p>
-          <p class="case-hero__role-value">Enterprise platform, Desktop web</p>
+        <div class="mb-32">
+          <h5 class="blue">Product Type</h5>
+          <p>Enterprise platform</p>
+          <p>Desktop web</p>
         </div>
-        <div class="case-hero__role-item">
-          <p class="case-hero__role-label">Team</p>
-          <p class="case-hero__role-value">4 PMs, 12+ Engineers, 2 TPMs</p>
+        <div>
+          <h5 class="blue">Team</h5>
+          <p>4 PMs, 12+ Engineers, 2 TPMs</p>
         </div>
       </div>
-      <p class="case-hero__role-label">My Role</p>
-      <ul class="case-hero__role-list">
-        <li>Lead designer</li>
-        <li>Interaction designer</li>
-        <li>Information architect</li>
-        <li>Visual designer</li>
-        <li>Design strategist</li>
-        <li>User researcher</li>
-        <li>Prototyper</li>
-      </ul>
+      <div class="grid-3col__col">
+        <h5 class="blue">My Role</h5>
+        <ul>
+          <li>Lead designer</li>
+          <li>Interaction designer</li>
+          <li>Information architect</li>
+          <li>Visual designer</li>
+          <li>Design strategist</li>
+          <li>User researcher</li>
+          <li>Prototyper</li>
+        </ul>
+      </div>
+      <div class="grid-3col__col">
+        <h5 class="blue">Jump To</h5>
+        <ol>
+          <li class="mb-6"><a href="#context">Context</a></li>
+          <li class="mb-6"><a href="#objective">Objective</a></li>
+        </ol>
+      </div>
     </div>
-  </div>
-  <div class="case-hero__image">
-    <img
-      src="./assets/your-screenshot.png"
-      alt="Project interface screenshot"
-    />
   </div>
 </section>

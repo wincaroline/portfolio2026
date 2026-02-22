@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System | Caroline Win</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .sg-wrap { max-width: none; margin: 0 72px; padding: 28px 0 56px; }
+      .ds-wrap { margin: 0 72px; padding: 28px 0 24px; }
+      .sg-page-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 6px; color: var(--text-main); }
+      .sg-page-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 36px; line-height: 1.5; }
+      .sg-section { margin-bottom: 32px; }
+      .sg-section h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; color: var(--text-main); }
+      .sg-section > h2 { font-size: 1.35rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 16px; }
+      .sg-section > p, .sg-block > p { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 20px; line-height: 1.5; }
+      .sg-block { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); padding: 24px; margin-bottom: 16px; }
+      .sg-section .sg-block + .sg-block { margin-top: 24px; }
+      .sg-block:last-child { margin-bottom: 0; }
+      .sg-swatch-row { display: flex; gap: 28px; flex-wrap: wrap; }
+      .sg-swatch { width: 64px; height: 48px; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.08); }
+      .sg-swatch-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
+      .sg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px 20px; }
+      .sg-grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+      .sg-inline { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+      .sg-nav { margin-bottom: 24px; font-size: 0.95rem; }
+      .sg-nav a { color: var(--accent-indigo); text-decoration: none; }
+      .sg-nav a:hover { text-decoration: underline; }
+      .sg-nav span { color: var(--text-muted); margin: 0 6px; }
+      .sg-footer { margin-top: 40px; font-size: 0.85rem; color: var(--text-muted); }
+      .sg-footer a { color: var(--accent-indigo); }
+      .sg-hover { position: relative; cursor: help; display: inline-block; }
+      .sg-hover .sg-tooltip {
+        position: absolute; z-index: 50; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+        background: #1e293b; color: #e2e8f0; font-family: ui-monospace, monospace; font-size: 0.7rem;
+        padding: 12px 14px; border-radius: 8px; white-space: pre; line-height: 1.5; max-width: 360px;
+        max-height: 70vh; overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        opacity: 0; visibility: hidden; transition: opacity 0.15s, visibility 0.15s;
+        pointer-events: none;
+      }
+      .sg-hover .sg-tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border: 6px solid transparent; border-top-color: #1e293b; }
+      .sg-hover:hover .sg-tooltip { opacity: 1; visibility: visible; }
+      .sg-hover-block { display: block; }
+      .sg-swatch-wrap { cursor: help; }
+      .sg-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }
+      .sg-label.letter-08 { letter-spacing: 0.08em; font-size: 0.75rem; margin-bottom: 12px; }
+      .sg-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+      .sg-table th:first-child, .sg-table td:first-child { width: 160px; }
+      .sg-table th:nth-child(2), .sg-table td:nth-child(2) { width: 180px; }
+      .sg-table th:nth-child(3), .sg-table td:nth-child(3) { width: 72px; }
+      .sg-table th { text-align: left; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); padding: 20px 24px; padding-left: 0; border-bottom: 1px solid var(--border-subtle); }
+      .sg-table th:nth-child(2) { padding-left: 20px; }
+      .sg-table th:nth-child(3) { padding-left: 20px; }
+      .sg-table th:nth-child(4) { padding-left: 20px; }
+      .sg-table td { padding: 20px 24px; padding-left: 0; border-bottom: 1px solid var(--border-subtle); vertical-align: middle; }
+      .sg-table td:nth-child(2) { padding-left: 20px; }
+      .sg-table td:nth-child(3) { padding-left: 20px; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--text-muted); }
+      .sg-table td:nth-child(4) { padding-left: 20px; }
+      .sg-table tr:last-child td { border-bottom: none; }
+      .sg-table .sg-name { font-size: 0.95rem; color: var(--text-main); }
+      .sg-table .sg-purpose { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+      .sg-table .sg-sample { padding-left: 20px; }
+      .sg-table--typography th:first-child, .sg-table--typography td:first-child { width: 180px; }
+      .sg-table--typography th:nth-child(2), .sg-table--typography td:nth-child(2) { font-family: "Figtree", sans-serif; font-size: 0.8rem; color: var(--text-muted); }
+      .sg-table--typography th:nth-child(3), .sg-table--typography td:nth-child(3) { width: 72px; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--text-muted); }
+      .sg-table--typography th:nth-child(4), .sg-table--typography td:nth-child(4) { width: 140px; padding-left: 20px; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--text-muted); word-wrap: break-word; overflow-wrap: break-word; white-space: normal; }
+      .sg-table--typography th:nth-child(5), .sg-table--typography td:nth-child(5) { padding-left: 20px; }
+      .sg-table--typography .sg-sample h2 { font-size: 1.75rem; font-weight: 700; line-height: 1.3; }
+      .sg-stack { display: flex; flex-direction: column; gap: 24px; }
+      .sg-stack-item { display: block; }
+      .sg-stack-item .sg-name { font-size: 0.95rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
+      .sg-stack-item .sg-purpose { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 8px; }
+      .sg-stack-item .sg-sample { padding: 0; }
+      .sg-preview { border: 1px dashed var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-bottom: 12px; background: #fff; }
+      .sg-preview--case { max-width: 100%; }
+      .sg-code { font-size: 0.8rem; font-family: ui-monospace, monospace; background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: var(--radius-md); overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin: 0; line-height: 1.5; }
+      .sg-code-wrap { position: relative; }
+      .sg-copy { position: absolute; top: 8px; right: 8px; font-size: 0.7rem; padding: 4px 10px; background: rgba(255,255,255,0.15); border: none; border-radius: 6px; color: #e2e8f0; cursor: pointer; }
+      .sg-copy:hover { background: rgba(255,255,255,0.25); }
+      .sg-copy.copied { background: #22c55e; color: #fff; }
+      .sg-accordion { margin-top: 8px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+      .sg-accordion summary { padding: 8px 12px; font-size: 0.75rem; font-weight: 600; color: var(--accent-indigo); cursor: pointer; list-style: none; background: #f8fafc; }
+      .sg-accordion summary::-webkit-details-marker { display: none; }
+      .sg-accordion summary::before { content: "▶ "; font-size: 0.6rem; }
+      .sg-accordion[open] summary::before { content: "▼ "; }
+      .ds-tabs { display: flex; gap: var(--space-16); margin-bottom: var(--space-24); border-bottom: 1px solid var(--border-subtle); }
+      .ds-tab { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); background: none; border: none; padding: 12px 4px; margin-bottom: -1px; border-bottom: 2px solid transparent; cursor: pointer; font-family: inherit; }
+      .ds-tab:hover { color: var(--text-main); }
+      .ds-tab.is-active { color: var(--accent-indigo); border-bottom-color: var(--accent-indigo); }
+      .ds-panel { display: none; }
+      .ds-panel.is-active { display: block; }
+    </style>
+  </head>
+  <body class="sg-body">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="index.html" class="logo">
+          <span class="logo__name">Caroline Win</span>
+          <span class="logo__role">Product Design Strategist</span>
+        </a>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav class="nav" id="main-nav" aria-label="Main">
+          <a href="index.html" class="nav__link">Work</a>
+          <a href="about.html" class="nav__link">About</a>
+          <a href="resume.html" class="nav__link">Resume</a>
+          <a href="design-system.html" class="nav__link nav__link--pill" aria-current="page">Design System</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+    <div class="ds-wrap">
+      <h1 class="sg-page-title">Design System</h1>
+      <div class="ds-tabs" role="tablist" aria-label="Design system sections">
+        <button type="button" class="ds-tab is-active" role="tab" aria-selected="true" aria-controls="panel-style-guide" id="tab-style-guide">Style Guide</button>
+        <button type="button" class="ds-tab" role="tab" aria-selected="false" aria-controls="panel-patterns" id="tab-patterns">Patterns</button>
+      </div>
+
+      <section id="panel-style-guide" class="ds-panel is-active" role="tabpanel" aria-labelledby="tab-style-guide">
+        <div class="sg-wrap">
+          <p class="sg-page-desc">Hover over any sample to see its CSS.</p>
+          <p class="sg-section" style="margin-bottom: 24px; padding: 16px 20px; background: #fff; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); font-size: 0.9rem; color: var(--text-main); line-height: 1.5;"><strong>When to use:</strong> Use tokens from this guide for all new UI. Keep type hierarchy consistent across pages (see Type scale and Typography). Use the same shadows, radii, and spacing variables so the site feels cohesive.</p>
+
+          <!-- Colors -->
+          <section class="sg-section" aria-labelledby="colors-heading">
+            <h2 id="colors-heading">Colors</h2>
+            <div class="sg-block">
+              <div class="sg-swatch-row">
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #4c79eb;"></div><span class="sg-swatch-caption">Accent</span><div class="sg-tooltip" role="tooltip">--accent-indigo: #4c79eb;</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #80bbff;"></div><span class="sg-swatch-caption">Secondary</span><div class="sg-tooltip" role="tooltip">--accent-secondary: #80bbff;</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background: linear-gradient(90deg, #625af4 0%, #638fff 51.44%, #55b0ff 100%);"></div><span class="sg-swatch-caption">Gradient</span><div class="sg-tooltip" role="tooltip">--gradient-primary:
+linear-gradient(90deg, #625af4 0%,
+#638fff 51.44%, #55b0ff 100%);</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #101827;"></div><span class="sg-swatch-caption">Main text</span><div class="sg-tooltip" role="tooltip">--text-main: #101827;</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #5b6170;"></div><span class="sg-swatch-caption">Muted</span><div class="sg-tooltip" role="tooltip">--text-muted: #5b6170;
+Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recommendation quotes).</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #e5e7eb;"></div><span class="sg-swatch-caption">Border</span><div class="sg-tooltip" role="tooltip">--border-subtle: #e5e7eb;</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #f4f4f6;"></div><span class="sg-swatch-caption">Callout / Objective bg</span><div class="sg-tooltip" role="tooltip">--bg-callout: #f4f4f6;</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: #fff; border: 1px solid rgba(0,0,0,0.1);"></div><span class="sg-swatch-caption">White</span><div class="sg-tooltip" role="tooltip">--color-white: #fff;</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(76, 121, 235, 0.08);"></div><span class="sg-swatch-caption">Accent soft</span><div class="sg-tooltip" role="tooltip">--accent-primary-soft: rgba(76, 121, 235, 0.08);</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background: linear-gradient(145deg, #e0f2fe, #eef2ff);"></div><span class="sg-swatch-caption">Card/media bg</span><div class="sg-tooltip" role="tooltip">--bg-card-media: linear-gradient(145deg, #e0f2fe, #eef2ff);</div></div>
+                <div class="sg-hover sg-swatch-wrap"><div class="sg-swatch" style="background-color: rgba(148, 163, 184, 0.6); border: 1px solid rgba(0,0,0,0.08);"></div><span class="sg-swatch-caption">Border ghost</span><div class="sg-tooltip" role="tooltip">--border-ghost: rgba(148, 163, 184, 0.6);</div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Typography -->
+          <section class="sg-section" aria-labelledby="typography-heading">
+            <h2 id="typography-heading">Typography</h2>
+            <p class="sg-purpose" style="margin: 0 0 20px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">Typography classes (.eyebrow, .subtitle, .org, etc.) define only font styling — no margins or padding. Spacing is applied explicitly in HTML via margin utilities (e.g. mb-6, mb-12, mt-32). See Spacing section for the full utility scale.</p>
+            <div class="sg-block">
+              <p class="sg-label">Type scale</p>
+              <p class="sg-purpose" style="margin: 0 0 12px; font-size: 0.85rem; color: var(--text-muted);">Font sizes and one example use each. Use these sizes consistently for hierarchy.</p>
+              <table class="sg-table">
+                <thead><tr><th>Size</th><th>Example use</th></tr></thead>
+                <tbody>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.75rem</td><td class="sg-purpose">Metric labels</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.8rem</td><td class="sg-purpose">case-block__title captions</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.85rem</td><td class="sg-purpose">Logo role, footer brand</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">0.9rem</td><td class="sg-purpose">.text-small, accent label</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1rem</td><td class="sg-purpose">p (body), .eyebrow</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.1rem</td><td class="sg-purpose">.subtitle</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.4rem</td><td class="sg-purpose">Logo (script)</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.5rem</td><td class="sg-purpose">h3</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">1.75rem</td><td class="sg-purpose">h2, .org</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">3rem</td><td class="sg-purpose">Case study h1</td></tr>
+                  <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">3.5rem</td><td class="sg-purpose">.hero h1 (homepage)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="sg-block">
+              <p class="sg-label">Typography (by hierarchy — largest to smallest)</p>
+              <table class="sg-table sg-table--typography">
+                <thead><tr><th>Role / Style</th><th>Purpose</th><th>HTML</th><th>Classes / IDs</th><th>Example</th></tr></thead>
+                <tbody>
+                  <tr><td class="sg-name">Hero headline</td><td class="sg-purpose">Main page title on the homepage</td><td>h1</td><td>.hero</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><div class="hero" style="padding: 0; margin: 0; background: none; border: none; box-shadow: none; display: block; gap: 0;"><h1 style="margin: 0;">Designing for Impact</h1></div><div class="sg-tooltip" role="tooltip">.hero h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Section title</td><td class="sg-purpose">Major section headings (e.g. Recommendations). Use h2.</td><td>h2</td><td>—</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h2 style="margin: 0;">Recommendations</h2><div class="sg-tooltip" role="tooltip">h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Card org / company</td><td class="sg-purpose">Company or organization name in cards</td><td>p</td><td>.org</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="org" style="margin: 0;">The Walt Disney Company</p><div class="sg-tooltip" role="tooltip">.org {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-indigo);
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Subsection / Card title</td><td class="sg-purpose">Section subheadings and case card titles. Use h3.</td><td>h3</td><td>—</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><h3 style="margin: 0;">Profitability through price increases</h3><div class="sg-tooltip" role="tooltip">h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Logo (script)</td><td class="sg-purpose">Site name in script/display font</td><td>span</td><td>.logo__name</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__name">Caroline Win</span><div class="sg-tooltip" role="tooltip">.logo__name {
+  font-family: "Pacifico", cursive;
+  font-size: 1.4rem;
+  color: var(--accent-indigo);
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Subtitle</td><td class="sg-purpose">Supporting text below section titles</td><td>p</td><td>.subtitle</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="subtitle" style="margin: 0;">Thanks to all my teammates!</p><div class="sg-tooltip" role="tooltip">.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Body text</td><td class="sg-purpose">Primary body: hero intro, card summary</td><td>p</td><td>—</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p style="margin: 0; max-width: 14rem;">As a scientist-turned-designer…</p><div class="sg-tooltip" role="tooltip">p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Footer body / links</td><td class="sg-purpose">Footer body text and navigation links (use standard p and a)</td><td>p, a</td><td>—</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p style="margin: 0;">Message on <a href="#">LinkedIn</a> or <a href="#">email</a>.</p><div class="sg-tooltip" role="tooltip">p and a inherit from body; links use var(--accent-indigo).</div></div></td></tr>
+                  <tr><td class="sg-name">Text small</td><td class="sg-purpose">Small body copy (e.g. metadata)</td><td>p</td><td>.text-small</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="text-small" style="margin: 0;">Jan 2023 to present</p><div class="sg-tooltip" role="tooltip">.text-small {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Logo subtitle</td><td class="sg-purpose">Tagline or role below logo</td><td>span</td><td>.logo__role</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><span class="logo__role">Product Design Strategist</span><div class="sg-tooltip" role="tooltip">.logo__role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}</div></div></td></tr>
+                  <tr><td class="sg-name">Eyebrow</td><td class="sg-purpose">Small uppercase labels above section titles</td><td>p</td><td>.eyebrow</td><td class="sg-sample"><div class="sg-hover sg-hover-block"><p class="eyebrow" style="margin: 0;">Selected Work</p><div class="sg-tooltip" role="tooltip">.eyebrow {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}</div></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Buttons -->
+          <section class="sg-section" aria-labelledby="buttons-heading">
+            <h2 id="buttons-heading">Buttons</h2>
+            <div class="sg-block">
+              <table class="sg-table">
+                <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+                <tbody>
+                  <tr><td class="sg-name">Primary CTA</td><td class="sg-purpose">Main call-to-action for primary actions</td><td class="sg-sample"><div class="sg-hover"><a href="#" class="btn btn--primary">Learn More</a><div class="sg-tooltip" role="tooltip">.btn .btn--primary</div></div></td></tr>
+                  <tr><td class="sg-name">Ghost / secondary</td><td class="sg-purpose">Secondary or less prominent actions</td><td class="sg-sample"><div class="sg-hover"><a href="#" class="btn btn--ghost">Secondary action</a><div class="sg-tooltip" role="tooltip">.btn .btn--ghost</div></div></td></tr>
+                  <tr><td class="sg-name">Text link</td><td class="sg-purpose">Minimal link style for tertiary actions</td><td class="sg-sample"><div class="sg-hover"><button type="button" class="btn btn--text">Text link</button><div class="sg-tooltip" role="tooltip">.btn .btn--text</div></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Corners & shadows -->
+          <section class="sg-section" aria-labelledby="shape-heading">
+            <h2 id="shape-heading">Corners and shadows</h2>
+            <div class="sg-block">
+              <table class="sg-table">
+                <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
+                <tbody>
+                  <tr><td class="sg-name">Radius extra large</td><td class="sg-purpose">Largest corner radius for major containers</td><td class="sg-sample"><div class="sg-hover"><div style="width: 56px; height: 36px; background: var(--accent-primary-soft); border-radius: 24px; border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">--radius-xl: 24px;</div></div></td></tr>
+                  <tr><td class="sg-name">Radius large</td><td class="sg-purpose">Standard large radius for cards and sections</td><td class="sg-sample"><div class="sg-hover"><div style="width: 56px; height: 36px; background: var(--accent-primary-soft); border-radius: 18px; border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">--radius-lg: 18px;</div></div></td></tr>
+                  <tr><td class="sg-name">Radius medium</td><td class="sg-purpose">Medium radius for buttons and smaller elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 56px; height: 36px; background: var(--accent-primary-soft); border-radius: 14px; border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">--radius-md: 14px;</div></div></td></tr>
+                  <tr><td class="sg-name">Pill</td><td class="sg-purpose">Fully rounded for pill-shaped elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 72px; height: 28px; background: var(--gradient-primary); border-radius: 999px;"></div><div class="sg-tooltip" role="tooltip">--radius-pill: 999px;</div></div></td></tr>
+                  <tr><td class="sg-name">Shadow soft</td><td class="sg-purpose">Subtle depth shadow for elevated elements</td><td class="sg-sample"><div class="sg-hover"><div style="width: 80px; height: 44px; background: #fff; border-radius: 18px; box-shadow: 0 18px 45px rgba(15,23,42,0.12); border: 1px solid var(--border-subtle);"></div><div class="sg-tooltip" role="tooltip">--shadow-soft</div></div></td></tr>
+                  <tr><td class="sg-name">Shadow primary</td><td class="sg-purpose">Primary button default shadow</td><td class="sg-sample"><div class="sg-hover"><div style="width: 80px; height: 36px; background: var(--gradient-primary); border-radius: 999px; box-shadow: 0 10px 28px rgba(89,95,255,0.25);"></div><div class="sg-tooltip" role="tooltip">--shadow-primary</div></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Layout -->
+          <section class="sg-section" aria-labelledby="layout-heading">
+            <h2 id="layout-heading">Layout</h2>
+            <div class="sg-block">
+              <div class="sg-stack">
+                <div class="sg-stack-item">
+                  <p class="sg-name">Container</p>
+                  <p class="sg-purpose">Main content width and horizontal margins. <code>--container-max: 1280px</code>, <code>--container-margin: 72px</code></p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Reading width (measure)</p>
+                  <p class="sg-purpose">Comfortable line length: 45–75 characters. <code>.hero p</code> uses <code>max-width: 42rem</code>.</p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Sections</p>
+                  <p class="sg-purpose"><code>.section</code>, <code>.section__header</code>, <code>.section--work</code>, <code>.section--recommendations</code>, <code>.section--anchor</code></p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Marquee</p>
+                  <p class="sg-purpose">Infinite left-sliding text. Use <code>.marquee</code>, <code>.marquee__track</code>, <code>.marquee__text</code>. Respects <code>prefers-reduced-motion</code>.</p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Media: static vs lightbox</p>
+                  <p class="sg-purpose"><code>.static_media</code> — no zoom. <code>.case-block__media</code> — hover lift, click opens lightbox.</p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Footer</p>
+                  <p class="sg-purpose">See <a href="#patterns" data-tab-switch>Footer in Patterns tab</a>.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spacing -->
+          <section class="sg-section" aria-labelledby="spacing-heading">
+            <h2 id="spacing-heading">Spacing</h2>
+            <div class="sg-block">
+              <div class="sg-stack">
+                <div class="sg-stack-item">
+                  <p class="sg-name">Explicit spacing in HTML</p>
+                  <p class="sg-purpose">Apply spacing via margin utilities: <code>mb-6</code>, <code>mb-12</code>, <code>mt-32</code>, etc.</p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Margin utilities</p>
+                  <p class="sg-purpose">mb-2, mb-4, mb-6, mb-8, mb-12, mb-16, mb-24, mb-32, mb-40 (and mt-*).</p>
+                </div>
+                <div class="sg-stack-item">
+                  <p class="sg-name">Space token scale (CSS)</p>
+                  <p class="sg-purpose"><code>--space-2</code> through <code>--space-120</code>. Section gaps use <code>--space-120</code>.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="panel-patterns" class="ds-panel" role="tabpanel" aria-labelledby="tab-patterns" aria-hidden="true">
+        <div class="sg-wrap" style="padding-top: 0;">
+          <p class="sg-page-desc">Reusable layout components for case study pages. Copy the HTML from each block into your new page. Click "View HTML" to expand code snippets. Source files live in <code>components/</code>.</p>
+
+          <!-- Global -->
+          <section class="sg-section" aria-labelledby="global-heading">
+            <h2 id="global-heading">Global</h2>
+            <p>Header and footer used across the site. Use <code>header.html</code> for all pages.</p>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Header</div>
+              <div class="sg-preview">
+                <header class="site-header">
+                  <div class="site-header__inner">
+                    <a href="index.html" class="logo">
+                      <span class="logo__name">Caroline Win</span>
+                      <span class="logo__role">Product Design Strategist</span>
+                    </a>
+                    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+                      <span class="nav-toggle__bar"></span>
+                      <span class="nav-toggle__bar"></span>
+                      <span class="nav-toggle__bar"></span>
+                    </button>
+                    <nav class="nav" id="main-nav" aria-label="Main">
+                      <a href="index.html" class="nav__link nav__link--pill" aria-current="page">Work</a>
+                      <a href="about.html" class="nav__link">About</a>
+                      <a href="resume.html" class="nav__link">Resume</a>
+                      <a href="design-system.html" class="nav__link">Design System</a>
+                    </nav>
+                  </div>
+                </header>
+              </div>
+              <div class="sg-label">HTML · <a href="components/header.html">components/header.html</a></div>
+              <details class="sg-accordion">
+                <summary>View HTML</summary>
+              <div class="sg-code-wrap">
+                <button type="button" class="sg-copy" data-copy="header-html" aria-label="Copy HTML">Copy</button>
+                <pre class="sg-code" id="header-html"><code>&lt;header class="site-header"&gt;
+  &lt;div class="site-header__inner"&gt;
+    &lt;a href="index.html" class="logo"&gt;
+      &lt;span class="logo__name"&gt;Caroline Win&lt;/span&gt;
+      &lt;span class="logo__role"&gt;Product Design Strategist&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav"&gt;
+      &lt;span class="nav-toggle__bar"&gt;&lt;/span&gt;
+      &lt;span class="nav-toggle__bar"&gt;&lt;/span&gt;
+      &lt;span class="nav-toggle__bar"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;nav class="nav" id="main-nav" aria-label="Main"&gt;
+      &lt;a href="index.html" class="nav__link nav__link--pill" aria-current="page"&gt;Work&lt;/a&gt;
+      &lt;a href="about.html" class="nav__link"&gt;About&lt;/a&gt;
+      &lt;a href="resume.html" class="nav__link"&gt;Resume&lt;/a&gt;
+      &lt;a href="design-system.html" class="nav__link"&gt;Design System&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+              </div>
+              </details>
+            </div>
+
+            <div class="sg-block" id="nav-heading">
+              <div class="sg-label letter-08">Navigation variants &amp; focus states</div>
+              <p><strong>Pill link (active):</strong> Use <code>nav__link nav__link--pill</code> with <code>aria-current="page"</code>.</p>
+              <p><strong>Plain nav links:</strong> Use <code>nav__link</code> alone.</p>
+              <div class="sg-preview">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Examples: <a href="#" class="nav__link nav__link--pill">Work</a> <a href="#" class="nav__link">About</a> <a href="#" class="nav__link">Resume</a></p>
+              </div>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Footer</div>
+              <p>Footer with copy block and social links. Use <code>site-footer__copy</code>, <code>site-footer__heading</code>, <code>site-footer__text</code>, <code>site-footer__social</code>, <code>site-footer__icon</code>.</p>
+              <div class="sg-preview">
+                <footer class="site-footer">
+                  <div class="site-footer__inner">
+                    <div class="site-footer__copy">
+                      <h4 class="site-footer__heading">Say hello!</h4>
+                      <p class="site-footer__text">
+                        Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
+                      </p>
+                    </div>
+                    <nav class="site-footer__social" aria-label="Social links">
+                      <a href="#" class="site-footer__icon" aria-label="Instagram">
+                        <img src="./assets/icon_instagram.svg" alt="" width="24" height="24" />
+                      </a>
+                      <a href="#" class="site-footer__icon" aria-label="LinkedIn">
+                        <img src="./assets/icon_linkedin.svg" alt="" width="24" height="24" />
+                      </a>
+                    </nav>
+                  </div>
+                </footer>
+              </div>
+              <div class="sg-label">HTML · <a href="components/footer.html">components/footer.html</a></div>
+              <details class="sg-accordion">
+                <summary>View HTML</summary>
+              <div class="sg-code-wrap">
+                <button type="button" class="sg-copy" data-copy="footer-html" aria-label="Copy HTML">Copy</button>
+                <pre class="sg-code" id="footer-html"><code>&lt;footer class="site-footer"&gt;
+  &lt;div class="site-footer__inner"&gt;
+    &lt;div class="site-footer__copy"&gt;
+      &lt;h4 class="site-footer__heading"&gt;Say hello!&lt;/h4&gt;
+      &lt;p class="site-footer__text"&gt;Send me a message on &lt;a href="..."&gt;LinkedIn&lt;/a&gt; or at &lt;a href="mailto:..."&gt;email&lt;/a&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;nav class="site-footer__social" aria-label="Social links"&gt;
+      &lt;a href="..." class="site-footer__icon" aria-label="Instagram"&gt;&lt;img src="..." alt="" width="24" height="24" /&gt;&lt;/a&gt;
+      &lt;a href="..." class="site-footer__icon" aria-label="LinkedIn"&gt;&lt;img src="..." alt="" width="24" height="24" /&gt;&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+              </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- Index page -->
+          <section class="sg-section" aria-labelledby="index-heading">
+            <h2 id="index-heading">Index page</h2>
+            <p>Homepage layout blocks. Use inside <code>&lt;main&gt;</code> on the index page.</p>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Index hero</div>
+              <p>Hero with gradient headline, intro text, optional marquee, and circular profile image.</p>
+              <div class="sg-preview">
+                <section class="hero">
+                  <div class="hero__content">
+                    <h1>Designing for Impact</h1>
+                    <p>As a scientist-turned-designer with 11 years of experience grounded in human-computer interaction, I transform complex problems into elegant human-centered experiences.</p>
+                    <div class="marquee mt-32" aria-hidden="true">
+                      <div class="marquee__track">
+                        <span class="marquee__text">Brand · Experience · Brand · Experience · </span>
+                        <span class="marquee__text" aria-hidden="true">Brand · Experience · Brand · Experience · </span>
+                      </div>
+                    </div>
+                  </div>
+                  <figure class="hero__visual">
+                    <div class="hero__image-wrap">
+                      <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Your name, role" width="320" height="320" />
+                    </div>
+                  </figure>
+                </section>
+              </div>
+              <div class="sg-label">HTML · .hero, .hero__content, .hero__visual, .hero__image-wrap</div>
+              <details class="sg-accordion">
+                <summary>View HTML</summary>
+              <div class="sg-code-wrap">
+                <button type="button" class="sg-copy" data-copy="index-hero-html" aria-label="Copy HTML">Copy</button>
+                <pre class="sg-code" id="index-hero-html"><code>&lt;section class="hero"&gt;
+  &lt;div class="hero__content"&gt;
+    &lt;h1&gt;Your Headline&lt;/h1&gt;
+    &lt;p&gt;Your intro paragraph.&lt;/p&gt;
+    &lt;div class="marquee mt-32" aria-hidden="true"&gt;
+      &lt;div class="marquee__track"&gt;
+        &lt;span class="marquee__text"&gt;Brand · Experience · &lt;/span&gt;
+        &lt;span class="marquee__text" aria-hidden="true"&gt;Brand · Experience · &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;figure class="hero__visual"&gt;
+    &lt;div class="hero__image-wrap"&gt;
+      &lt;img src="..." alt="Your name, role" width="320" height="320" /&gt;
+    &lt;/div&gt;
+  &lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+              </div>
+              </details>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Work section</div>
+              <p>Two-column layout with <code>grid-2col__col</code> for content and <code>static_media</code> for images.</p>
+              <div class="sg-preview sg-preview--case">
+                <section class="grid-2col case-block">
+                  <div class="grid-2col__col">
+                    <h4 class="blue">The Walt Disney Company</h4>
+                    <h2>Streamlining Price Change Operations</h2>
+                    <p>Empowering business operations teams at Disney…</p>
+                    <div class="grid-3col mb-32">
+                      <div class="grid-3col__col">
+                        <h5>Configuration Time</h5>
+                        <p class="metric-small">66%</p>
+                        <p class="text-small">description</p>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn--primary">Learn More</a>
+                  </div>
+                  <div class="static_media">
+                    <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Project screenshot" />
+                  </div>
+                </section>
+              </div>
+              <div class="sg-label">HTML · section.grid-2col.case-block</div>
+              <details class="sg-accordion">
+                <summary>View HTML</summary>
+              <div class="sg-code-wrap">
+                <button type="button" class="sg-copy" data-copy="work-section-html" aria-label="Copy HTML">Copy</button>
+                <pre class="sg-code" id="work-section-html"><code>&lt;section class="grid-2col case-block"&gt;
+  &lt;div class="grid-2col__col"&gt;
+    &lt;h4 class="blue"&gt;Company Name&lt;/h4&gt;
+    &lt;h2&gt;Project Title&lt;/h2&gt;
+    &lt;p&gt;Brief description.&lt;/p&gt;
+    &lt;a href="#" class="btn btn--primary"&gt;Learn More&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="static_media"&gt;&lt;img src="..." alt="Screenshot" /&gt;&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+              </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- Case Study Shell -->
+          <section class="sg-section" aria-labelledby="shell-heading">
+            <h2 id="shell-heading">Case study shell</h2>
+            <p>Full page structure for a new case study. Use <a href="disney-case-study.html">disney-case-study.html</a> as reference.</p>
+            <div class="sg-block">
+              <div class="sg-label letter-08">Structure</div>
+              <p>body.case-body → header → main.case-main → footer. Hero: org, h1, subtitle, grid-3col. Use grid-2col case-block for content, gray-block for objective.</p>
+              <details class="sg-accordion">
+                <summary>View HTML</summary>
+              <div class="sg-code-wrap">
+                <button type="button" class="sg-copy" data-copy="shell-html" aria-label="Copy HTML">Copy</button>
+                <pre class="sg-code" id="shell-html"><code>&lt;body class="case-body"&gt;
+  &lt;!-- PASTE: components/header.html --&gt;
+  &lt;main class="case-main"&gt;
+    &lt;!-- PASTE: hero, case-block sections --&gt;
+  &lt;/main&gt;
+  &lt;!-- PASTE: footer --&gt;
+&lt;/body&gt;</code></pre>
+              </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- Case study sections -->
+          <section class="sg-section" aria-labelledby="case-study-heading">
+            <h2 id="case-study-heading">Case study sections</h2>
+            <p>Long-form patterns. Use inside <code>&lt;main class="case-main"&gt;</code>. See <a href="disney-case-study.html">disney-case-study.html</a>.</p>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Case study hero</div>
+              <p>org, h1, subtitle, then grid-3col with meta, My Role, Jump To.</p>
+              <div class="sg-preview sg-preview--case">
+                <section>
+                  <div class="mb-24">
+                    <p class="org mb-6">The Walt Disney Company</p>
+                    <h1>Streamlining Disney's Global Price Change Operations</h1>
+                    <p class="subtitle">Brief project summary.</p>
+                  </div>
+                  <div class="grid-3col">
+                    <div class="grid-3col__col">
+                      <h5 class="blue">Timeframe</h5>
+                      <p>Jan 2023 to present</p>
+                    </div>
+                    <div class="grid-3col__col">
+                      <h5 class="blue">My Role</h5>
+                      <ul>
+                        <li>Lead designer</li>
+                        <li>Interaction designer</li>
+                      </ul>
+                    </div>
+                    <div class="grid-3col__col">
+                      <h5 class="blue">Jump To</h5>
+                      <ol>
+                        <li class="mb-6"><a href="#context">Context</a></li>
+                        <li><a href="#objective">Objective</a></li>
+                      </ol>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Media: static_media vs case-block__media</div>
+              <p><strong>static_media</strong> — thumbnails, no lightbox. <strong>case-block__media</strong> — hover lift, click opens lightbox.</p>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Flat section block (case-block)</div>
+              <div class="sg-preview sg-preview--case">
+                <section id="context" class="case-block">
+                  <p class="eyebrow">Context</p>
+                  <h2>Profitability through price increases</h2>
+                  <p>Body paragraphs.</p>
+                  <figure class="case-block__media mt-40 mb-40">
+                    <img src="./assets/disney-case-study/img_mentalmodels.png" alt="Diagram" />
+                    <figcaption class="case-block__title eyebrow">Optional caption</figcaption>
+                  </figure>
+                </section>
+              </div>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Objective (gray-block / gray-block__centered)</div>
+              <div class="sg-preview sg-preview--case">
+                <section id="objective" class="gray-block__centered" aria-labelledby="objective-title">
+                  <div class="objective">
+                    <p class="eyebrow">Objective</p>
+                    <h4>Reduce operational steps and time spent on manual configurations.</h4>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Outcome metrics row</div>
+              <p>Use <code>grid-3col</code> with <code>metric-large</code> and <code>text-small</code>.</p>
+              <div class="sg-preview sg-preview--case">
+                <div class="grid-3col mt-24 mb-32">
+                  <div>
+                    <h5>Operational Efficiency</h5>
+                    <p class="metric-large">66% <span aria-hidden="true">↓</span></p>
+                    <p class="text-small">decrease in configuration time</p>
+                  </div>
+                  <div>
+                    <h5>Total Clicks</h5>
+                    <p class="metric-large">53% <span aria-hidden="true">↓</span></p>
+                    <p class="text-small">decrease in clicks</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sg-block">
+              <div class="sg-label letter-08">Case blockquote</div>
+              <div class="sg-preview sg-preview--case">
+                <blockquote class="case-quote mt-24 mb-24">
+                  <p class="case-quote__text">"Quote from a user or stakeholder."</p>
+                  <p class="subtitle">Attribution</p>
+                </blockquote>
+              </div>
+            </div>
+          </section>
+
+          <p style="margin-top: 48px; font-size: 0.9rem; color: var(--text-muted);">
+            <a href="#style-guide" data-tab-switch style="color: var(--accent-indigo);">← Style Guide</a> ·
+            <a href="index.html" style="color: var(--accent-indigo);">Portfolio</a>
+          </p>
+        </div>
+      </section>
+    </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      (function() {
+        var tabStyleGuide = document.getElementById('tab-style-guide');
+        var tabPatterns = document.getElementById('tab-patterns');
+        var panelStyleGuide = document.getElementById('panel-style-guide');
+        var panelPatterns = document.getElementById('panel-patterns');
+
+        function showTab(tabId) {
+          var isPatterns = tabId === 'patterns';
+          tabStyleGuide.classList.toggle('is-active', !isPatterns);
+          tabPatterns.classList.toggle('is-active', isPatterns);
+          tabStyleGuide.setAttribute('aria-selected', !isPatterns);
+          tabPatterns.setAttribute('aria-selected', isPatterns);
+          panelStyleGuide.classList.toggle('is-active', !isPatterns);
+          panelStyleGuide.setAttribute('aria-hidden', isPatterns);
+          panelPatterns.classList.toggle('is-active', isPatterns);
+          panelPatterns.setAttribute('aria-hidden', !isPatterns);
+          location.hash = isPatterns ? 'patterns' : 'style-guide';
+        }
+
+        tabStyleGuide.addEventListener('click', function() { showTab('style-guide'); });
+        tabPatterns.addEventListener('click', function() { showTab('patterns'); });
+
+        document.querySelectorAll('[data-tab-switch]').forEach(function(a) {
+          a.addEventListener('click', function(e) {
+            var href = a.getAttribute('href');
+            if (href === '#patterns') {
+              e.preventDefault();
+              showTab('patterns');
+            } else if (href === '#style-guide') {
+              e.preventDefault();
+              showTab('style-guide');
+            }
+          });
+        });
+
+        if (location.hash === '#patterns') {
+          showTab('patterns');
+        }
+
+        window.addEventListener('hashchange', function() {
+          if (location.hash === '#patterns') showTab('patterns');
+          else if (location.hash === '#style-guide') showTab('style-guide');
+        });
+
+        document.querySelectorAll('.sg-copy').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var id = btn.getAttribute('data-copy');
+            var pre = document.getElementById(id);
+            var code = pre ? pre.querySelector('code').textContent : '';
+            navigator.clipboard.writeText(code).then(function() {
+              btn.textContent = 'Copied!';
+              btn.classList.add('copied');
+              setTimeout(function() {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+              }, 1500);
+            });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -20,40 +20,40 @@
           <span class="logo__name">Caroline Win</span>
           <span class="logo__role">Product Design Strategist</span>
         </a>
-        <nav class="nav" aria-label="Main">
-          <a href="index.html#work" class="nav__link nav__link--pill" aria-current="page">Work</a>
-          <a href="index.html#about" class="nav__link">About</a>
-          <a href="index.html#contact" class="nav__link">Contact</a>
-          <a href="style-guide.html" class="nav__link">Style guide</a>
-          <a href="patterns.html" class="nav__link">Pattern library</a>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav class="nav" id="main-nav" aria-label="Main">
+          <a href="index.html" class="nav__link">Work</a>
+          <a href="about.html" class="nav__link">About</a>
+          <a href="resume.html" class="nav__link">Resume</a>
+          <a href="design-system.html" class="nav__link">Design System</a>
         </nav>
       </div>
     </header>
 
     <main class="case-main">
-      <!-- PASTE case-hero-with-role.html (or case-hero.html), then case-jump-nav, then case-block sections. See disney-case-study.html. -->
+      <!-- PASTE case-hero.html or case-hero-with-role.html, then case-block sections. See disney-case-study.html. -->
     </main>
 
-    <!-- PASTE: footer with Say hello + brand + nav (see disney-case-study.html) -->
+    <!-- PASTE: components/footer.html -->
     <footer class="site-footer">
       <div class="site-footer__inner">
         <div class="site-footer__copy">
-          <p class="lead-paragraph">Say hello!</p>
+          <h4 class="site-footer__heading">Say hello!</h4>
           <p class="site-footer__text">
             Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
           </p>
         </div>
-        <div class="site-footer__brand">
-          <a href="index.html" class="logo">
-            <span class="logo__name">Caroline Win</span>
-            <span class="logo__role">Product Design Strategist</span>
+        <nav class="site-footer__social" aria-label="Social links">
+          <a href="https://www.instagram.com/carolinemwin" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="../assets/icon_instagram.svg" alt="" width="24" height="24" />
           </a>
-        </div>
-        <nav class="site-footer__nav" aria-label="Footer">
-          <a href="index.html#work">Work</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#resume">Resume</a>
-          <a href="index.html#play">Play</a>
+          <a href="https://www.linkedin.com/in/carolinemwin" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="../assets/icon_linkedin.svg" alt="" width="24" height="24" />
+          </a>
         </nav>
       </div>
     </footer>
