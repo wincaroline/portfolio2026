@@ -52,7 +52,7 @@
               <div class="mb-32">
                 <h5 class="blue">Product Type</h5>
                 <p>Enterprise web<br>
-                  Internal portal
+                  Intranet
                 </p>
               </div>
               <div>
@@ -68,8 +68,7 @@
             <div class="grid-3col__col">
               <h5 class="blue">My Role</h5>
               <ul>
-                <li>Design Consultant</li>
-                <li>Team of One</li>
+                <li>Design consultant</li>
                 <li>User researcher</li>
                 <li>UX designer</li>
                 <li>UI designer</li>
@@ -166,9 +165,9 @@
         <h2>Faculty and staff want focus on their specific department, whereas students want quick access to a variety of info and guidance</h2>
         <div class="grid-2col mt-32">
           <div class="grid-2col__col">
-            <figure class="static_media">
+            <!-- <figure class="static_media">
               <img src="./assets/lmu-case-study/img_student.png" alt="photo of student">
-            </figure>
+            </figure> -->
             <h4 class="blue">Students</h4>
             <ul>
               <li>Need guidance for different purposes — classes and registration, health &amp; wellness, employment, and success</li>
@@ -176,9 +175,9 @@
             </ul>
           </div>
           <div class="grid-2col__col">
-            <figure class="static_media">
+            <!-- <figure class="static_media">
               <img src="./assets/lmu-case-study/img_staff.png" alt="photo of faculty">
-            </figure>
+            </figure> -->
             <h4 class="blue">Faculty &amp; Staff</h4>
             <ul>
               <li>Want shortcuts for their department</li>
@@ -203,6 +202,7 @@
               <p>"Can be hard to find what I need. There are too many links, which can get confusing. It's not really organized."</p>
               <p class="subtitle">Undergraduate student</p>
             </blockquote>
+            <div class="mb-40"></div>
             <blockquote class="case-quote">
               <p>"Too many links. Too confusing. Too time-consuming to go through the links."</p>
               <p class="subtitle">Administrative coordinator</p>
@@ -216,16 +216,19 @@
         </div>
         <div class="grid-3col mb-40">
           <div>
+            <h5>Student Responses</h5>
             <p class="metric-large">9/11</p>
-            <p class="text-small">undergrad students brought up findability issues or confusion about links</p>
+            <p class="text-small">brought findability issues or confusion about links</p>
           </div>
           <div>
+            <h5>Staff & Faculty Responses</h5>
             <p class="metric-large">5/5</p>
-            <p class="text-small">staff and faculty also brought up these issues</p>
+            <p class="text-small">mentioned similar issues</p>
           </div>
           <div>
+            <h5>Feedback Form Responses</h5>
             <p class="metric-large">7/19</p>
-            <p class="text-small">feedback form responses mentioned findability as a concern</p>
+            <p class="text-small">mentioned findability as a concern</p>
           </div>
         </div>
         <div>
@@ -256,7 +259,7 @@
         <div>
           <h3>Current Navigation</h3>
           <figure class="static_media">
-            <img src="./assets/lmu-case-study/img_currentnav.svg" alt="current navigation">
+            <img src="./assets/lmu-case-study/img_currentnav.svg" alt="current navigation" style="padding: 60px;">
           </figure>
           <div class="grid-2col">
             <div class="grid-2col__col">
@@ -276,7 +279,7 @@
           <h3>Updated Navigation</h3>
           <p class="mb-24">We changed the current navigation to a <strong>mega menu</strong>, which broke down the long lists into smaller logical groups and labels that made sense to users we tested with and prioritized frequently accessed links.</p>
           <figure class="static_media">
-            <img src="./assets/lmu-case-study/img_newstructure.svg" alt="new navigation structure">
+            <img src="./assets/lmu-case-study/img_newstructure.svg" alt="new navigation structure" style="padding: 60px;">
           </figure>
         </div>
         
@@ -284,24 +287,20 @@
           <h3>How did we determine the updates?</h3>
           <p>I proposed updates based on usability principles, analytics data, card sorting, tree testing, and direct input from students, faculty, and staff. We decided the final structure as a team by discussing these findings.</p>
         </div>
-        <div class="grid-3col mb-40">
+        <div class="grid-2col">
           <div>
-            <p class="metric-large">8</p>
-            <p class="text-small">months of click data reviewed</p>
+            <ul>
+              <li>8 months of click data reviewed</li>
+              <li>16 card sorting sessions conducted</li>
+              <li>130 tree testing responses received</li>
+            </ul>
           </div>
-          <div>
-            <p class="metric-large">16</p>
-            <p class="text-small">card sorting sessions</p>
-          </div>
-          <div>
-            <p class="metric-large">130</p>
-            <p class="text-small">tree testing responses</p>
-          </div>
+          <figure class="static_media">
+            <img src="./assets/lmu-case-study/img_cardsort.png" alt="card sort">
+            <figcaption class="case-block__title eyebrow">Card sorting session</figcaption>
+          </figure>
         </div>
-        <figure class="static_media">
-          <img src="./assets/lmu-case-study/img_cardsort.png" alt="card sort">
-          <figcaption class="case-block__title eyebrow">Card sorting session</figcaption>
-        </figure>
+        
       </section>
 
       <!-- Additional Pain Points -->
@@ -473,16 +472,20 @@
       </section>
 
       <!-- Case study navigation -->
-      <section class="case-block grid-2col">
-        <div class="grid-2col__col">
-          <p class="eyebrow">Previous</p>
-          <h3><a href="wemo-case-study.html">Wemo Smart Dimmer Setup</a></h3>
-          <p><a href="wemo-case-study.html">See case study</a></p>
-        </div>
-        <div class="grid-2col__col">
-          <p class="eyebrow">Next</p>
-          <h3><a href="#">Annual Census Review for Retirement Plans</a></h3>
-          <p><a href="#">See case study</a></p>
+      <section class="case-block case-study-nav">
+        <div class="grid-2col">
+          <a href="wemo-case-study.html" class="case-study-nav__card">
+            <p class="eyebrow">Previous</p>
+            <h3>Wemo Smart Dimmer Setup</h3>
+            <p>Guiding users through complex wiring, calibration, and mobile app setup steps at Belkin International.</p>
+            <h5 class="blue">See case study</h5>
+          </a>
+          <a href="nationwide-case-study.html" class="case-study-nav__card">
+            <p class="eyebrow">Next</p>
+            <h3>Annual Census Review for Retirement Plans</h3>
+            <p>Redesigning the annual census review at Nationwide Insurance.</p>
+            <h5 class="blue">See case study</h5>
+          </a>
         </div>
       </section>
     </main>
@@ -492,14 +495,14 @@
         <div class="site-footer__copy">
           <h4 class="site-footer__heading">Say hello!</h4>
           <p class="site-footer__text">
-            Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
+            Send me a message on <a href="https://www.linkedin.com/in/caroline-win/" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
           </p>
         </div>
         <nav class="site-footer__social" aria-label="Social links">
-          <a href="https://www.instagram.com/carolinemwin" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/carothejelly" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <img src="./assets/icon_instagram.svg" alt="" width="24" height="24" />
           </a>
-          <a href="https://www.linkedin.com/in/carolinemwin" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/caroline-win/" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <img src="./assets/icon_linkedin.svg" alt="" width="24" height="24" />
           </a>
         </nav>

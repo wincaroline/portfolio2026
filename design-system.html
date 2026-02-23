@@ -12,13 +12,13 @@
       rel="stylesheet"
     />
     <style>
-      .sg-wrap { max-width: none; margin: 0 72px; padding: 28px 0 56px; }
-      .ds-wrap { margin: 0 72px; padding: 28px 0 24px; }
-      .sg-page-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 6px; color: var(--text-main); }
+      .sg-wrap { max-width: none; margin: 0; padding: 0; }
+      .ds-wrap { margin: 0; padding: 0; }
+      .sg-page-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 32px; color: var(--text-main); }
       .sg-page-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 36px; line-height: 1.5; }
       .sg-section { margin-bottom: 32px; }
       .sg-section h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; color: var(--text-main); }
-      .sg-section > h2 { font-size: 1.35rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 16px; }
+      .sg-section > h2 { font-size: 1.35rem; border-bottom: 2px solid rgba(0,0,0,0.08); padding-bottom: 8px; margin-bottom: 16px; }
       .sg-section > p, .sg-block > p { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 20px; line-height: 1.5; }
       .sg-block { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); padding: 24px; margin-bottom: 16px; }
       .sg-section .sg-block + .sg-block { margin-top: 24px; }
@@ -89,7 +89,7 @@
       .sg-accordion summary::-webkit-details-marker { display: none; }
       .sg-accordion summary::before { content: "▶ "; font-size: 0.6rem; }
       .sg-accordion[open] summary::before { content: "▼ "; }
-      .ds-tabs { display: flex; gap: var(--space-16); margin-bottom: var(--space-24); border-bottom: 1px solid var(--border-subtle); }
+      .ds-tabs { display: flex; gap: var(--space-16); margin-bottom: var(--space-24); border-bottom: 1px solid rgba(0,0,0,0.08); }
       .ds-tab { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); background: none; border: none; padding: 12px 4px; margin-bottom: -1px; border-bottom: 2px solid transparent; cursor: pointer; font-family: inherit; }
       .ds-tab:hover { color: var(--text-main); }
       .ds-tab.is-active { color: var(--accent-indigo); border-bottom-color: var(--accent-indigo); }
@@ -102,7 +102,7 @@
       <div class="site-header__inner">
         <a href="index.html" class="logo">
           <span class="logo__name">Caroline Win</span>
-          <span class="logo__role">Product Design Strategist</span>
+          <span class="logo__role">Product Designer, Researcher, & Builder</span>
         </a>
         <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
           <span class="nav-toggle__bar"></span>
@@ -128,7 +128,6 @@
       <section id="panel-style-guide" class="ds-panel is-active" role="tabpanel" aria-labelledby="tab-style-guide">
         <div class="sg-wrap">
           <p class="sg-page-desc">Hover over any sample to see its CSS.</p>
-          <p class="sg-section" style="margin-bottom: 24px; padding: 16px 20px; background: #fff; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); font-size: 0.9rem; color: var(--text-main); line-height: 1.5;"><strong>When to use:</strong> Use tokens from this guide for all new UI. Keep type hierarchy consistent across pages (see Type scale and Typography). Use the same shadows, radii, and spacing variables so the site feels cohesive.</p>
 
           <!-- Colors -->
           <section class="sg-section" aria-labelledby="colors-heading">
@@ -292,6 +291,10 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
                   <p class="sg-purpose"><code>.section</code>, <code>.section__header</code>, <code>.section--work</code>, <code>.section--recommendations</code>, <code>.section--anchor</code></p>
                 </div>
                 <div class="sg-stack-item">
+                  <p class="sg-name">Recommendations section content</p>
+                  <p class="sg-purpose">Content fills 100% viewport width minus 72px left and right margins (36px each side). Use <code>.recommendations__inner</code> with <code>max-width: 1280px</code>; section keeps full-width background.</p>
+                </div>
+                <div class="sg-stack-item">
                   <p class="sg-name">Marquee</p>
                   <p class="sg-purpose">Infinite left-sliding text. Use <code>.marquee</code>, <code>.marquee__track</code>, <code>.marquee__text</code>. Respects <code>prefers-reduced-motion</code>.</p>
                 </div>
@@ -408,14 +411,14 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
                     <div class="site-footer__copy">
                       <h4 class="site-footer__heading">Say hello!</h4>
                       <p class="site-footer__text">
-                        Send me a message on <a href="https://www.linkedin.com/in/carolinemwin" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
+                        Send me a message on <a href="https://www.linkedin.com/in/caroline-win/" target="_blank" rel="noopener noreferrer">LinkedIn</a> or at <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a>.
                       </p>
                     </div>
                     <nav class="site-footer__social" aria-label="Social links">
-                      <a href="#" class="site-footer__icon" aria-label="Instagram">
+                      <a href="https://www.instagram.com/carothejelly" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <img src="./assets/icon_instagram.svg" alt="" width="24" height="24" />
                       </a>
-                      <a href="#" class="site-footer__icon" aria-label="LinkedIn">
+                      <a href="https://www.linkedin.com/in/caroline-win/" class="site-footer__icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <img src="./assets/icon_linkedin.svg" alt="" width="24" height="24" />
                       </a>
                     </nav>
@@ -662,11 +665,6 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
               </div>
             </div>
           </section>
-
-          <p style="margin-top: 48px; font-size: 0.9rem; color: var(--text-muted);">
-            <a href="#style-guide" data-tab-switch style="color: var(--accent-indigo);">← Style Guide</a> ·
-            <a href="index.html" style="color: var(--accent-indigo);">Portfolio</a>
-          </p>
         </div>
       </section>
     </div>

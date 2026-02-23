@@ -200,7 +200,7 @@ a:focus-visible {
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.5;
-  padding: 0.05em 0 0.3em 0;
+  padding: 0.05em 0.12em 0.3em 0;
   display: inline-block;
   background: var(--gradient-primary);
   background-size: 100% 100%;
@@ -539,7 +539,7 @@ a.btn--text:hover {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
-  gap: 48px;
+  gap: 60px;
   align-items: start;
   margin-top: 48px;
   width: 100%;
@@ -564,7 +564,6 @@ a.btn--text:hover {
   background: var(--gradient-primary);
   box-shadow:
     0 0 0 4px rgba(255, 255, 255, 0.95),
-    0 0 0 7px rgba(99, 143, 255, 0.25),
     var(--shadow-soft);
 }
 
@@ -590,6 +589,7 @@ a.btn--text:hover {
 
 .marquee__text {
   flex-shrink: 0;
+  color: var(--text-muted);
 }
 
 @keyframes marquee {
@@ -607,6 +607,11 @@ a.btn--text:hover {
   }
 }
 
+.org-logo {
+  width: 80px;
+  margin-bottom: 16px;
+}
+
 /* Section wrappers: .section = base top margin; --work and --recommendations = extra spacing */
 .section {
   margin-top: 64px;
@@ -618,12 +623,20 @@ a.btn--text:hover {
 
 .section--recommendations {
   margin-top: 72px;
-  padding: 64px var(--container-margin) 80px;
+  padding: 64px 36px 80px;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   box-sizing: border-box;
   background: linear-gradient(180deg, rgba(236, 240, 252, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Recommendations content: 100% viewport minus 72px horizontal margin, max-width 1280px */
+.recommendations__inner {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Invisible 1px block for scroll-to anchor targets */
@@ -802,7 +815,7 @@ a.btn--text:hover {
 .grid-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-24) var(--space-48);
+  gap: 60px;
   align-items: start;
 }
 
@@ -810,16 +823,46 @@ a.btn--text:hover {
   min-width: 0;
 }
 
+/* Case study nav: Previous/Next cards side by side */
+.case-study-nav__card {
+  display: block;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-rec);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.case-study-nav__card:hover {
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study-nav__card:hover {
+    transform: none;
+  }
+}
+
 /* Case study long-form section: no card style, just heading + paragraphs + optional figure */
 .case-block {
-  margin-top: var(--space-120);
-  margin-bottom: var(--space-40);
+  margin-top: var(--space-80);
+  margin-bottom: var(--space-80);
   padding: 0;
   background: none;
   border: none;
   border-radius: 0;
   box-shadow: none;
   max-width: var(--container-max);
+}
+
+/* Index work grid: center-align text and image columns (index page only) */
+.case-block--work {
+  align-items: center;
 }
 
 /* Org row: company name + optional current-role badge */
@@ -1026,8 +1069,7 @@ a.btn--text:hover {
 
 /* Blockquote for testimonials or pull quotes in case studies */
 .case-quote {
-  margin-top: var(--space-24);
-  margin-bottom: var(--space-24);
+  margin: 24px 0;
   padding: var(--space-24) var(--space-24);
   border-left: 4px solid var(--accent-indigo);
   background: rgba(76, 121, 235, 0.04);
@@ -1101,6 +1143,10 @@ a.btn--text:hover {
   .grid-2col > figure,
   .grid-2col > .static_media {
     order: 1;
+  }
+
+  .case-block--work {
+    align-items: start;
   }
 
   .hero__visual {
