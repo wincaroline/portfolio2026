@@ -66,6 +66,9 @@
       .sg-table .sg-name { font-size: 0.95rem; color: var(--text-main); }
       .sg-table .sg-purpose { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
       .sg-table .sg-sample { padding-left: 20px; }
+      .sg-table-wrap { overflow-x: auto; }
+      .sg-table-wrap .sg-table { min-width: 560px; }
+      .sg-table-wrap .sg-table--typography { min-width: 720px; }
       .sg-table--typography th:first-child, .sg-table--typography td:first-child { width: 180px; }
       .sg-table--typography th:nth-child(2), .sg-table--typography td:nth-child(2) { font-family: "Figtree", sans-serif; font-size: 0.8rem; color: var(--text-muted); }
       .sg-table--typography th:nth-child(3), .sg-table--typography td:nth-child(3) { width: 72px; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--text-muted); }
@@ -159,6 +162,7 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
             <div class="sg-block">
               <p class="sg-label">Type scale</p>
               <p class="sg-purpose" style="margin: 0 0 12px; font-size: 0.85rem; color: var(--text-muted);">Font sizes and one example use each. Use these sizes consistently for hierarchy.</p>
+              <div class="sg-table-wrap">
               <table class="sg-table">
                 <thead><tr><th>Size</th><th>Example use</th></tr></thead>
                 <tbody>
@@ -175,9 +179,11 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
                   <tr><td class="sg-name" style="font-family: ui-monospace, monospace;">3.5rem</td><td class="sg-purpose">.hero h1 (homepage)</td></tr>
                 </tbody>
               </table>
+              </div>
             </div>
             <div class="sg-block">
               <p class="sg-label">Typography (by hierarchy — largest to smallest)</p>
+              <div class="sg-table-wrap">
               <table class="sg-table sg-table--typography">
                 <thead><tr><th>Role / Style</th><th>Purpose</th><th>HTML</th><th>Classes / IDs</th><th>Example</th></tr></thead>
                 <tbody>
@@ -237,6 +243,7 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
 }</div></div></td></tr>
                 </tbody>
               </table>
+              </div>
             </div>
           </section>
 
@@ -244,6 +251,7 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
           <section class="sg-section" aria-labelledby="buttons-heading">
             <h2 id="buttons-heading">Buttons</h2>
             <div class="sg-block">
+              <div class="sg-table-wrap">
               <table class="sg-table">
                 <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
                 <tbody>
@@ -252,6 +260,7 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
                   <tr><td class="sg-name">Text link</td><td class="sg-purpose">Minimal link style for tertiary actions</td><td class="sg-sample"><div class="sg-hover"><button type="button" class="btn btn--text">Text link</button><div class="sg-tooltip" role="tooltip">.btn .btn--text</div></div></td></tr>
                 </tbody>
               </table>
+              </div>
             </div>
           </section>
 
@@ -259,6 +268,7 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
           <section class="sg-section" aria-labelledby="shape-heading">
             <h2 id="shape-heading">Corners and shadows</h2>
             <div class="sg-block">
+              <div class="sg-table-wrap">
               <table class="sg-table">
                 <thead><tr><th>Style</th><th>Purpose</th><th>Example</th></tr></thead>
                 <tbody>
@@ -270,6 +280,7 @@ Use for eyebrows, captions, metadata, and body-sized supporting copy (e.g. recom
                   <tr><td class="sg-name">Shadow primary</td><td class="sg-purpose">Primary button default shadow</td><td class="sg-sample"><div class="sg-hover"><div style="width: 80px; height: 36px; background: var(--gradient-primary); border-radius: 999px; box-shadow: 0 10px 28px rgba(89,95,255,0.25);"></div><div class="sg-tooltip" role="tooltip">--shadow-primary</div></div></td></tr>
                 </tbody>
               </table>
+              </div>
             </div>
           </section>
 
