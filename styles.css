@@ -298,8 +298,8 @@ a:focus-visible {
   padding: 10px 18px;
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.92rem;
+  font-weight: 600;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -430,6 +430,7 @@ a.btn--text:hover {
 
 .nav__link {
   font-size: 0.92rem;
+  font-weight: 500;
   color: var(--text-main);
   text-decoration: none;
   padding: 6px 10px;
@@ -644,7 +645,7 @@ a.btn--text:hover {
 }
 
 .section--work {
-  margin-top: 80px;
+  margin-top: 140px;
 }
 
 .section--recommendations {
