@@ -22,7 +22,7 @@ Use `components/case-hero.html` as reference. Edit the placeholder content:
 
 ## 4. Add sections
 
-Paste the **Jump To** nav and **case-block** sections. Use `disney-case-study.html` as reference: add `case-jump-nav`, then sections with `case-block`, `case-block__title`, `case-block__lead`, `case-block__content`, and optional `case-block__media` / `case-block__caption`. Documented in `design-system.html` under the Patterns tab, “Case study sections”.
+Paste the **Jump To** nav and **case-block** sections. Use `disney-case-study.html` as reference: add `case-jump-nav`, then sections with `case-block`, `case-block__title`, `case-block__lead`, `case-block__content`, and optional `case-block__media` / `case-block__caption`. Documented in `design-system.html` under the Patterns tab, "Case study sections".
 
 ## 5. Link from the index
 

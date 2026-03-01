@@ -562,6 +562,16 @@ a.btn--text:hover {
   margin: 0;
 }
 
+.grid-twothirds {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+  gap: 60px;
+  align-items: start;
+  margin-top: 48px;
+  width: 100%;
+  max-width: var(--container-max);
+}
+
 /* Comfortable reading width for hero intro (see design-system Layout) */
 .hero p {
   max-width: 42rem;
@@ -1146,6 +1156,7 @@ a.btn--text:hover {
 /* ==========================================================================
   Resume page — Tighter section spacing and resume-specific layout
    ========================================================================== */
+
 .resume-page .resume-content .case-block {
   margin-top: var(--space-40);
   margin-bottom: var(--space-40);
@@ -1184,6 +1195,10 @@ a.btn--text:hover {
 
 .resume-header__contact {
   margin: 0;
+}
+
+.resume-role {
+  margin-bottom: 32px;
 }
 
 .resume-role h3,
