@@ -725,6 +725,7 @@ a.btn--text:hover {
    ========================================================================== */
 /* Add these classes in HTML to set margin. Number = pixels: mb-12 = 12px bottom margin.
    Use for spacing between typography/blocks instead of adding margins in CSS. */
+.mb-0 { margin-bottom: 0; }
 .mb-2 { margin-bottom: var(--space-2); }
 .mb-4 { margin-bottom: var(--space-4); }
 .mb-6 { margin-bottom: var(--space-6); }
@@ -930,7 +931,7 @@ a.btn--text:hover {
 .static_media {
   display: flex;
   flex-direction: column-reverse;
-  margin: 32px 0px;
+  margin: 32px 0;
   cursor: default;
 }
 
@@ -949,10 +950,6 @@ a.btn--text:hover {
 .static_media--work-thumb:hover img {
   transform: translateY(-1px);
   box-shadow: var(--shadow-primary-hover);
-}
-
-.case-block__media:has(img.static_media) {
-  cursor: default;
 }
 
 .case-block__media:hover img {
