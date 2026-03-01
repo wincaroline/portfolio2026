@@ -733,6 +733,25 @@ a.btn--text:hover {
   height: 24px;
 }
 
+.site-footer__meta {
+  flex-basis: 100%;
+  width: 100%;
+  margin: var(--space-24) 0 0;
+  padding-top: var(--space-16);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer__meta-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.site-footer__meta-link:hover {
+  text-decoration: underline;
+}
+
 
 /* ==========================================================================
   10. Utilities — Margin helpers and accessibility
