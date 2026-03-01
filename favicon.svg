@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Main background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7378FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#55A4FF;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Subtle inner glow on the background -->
+    <radialGradient id="innerGlow" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Geometric shadow filter for the C -->
+    <filter id="shadowFilter" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="6" dy="8" stdDeviation="0" flood-color="#3A3FCC" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- Clip path for rounded square -->
+    <clipPath id="roundedSquare">
+      <rect width="400" height="400" rx="80" ry="80"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="80" ry="80" fill="url(#bgGradient)"/>
+  <!-- Inner glow overlay -->
+  <rect width="400" height="400" rx="80" ry="80" fill="url(#innerGlow)"/>
+
+  <!-- Subtle geometric accent: top-right corner facet -->
+  <polygon points="260,20 380,20 380,140" fill="#ffffff" fill-opacity="0.06" clip-path="url(#roundedSquare)"/>
+  <!-- Bottom-left accent -->
+  <polygon points="20,260 20,380 140,380" fill="#ffffff" fill-opacity="0.06" clip-path="url(#roundedSquare)"/>
+
+  <!-- 
+    Letter C — drawn as a thick arc path with geometric flat ends (not rounded caps)
+    Center: 200,200  Outer radius: 120  Inner radius: 76
+    Opening gap on the right side: ±52deg from horizontal
+  -->
+
+  <!-- 
+    Centering math:
+    C bounding box x: from 80 (leftmost of outer arc) to 295.6 (gap opening)
+    Visual center x = (80 + 295.6) / 2 = 187.8
+    Offset needed = 200 - 187.8 = +12.2
+    Vertical is symmetric so no y offset needed.
+  -->
+
+  <!-- Geometric shadow layer of C (offset) -->
+  <path
+    d="
+      M 295.6,148.2
+      A 120,120 0 1,0 295.6,251.8
+      L 257.8,232.4
+      A 76,76 0 1,1 257.8,167.6
+      Z
+    "
+    fill="#3A3FCC"
+    opacity="0.50"
+    transform="translate(18.2,8)"
+  />
+
+  <!-- Main white C -->
+  <path
+    d="
+      M 295.6,148.2
+      A 120,120 0 1,0 295.6,251.8
+      L 257.8,232.4
+      A 76,76 0 1,1 257.8,167.6
+      Z
+    "
+    fill="#FFFFFF"
+    transform="translate(12.2,0)"
+  />
+</svg>

@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume | Caroline Win</title>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,14 +38,182 @@
       </div>
     </header>
 
-    <main>
-      <section class="case-block">
-        <p class="mb-40"><a href="index.html">← Home</a></p>
-        <h2>Resume</h2>
-        <object class="mt-32" data="assets/carolinewin_resume.pdf" type="application/pdf" width="100%" height="900" title="Caroline Win's Resume">
-          <p>Your browser does not support viewing PDFs. <a href="assets/carolinewin_resume.pdf">Download the resume (PDF)</a>.</p>
-        </object>
-      </section>
+    <main class="resume-page">
+      <div class="resume-content">
+        <div class="resume-content__top mb-40">
+          <p class="mb-0"><a href="index.html">← Home</a></p>
+          <a href="assets/carolinewin_resume.pdf" class="btn btn--primary" download>Download resume (PDF)</a>
+        </div>
+
+        <header class="resume-header case-block">
+          <h1 class="resume-header__name">Caroline Win</h1>
+          <p class="resume-header__title">Product Design Strategist</p>
+          <p class="resume-header__contact text-small">
+            <a href="mailto:carolinemwin@gmail.com">carolinemwin@gmail.com</a><br>
+            <a href="https://carolinewin.com">carolinewin.com</a>
+          </p>
+        </header>
+
+        <section class="case-block" aria-labelledby="summary-heading">
+          <p id="summary-heading" class="eyebrow mb-12">Professional Summary</p>
+          <p>
+            Product designer with 11 years of experience crafting enterprise applications,
+            smart device interactions, and mobile applications. Specializes in designing for
+            complex domains and transforming complexity into elegant human-centered
+            and impact-driven solutions.
+          </p>
+        </section>
+
+        <section class="case-block" aria-labelledby="work-heading">
+          <p id="work-heading" class="eyebrow mb-12">Work Experience</p>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">Senior Product Designer, The Walt Disney Company</h3>
+            <p class="text-small mb-16">4 yrs • Oct 2021 - Present (Sept 2025) • enterprise web</p>
+            <ul>
+              <li>Leads design for Disney's global commerce management platform used by Business Operators to configure and manage 4,000+ Disney+, Hulu, and ESPN streaming subscription plan and pricing options</li>
+              <li>Drove zero-to-one effort to define the design vision for the highly technical platform, developing the design strategy, visual language, design system, and information architecture</li>
+              <li>Reduced time spent on manual price change configurations by 66% by simplifying complex workflows into a guided step-by-step experience</li>
+              <li>Improved overall usability survey scores (ESUS) by 5% over 11 months, through ongoing UX improvements that enhance clarity and efficiency</li>
+              <li>Designed an AI assistant that guides users to configure eligibility criteria</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">Interim UX Manager, Belkin International</h3>
+            <p class="text-small mb-16">6 mo • Feb 2021 - Aug 2021 • hardware interaction, mobile app design</p>
+            <ul>
+              <li>Drove design operations, hiring, and roadmap planning during org transition</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">UX Designer, Belkin International</h3>
+            <p class="text-small mb-16">1.5 yrs • Sep 2019 - Jan 2021 • hardware interaction, mobile app design</p>
+            <ul>
+              <li>Designed cross-platform mobile app interactions, hardware interactions, and print materials for smart home & audio products</li>
+              <li>Optimized intuitiveness of setup, control, and personalization flows</li>
+              <li>Achieved 89% positive usability ratings during smart dimmer beta testing</li>
+              <li>Closely collaborated with Product (PM), Program Management, Visual Design, Content Design, UX Research, Industrial Design, Compliance, and Engineering to launch Wemo Smart Plug and Dimmer products</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">UX Designer, Loyola Marymount University</h3>
+            <p class="text-small mb-16">6 mo • Mar 2019 - Aug 2019 • enterprise web</p>
+            <ul>
+              <li>Conducted generative research and proposed usability improvements for LMU's internal portal used by students, faculty, and staff</li>
+              <li>Facilitated alignment with the IT team on priority of work, starting with improving ease of navigation for top use cases through restructuring of the information architecture</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">UX Designer, Nationwide Insurance</h3>
+            <p class="text-small mb-16">1.5 yrs • Sep 2017 - Feb 2019 • enterprise web</p>
+            <ul>
+              <li>Designed workflows for RPLink, Nationwide's retirement plan management system used by administrators, internal associates, and plan sponsors to store and manage participant data</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">Design Consultant, Eaton Corporation</h3>
+            <p class="text-small mb-16">6 mo • Jan 2017 - Aug 2017 • enterprise web</p>
+            <ul>
+              <li>Prototyped an augmented reality support tool to enhance safety and efficiency of work for electricians and electrical engineers in the field</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">UI/UX Designer, Argus International</h3>
+            <p class="text-small mb-16">1 yr • Nov 2015 - Nov 2016 • enterprise mobile</p>
+            <ul>
+              <li>Redesigned responsive mobile workflows for an aviation management platform used by flight crew, ops managers, and maintenance teams</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">Research Assistant, The OSU College of Medicine</h3>
+            <p class="text-small mb-16">1.5 yrs • May 2014 - Sep 2015 • conversational UI, virtual agents</p>
+            <ul>
+              <li>Designed and developed virtual chat-based agents for medical student training and virtual health coaching</li>
+            </ul>
+          </div>
+
+          <div class="resume-role mb-32">
+            <h3 class="mb-4">Research Assistant, University of Southern California</h3>
+            <p class="text-small mb-16">8 mo • Jan 2013 - Aug 2013 • enterprise web</p>
+            <ul>
+              <li>Created artwork and game concepts for educational and health-focused games</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="case-block" aria-labelledby="volunteering-heading">
+          <p id="volunteering-heading" class="eyebrow mb-12">Volunteering & Leadership</p>
+          <div class="resume-volunteer-grid">
+            <div class="resume-volunteer-item">
+              <h5 class="blue mb-4">Speaker at Internal Conference</h5>
+              <p class="text-small mb-2">Disney Design Summit '25</p>
+              <p class="text-small">August 22, 2025</p>
+            </div>
+            <div class="resume-volunteer-item">
+              <h5 class="blue mb-4">Guest Lecturer on Prototyping</h5>
+              <p class="text-small mb-2">Interaction Design course for the CMU MHCI class of '25</p>
+              <p class="text-small">June 24, 2025</p>
+            </div>
+            <div class="resume-volunteer-item">
+              <h5 class="blue mb-4">Co-Founder & Leader</h5>
+              <p class="text-small mb-2">CMU HCI SoCal Alumni Group</p>
+              <p class="text-small">2023 - Present</p>
+            </div>
+            <div class="resume-volunteer-item">
+              <h5 class="blue mb-4">Onsite Workshop Organizer</h5>
+              <p class="text-small mb-2">Genie+ Product Team</p>
+              <p class="text-small">2022 - Present</p>
+            </div>
+            <div class="resume-volunteer-item">
+              <h5 class="blue mb-4">Alumni Mentor</h5>
+              <p class="text-small mb-2">CMU MHCI Alumni Mentorship</p>
+              <p class="text-small">2021 - Present</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-block" aria-labelledby="education-heading">
+          <p id="education-heading" class="eyebrow mb-12">Education</p>
+          <div class="resume-role mb-24">
+            <h4 class="blue mb-4">Master of Human-Computer Interaction (MHCI)</h4>
+            <p class="text-small mb-2">Aug 2017</p>
+            <p>Carnegie Mellon University</p>
+          </div>
+          <div class="resume-role">
+            <h4 class="blue mb-4">BS in Biomedical Engineering with 3D Animation Minor</h4>
+            <p>University of Southern California</p>
+          </div>
+        </section>
+
+        <section class="case-block" aria-labelledby="skills-heading">
+          <p id="skills-heading" class="eyebrow mb-12">Skills</p>
+          <div class="resume-skills">
+            <div class="resume-skills__group">
+              <h5 class="blue mb-8">Design Strategy</h5>
+              <p class="text-small">Design Thinking, OKR Definition, Product Roadmapping, Cross-Functional Alignment, Design Systems, Complex Systems Thinking, Workshop Facilitation</p>
+            </div>
+            <div class="resume-skills__group">
+              <h5 class="blue mb-8">Product & UX Design</h5>
+              <p class="text-small">Ideation, Information Architecture, Wireframing, Iteration, Prototyping, Figma • FigJam • Figma Slides, Interaction Design, Accessibility, Visual & UI Design, AI Design</p>
+            </div>
+            <div class="resume-skills__group">
+              <h5 class="blue mb-8">Research & Testing</h5>
+              <p class="text-small">Competitive Analysis, Contextual Inquiry, Directed Interviews, Card Sorting, Survey Design, Usability Testing, Generative Research</p>
+            </div>
+            <div class="resume-skills__group">
+              <h5 class="blue mb-8">Additional</h5>
+              <p class="text-small">Confluence • Jira, HTML • CSS, Unreal Engine</p>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">

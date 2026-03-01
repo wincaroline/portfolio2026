@@ -1,0 +1,11 @@
+{
+  "name": "portfolio2026",
+  "private": true,
+  "scripts": {
+    "generate-favicons": "node scripts/generate-favicons.js"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "png-to-ico": "^2.1.2"
+  }
+}

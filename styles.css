@@ -162,6 +162,17 @@ ul, ol {
   padding-left: 1em;
 }
 
+/* List styling for case studies (replaces invalid h5/strong wrappers). */
+.list-principles li {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.list-design-implications li {
+  font-weight: 700;
+}
+
 /* Links: accent color, underline on hover. */
 a {
   color: var(--accent-indigo);
@@ -280,8 +291,9 @@ a:focus-visible {
   gap: var(--space-8);
   padding: 10px 18px;
   border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -1134,6 +1146,89 @@ a.btn--text:hover {
   margin-right: auto;
 }
 
+/* ==========================================================================
+  Resume page — Tighter section spacing and resume-specific layout
+   ========================================================================== */
+.resume-page .resume-content .case-block {
+  margin-top: var(--space-40);
+  margin-bottom: var(--space-40);
+}
+
+.resume-page .resume-content .case-block:first-of-type {
+  margin-top: 0;
+}
+
+.resume-content__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.resume-content__top p {
+  margin: 0;
+}
+
+.resume-header__name {
+  font-family: "Pacifico", cursive;
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--accent-indigo);
+  margin: 0 0 0.25em;
+}
+
+.resume-header__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5em;
+}
+
+.resume-header__contact {
+  margin: 0;
+}
+
+.resume-role h3,
+.resume-role h4 {
+  margin: 0 0 0.25em;
+}
+
+.resume-volunteer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-24) var(--space-48);
+}
+
+.resume-volunteer-item h5 {
+  margin: 0 0 0.25em;
+}
+
+.resume-volunteer-item .text-small {
+  margin: 0;
+}
+
+.resume-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-24) var(--space-48);
+}
+
+.resume-skills__group h5 {
+  margin: 0 0 0.25em;
+}
+
+.resume-skills__group .text-small {
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .resume-volunteer-grid,
+  .resume-skills {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 
 /* ==========================================================================
   12. Media queries — Responsive layout (tablet and mobile)
