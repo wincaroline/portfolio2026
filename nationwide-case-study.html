@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nationwide – Annual Census Review for Retirement Plans</title>
-    <meta name="description" content="Case study: Annual census review redesign for Nationwide retirement plans. Enterprise web, multi-role workflows. Caroline Win.">
+    <title>Nationwide | Annual Census Review for Retirement Plans</title>
+    <meta name="description" content="Case study: Annual census review redesign for Nationwide retirement plans. Enterprise product design, multi-role workflows. Caroline Win.">
     <link rel="canonical" href="https://carolinewin.com/nationwide-case-study.html" />
     <meta property="og:title" content="Nationwide – Annual Census Review for Retirement Plans" />
     <meta property="og:description" content="Case study: Annual census review redesign for Nationwide retirement plans. Enterprise web, multi-role workflows. Caroline Win." />
@@ -43,6 +43,7 @@
     </script>
   </head>
   <body class="case-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="site-header">
       <div class="site-header__inner">
         <a href="index.html" class="logo">
@@ -62,12 +63,13 @@
       </div>
     </header>
 
-    <main class="case-main">
+    <main id="main-content" class="case-main">
       <!-- Case hero -->
       <section class="fade-in-on-load">
         <div>
           <p class="mb-24"><a href="index.html">← Home</a></p>
           <div class="mb-24">
+            <img src="./assets/logo_nationwide.png" class="org-logo" alt="Nationwide Insurance logo">
             <p class="org mb-6">Nationwide Insurance</p>
             <h1>Annual Census Review for Retirement Plans</h1>
             <p class="subtitle">Redesigning the annual census review to accommodate more data, improve usability, and update styling.</p>
@@ -128,13 +130,13 @@
       <section id="census-review" class="case-block" aria-labelledby="census-review-title">
         <div class="case-block--work grid-2col">
           <div>
-            <p class="eyebrow">What is the Census Review?</p>
+            <p id="census-review-title" class="eyebrow">What is the Census Review?</p>
             <h2>The Census Review is an annual audit of retirement plan participant data</h2>
             <p>At the end of the year, employers (plan sponsors) and Nationwide administrators review the participant data, fix issues, and send the data for required compliance and non-discrimination testing.</p>
             <p>Mistakes in this data could result in penalties or a plan becoming disqualified, which would be unfortunate for the employee! This review process prevents financial and legal repercussions from inaccurate census and payroll information.</p>  
           </div>
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_journey.svg" alt="journey" style="padding: 24px;">
+            <img src="./assets/nationwide-case-study/img_journey.svg" alt="Diagram of the annual census review journey for retirement plan administrators." style="padding: 24px;">
           </figure>
         </div>
       </section>
@@ -142,7 +144,7 @@
       <!-- Objective -->
       <section id="objective" class="gray-block__centered" aria-labelledby="objective-title">
         <div class="objective">
-          <p class="eyebrow">My Goal</p>
+          <p id="objective-title" class="eyebrow">My Goal</p>
           <h4>Redesign the annual review to accommodate more data, improve usability, and update styling.</h4>
         </div>
       </section>
@@ -152,7 +154,7 @@
       <!-- Users -->
       <section id="users" class="case-block grid-2col" aria-labelledby="users-title">
         <div class="grid-2col__col">
-          <p class="eyebrow">Users</p>
+          <p id="users-title" class="eyebrow">Users</p>
           <h2>Multiple administrative roles complete different parts of this review</h2>
           <ol>
             <li><strong>Employers</strong> of companies that sponsor retirement plans for their employees.</li>
@@ -162,7 +164,7 @@
         </div>
         <div class="grid-2col__col">
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_persona.png" alt="persona">
+            <img src="./assets/nationwide-case-study/img_persona.png" alt="User persona for retirement plan administrators.">
           </figure>
         </div>
        </section>
@@ -170,7 +172,7 @@
        <section id="users-research" class="case-block grid-2col" aria-labelledby="users-title">
         <div class="grid-2col__col">
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_users.svg" alt="users" style="padding: 24px;">
+            <img src="./assets/nationwide-case-study/img_users.svg" alt="Diagram of user roles in the census review process." style="padding: 24px;">
           </figure>
         </div>
         <div class="grid-2col__col">
@@ -185,13 +187,13 @@
       <!-- What Data? -->
       <section id="what-data" class="case-block grid-2col" aria-labelledby="what-data-title">
         <div class="grid-2col__col">
-          <p class="eyebrow">What Data is Included?</p>
+          <p id="what-data-title" class="eyebrow">What Data is Included?</p>
           <h2>Census and employment info, hours, and compensation</h2>
           <p>This data is used to identify plan participants and determine enrollment statuses, vested balances for participant accounts, and more.</p>
         </div>
         <div class="grid-2col__col">
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_sampledata.svg" alt="sample data" style="padding: 40px;">
+            <img src="./assets/nationwide-case-study/img_sampledata.svg" alt="Sample census and participant data fields." style="padding: 40px;">
           </figure>
         </div>
         
@@ -199,18 +201,18 @@
 
       <!-- Current State -->
       <section id="current-state" class="case-block" aria-labelledby="current-state-title">
-        <p class="eyebrow">Current State</p>
+        <p id="current-state-title" class="eyebrow">Current State</p>
         <h2>The current workflow is confusing and cumbersome</h2>
         <p>Issues include lack of clear guidance, options, and visibility of errors. Our team aimed to completely revamp the existing experience, improve areas of confusion, add more useful information, and update styling.</p>
         <figure class="static_media">
-          <img src="./assets/nationwide-case-study/img_workflow.png" alt="current process">
+          <img src="./assets/nationwide-case-study/img_workflow.png" alt="Current census review process workflow.">
         </figure>
       </section>
 
       <!-- New Requirements -->
       <section id="new-requirements" class="case-block grid-2col" aria-labelledby="new-requirements-title">
         <div class="grid-2col__col">
-          <p class="eyebrow">New Requirements</p>
+          <p id="new-requirements-title" class="eyebrow">New Requirements</p>
           <h2>Adding pay date-level data increased flexibility, but also complexity</h2>
           <p>In order to reduce errors in the long term and allow for greater flexibility in how employers choose to review and submit their data, the business decided to add pay date level data to this process.</p>
           <p>With up to 52 pay dates in a year (e.g. weekly pay), the amount of data we needed to incorporate in the design was <strong>multiplied by up to 52 times</strong>.</p>
@@ -218,18 +220,18 @@
         </div>
         <div class="grid-2col__col">
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_employeedata.png" alt="employee data" style="padding: 24px;">
+            <img src="./assets/nationwide-case-study/img_employeedata.png" alt="Change in employee data requirements." style="padding: 24px;">
           </figure>
         </div>
       </section>
 
       <!-- Design -->
       <section id="design" class="case-block" aria-labelledby="design-title">
-        <p class="eyebrow">Design</p>
+        <p id="design-title" class="eyebrow">Design</p>
         <h2>Accommodating multiple settings, options, and rules</h2>
         <p>To make sense of all this complexity, I created a diagram of all the different paths and scenarios. This was very helpful in getting everyone on the same page and allowing them to see where all the pieces of the puzzle fell. Feature numbers and related requirements such as notifications and reports allowed stakeholders to easily reference their requirements documents.</p>
         <figure class="static_media mt-40">
-          <img src="./assets/nationwide-case-study/img_complexflow.png" alt="complex flow">
+          <img src="./assets/nationwide-case-study/img_complexflow.png" alt="Diagram of scenarios and pathways for census review.">
           <figcaption class="case-block__title eyebrow">Diagram of scenarios and pathways</figcaption>
         </figure>
       </section>
@@ -238,13 +240,13 @@
         <h3>Iteration 1</h3>
         <p>I then started the tedious process of mapping out the actual interaction flow. Challenging nuances arose such as determining what to do in the middle of the process, when the user needs to wait overnight for the report to generate before proceeding to the next step.</p>
         <figure class="static_media mt-40">
-          <img src="./assets/nationwide-case-study/img_iteration1.png" alt="iteration 1">
+          <img src="./assets/nationwide-case-study/img_iteration1.png" alt="Design iteration 1 of census review flow.">
         </figure>
       </section>
 
       <!-- User Testing & Iteration -->
       <section id="user-testing" class="case-block" aria-labelledby="user-testing-title">
-        <p class="eyebrow">User Testing & Iteration</p>
+        <p id="user-testing-title" class="eyebrow">User Testing & Iteration</p>
         <h2>Usability issues and balancing conflicting views and needs</h2>
         <p>I conducted user tests with 6 users in various roles to determine what worked or didn't work with the initial design. Through these tests and subsequent team discussions, various usability issues and conflicts were revealed.</p>
         <div class="grid-2col mt-32">
@@ -263,7 +265,7 @@
         <h3>Iteration 2</h3>
         <p>We updated the flow with more explanations for warnings and error messages and less alarming red. We also reduced unnecessary buttons and took the user back to the landing while the report was generating during the overnight flow.</p>
         <figure class="static_media mt-40">
-          <img src="./assets/nationwide-case-study/img_iteration2.png" alt="iteration 2">
+          <img src="./assets/nationwide-case-study/img_iteration2.png" alt="Design iteration 2 of census review flow.">
         </figure>
       </section>
 
@@ -271,7 +273,7 @@
         <h3>Iteration 3</h3>
         <p>While the report for a department is generating during the overnight flow, we also removed the ability for a user to enter the process for that department. This simplified the interaction and reduced the need to create additional messages and errors.</p>
         <figure class="static_media mt-40">
-          <img src="./assets/nationwide-case-study/img_iteration3.png" alt="iteration 3">
+          <img src="./assets/nationwide-case-study/img_iteration3.png" alt="Design iteration 3 of census review flow.">
         </figure>
       </section>
 
@@ -279,7 +281,7 @@
         <h3>Ideal interaction without the overnight flow</h3>
         <p>Though ultimately dependent on technical capabilities, we proposed that ideally the reports are generated on the fly (not in an overnight flow), so that the user would not have to start the process, stop and wait overnight, and then return to complete it.</p>
         <figure class="static_media mt-40">
-          <img src="./assets/nationwide-case-study/img_iteration4.png" alt="iteration 4">
+          <img src="./assets/nationwide-case-study/img_iteration4.png" alt="Design iteration 4 of census review flow.">
         </figure>
       </section>
 
@@ -288,11 +290,11 @@
         <p>We created updated designs according to the current site standards for the plan sponsor (employer) website.</p>
         <div class="grid-2col">
           <figure class="static_media mt-40 mb-24">
-            <img src="./assets/nationwide-case-study/img_midfi_simple.png" alt="mid fi simple case">
+            <img src="./assets/nationwide-case-study/img_midfi_simple.png" alt="Census review flow for a simple case">
             <figcaption class="case-block__title eyebrow">Simplified census review flow</figcaption>
           </figure>
           <figure class="static_media mt-40 mb-24">
-            <img src="./assets/nationwide-case-study/img_midfi_complex.png" alt="mid fi complex case">
+            <img src="./assets/nationwide-case-study/img_midfi_complex.png" alt="Census review flow for a more complex case">
             <figcaption class="case-block__title eyebrow">Census review flow showing alternate scenarios</figcaption>
           </figure>
         </div>
@@ -303,29 +305,29 @@
         <p>The same process also needed to be available for internal Nationwide associates and administrators to provide support, so we created high-fidelity designs according to the administration site's standards as well.</p>
         <div class="grid-3col mt-32" style="align-items: start;">
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_landingpage.png" alt="landing page">
+            <img src="./assets/nationwide-case-study/img_landingpage.png" alt="Census review landing page.">
             <figcaption class="case-block__title eyebrow">Landing page</figcaption>
           </figure>
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_finalsalary.png" alt="final salary confirmation">
+            <img src="./assets/nationwide-case-study/img_finalsalary.png" alt="Final salary confirmation screen.">
             <figcaption class="case-block__title eyebrow">Final salary confirmation</figcaption>
           </figure>
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_reviewedits.png" alt="review and edit data">
+            <img src="./assets/nationwide-case-study/img_reviewedits.png" alt="Review and edit census data screen.">
             <figcaption class="case-block__title eyebrow">Review and edit census data</figcaption>
           </figure>
         </div>
         <div class="grid-3col mb-32" style="align-items: start;">
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_editonscreen.png" alt="edit on screen">
+            <img src="./assets/nationwide-case-study/img_editonscreen.png" alt="Edit census data on-screen.">
             <figcaption class="case-block__title eyebrow">Edit census data on-screen</figcaption>
           </figure>
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_editemployee.png" alt="edit employee">
+            <img src="./assets/nationwide-case-study/img_editemployee.png" alt="Edit employee record screen.">
             <figcaption class="case-block__title eyebrow">Edit employee</figcaption>
           </figure>
           <figure class="static_media">
-            <img src="./assets/nationwide-case-study/img_editinexcell.png" alt="edit in excel">
+            <img src="./assets/nationwide-case-study/img_editinexcell.png" alt="Edit census data in Excel.">
             <figcaption class="case-block__title eyebrow">Edit census data in Excel</figcaption>
           </figure>
         </div>
@@ -333,7 +335,7 @@
 
       <!-- Ongoing Development -->
       <section id="ongoing" class="case-block" aria-labelledby="ongoing-title">
-        <p class="eyebrow">Ongoing Development</p>
+        <p id="ongoing-title" class="eyebrow">Ongoing Development</p>
         <h2>Additional nuances and scenarios continue to be found</h2>
         <p>Currently, this project is in development with many different developers working on it. I support them by providing explanations for the designs I have created and facilitating discussions on additional scenarios and nuances that are discovered along the way.</p>
       </section>
@@ -341,7 +343,7 @@
       <!-- Learnings -->
       <section id="learnings" class="gray-block" aria-labelledby="learnings-title">
         <div class="gray-block__content">
-          <p class="eyebrow">Learnings</p>
+          <p id="learnings-title" class="eyebrow">Learnings</p>
           <h2>Spend more time earlier getting feedback and understanding user needs</h2>
           <p>I think this design process could have been smoother if I spent more time planning and gaining a better understanding of nuances early on. For example, after creating the flow diagram, I could have spent more time reviewing it first with business as well as the design team to discover alternate cases and scenarios. This would have reduced time spent focusing in particular directions and backtracking.</p>
           <p>Ideally, we also would have had an opportunity to conduct more rigorous research to better understand user needs. This would be able to give more conclusive information to base design decisions in addition to the opinions of different stakeholders.</p>
@@ -350,7 +352,7 @@
 
       <!-- Reflection -->
       <section id="reflection" class="case-block" aria-labelledby="reflection-title">
-        <p class="eyebrow">Reflection</p>
+        <p id="reflection-title" class="eyebrow">Reflection</p>
         <h2>Balancing stakeholder needs and user experience</h2>
         <p>This project highlighted the importance of aligning multiple stakeholder perspectives—administrators focused on error visibility, support reps concerned about overwhelming employers—while designing for complex, multi-role workflows. Iterative user testing with 6 users across roles was critical to uncovering these tensions and iterating toward a solution that addressed both accuracy and usability.</p>
       </section>

@@ -102,6 +102,26 @@ document.addEventListener("DOMContentLoaded", () => {
       closeLightbox();
     }
 
+    // Focus trap: keep Tab/Shift+Tab inside the dialog (close button and download link)
+    const focusables = [closeBtn, downloadLink];
+    function onLightboxKeydown(e) {
+      if (!lightbox.classList.contains("is-open") || e.key !== "Tab") return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+    lightbox.addEventListener("keydown", onLightboxKeydown);
+
     backdrop.addEventListener("click", onBackdropClick);
     closeBtn.addEventListener("click", closeLightbox);
     document.addEventListener("keydown", onKeydown);

@@ -793,6 +793,41 @@ a.btn--text:hover {
   border: 0;
 }
 
+/* Skip link: visually hidden until focused so keyboard users can see focus */
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  z-index: 100;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed;
+  top: var(--space-12);
+  left: var(--space-12);
+  width: auto;
+  height: auto;
+  padding: var(--space-12) var(--space-16);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--color-white);
+  color: var(--text-main);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  outline: 2px solid var(--accent-indigo);
+  outline-offset: 2px;
+}
+
 /* Scroll reveal: elements slide up and fade in as they enter the viewport (index page) */
 .reveal-on-scroll {
   opacity: 0;
